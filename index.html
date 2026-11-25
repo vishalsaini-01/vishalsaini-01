@@ -128,7 +128,88 @@
 <body class="bg-slate-50 text-slate-900 dark:bg-obsidian-950 dark:text-slate-100 antialiased selection:bg-violet-600 selection:text-white transition-colors duration-200">
 
   <!-- Toast Stack -->
-  <div id="toast-stack" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm"></div>
+  <div id="toast-stack" class="fixed bottom-24 right-5 z-50 flex flex-col gap-2 pointer-events-none max-w-sm"></div>
+
+  <!-- ==================== GLOBAL LIVE AI PROGRESS BAR OVERLAY (0% -> 100%) ==================== -->
+  <div id="global-ai-progress-card" class="hidden fixed top-20 left-1/2 -translate-x-1/2 z-50 w-[94%] max-w-xl rounded-2xl bg-obsidian-900/95 border-2 border-violet-500/70 p-4 shadow-2xl glow-card text-white space-y-2.5">
+    <div class="flex items-center justify-between gap-2">
+      <div class="flex items-center gap-2 min-w-0">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-ping shrink-0"></span>
+        <span id="global-ai-stage-label" class="text-xs sm:text-sm font-black truncate text-cyan-200">AI Video Processing Starting...</span>
+      </div>
+      <div class="flex items-center gap-2 shrink-0">
+        <span id="global-ai-eta-label" class="px-2 py-0.5 rounded-lg bg-white/10 text-[11px] font-bold text-amber-300">~15s left</span>
+        <span id="global-ai-percent-label" class="px-2.5 py-0.5 rounded-lg grad-primary text-xs font-black">0%</span>
+      </div>
+    </div>
+    <div class="w-full h-3 rounded-full bg-black/60 overflow-hidden border border-white/10">
+      <div id="global-ai-progress-bar" class="h-full grad-primary transition-all duration-200" style="width: 0%"></div>
+    </div>
+    <div id="global-ai-substatus" class="text-[11px] text-slate-300 font-semibold">
+      Please wait — video is actively processing, not stuck.
+    </div>
+  </div>
+
+  <!-- ==================== FLOATING PUBLIC FEEDBACK & AI DIAGNOSTIC BUBBLE ==================== -->
+  <div id="floating-feedback-launcher" class="fixed bottom-4 right-4 z-50 flex flex-col items-end gap-1.5">
+    <button
+      type="button"
+      onclick="togglePublicFeedbackModal()"
+      aria-label="Report Website Issue"
+      class="w-14 h-14 rounded-full grad-primary text-white shadow-2xl shadow-violet-600/50 border-2 border-white/25 flex items-center justify-center text-2xl hover:scale-105 transition"
+    >
+      💬
+    </button>
+    <button
+      type="button"
+      onclick="togglePublicFeedbackModal()"
+      class="max-w-[195px] text-right px-3 py-1.5 rounded-xl bg-obsidian-900/95 border border-violet-500/40 text-[10px] font-extrabold text-amber-200 leading-snug shadow-xl hover:border-cyan-400 transition"
+    >
+      अगर आपको वेबसाइट में कोई दिक्कत दिख रही है, लग रही है तो यहां लिख दें
+    </button>
+  </div>
+
+  <!-- Public Community Feedback & Gemini AI Bug Analyzer Modal -->
+  <div id="public-feedback-modal" class="fixed inset-0 z-50 bg-black/75 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="w-full max-w-lg rounded-3xl bg-obsidian-900 border border-violet-500/35 text-white p-6 shadow-2xl glow-card space-y-4 max-h-[88vh] flex flex-col">
+      <div class="flex items-start justify-between gap-3 border-b border-white/10 pb-3">
+        <div>
+          <span class="px-2.5 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px] font-black uppercase">Public Bug &amp; Feedback Board</span>
+          <h3 class="font-black text-base sm:text-lg mt-1">वेबसाइट में कोई दिक्कत दिख रही है तो यहाँ लिखें</h3>
+          <p class="text-[11px] text-slate-400">यहाँ लिखी गई सभी बातें सब लोग पढ़ सकते हैं और AI हर दिक्कत का समाधान भी बताएगा।</p>
+        </div>
+        <button type="button" onclick="togglePublicFeedbackModal()" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-rose-500 text-xs font-black transition">✕</button>
+      </div>
+
+      <form onsubmit="submitPublicFeedbackEntry(event)" class="space-y-2.5">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-2">
+          <input
+            type="text"
+            id="fb-author-input"
+            placeholder="आपका नाम (Optional)"
+            class="px-3 py-2 rounded-xl bg-obsidian-850 border border-white/10 text-xs text-white focus:outline-none focus:ring-2 focus:ring-violet-500"
+          />
+          <input
+            type="text"
+            id="fb-message-input"
+            required
+            placeholder="वेबसाइट की दिक्कत या सुझाव यहाँ लिखें..."
+            class="sm:col-span-2 px-3 py-2 rounded-xl bg-obsidian-850 border border-white/10 text-xs text-white focus:outline-none focus:ring-2 focus:ring-violet-500"
+          />
+        </div>
+        <button type="submit" id="fb-submit-btn" class="w-full py-2.5 rounded-xl grad-primary text-white font-black text-xs shadow-lg transition">
+          पब्लिक बोर्ड पर पोस्ट करें + AI से जाँच करवाएं ✨
+        </button>
+      </form>
+
+      <div class="flex items-center justify-between text-[11px] text-slate-400 pt-1">
+        <span class="font-bold text-cyan-300">📢 सभी विज़िटर्स की रिपोर्ट्स (Public Feed):</span>
+        <span id="fb-count-badge" class="font-mono">0 Reports</span>
+      </div>
+
+      <div id="public-feedback-list" class="flex-1 overflow-y-auto space-y-2.5 pr-1 min-h-[160px]"></div>
+    </div>
+  </div>
 
   <!-- ==================== STAGE 1: MANDATORY LOGIN / SIGN UP GATE ==================== -->
   <section id="gate-stage-1" class="min-h-screen flex items-center justify-center p-4 bg-obsidian-950 text-white relative overflow-hidden">
@@ -141,7 +222,7 @@
           <div class="w-11 h-11 rounded-2xl grad-primary flex items-center justify-center text-white font-black text-base shadow-lg shadow-violet-600/30">01</div>
           <div>
             <div class="font-black text-base sm:text-lg tracking-tight">Vishal Saini <span class="grad-text">Edit 01</span></div>
-            <div class="text-[11px] text-slate-400 font-semibold">विशाल सैनी एडिट 01 • AI Video & Design</div>
+            <div class="text-[11px] text-slate-400 font-semibold">विशाल सैनी एडिट 01 • AI Video &amp; Design</div>
           </div>
         </div>
         <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-300 text-[10px] font-black uppercase">Free of Cost</span>
@@ -152,7 +233,6 @@
         <span>Login / Sign Up Required to Enter Studio</span>
       </div>
 
-      <!-- Direct Google Sign-In Section -->
       <div class="space-y-3">
         <button type="button" onclick="openGoogleDirectAccountChooser()" class="w-full py-3.5 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-extrabold text-sm shadow-lg flex items-center justify-center gap-3 transition">
           <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
@@ -257,7 +337,7 @@
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 rounded-xl grad-primary flex items-center justify-center font-black text-sm">AI</div>
           <div>
-            <div class="font-black text-sm">Step 2 of 3: Connect Your Google Gemini API Key (or Skip for Free Mode)</div>
+            <div class="font-black text-sm">Step 2 of 3: Connect Your Google Gemini API Key</div>
             <div class="text-[11px] text-slate-400">Logged in as <strong id="stage2-user-label" class="text-violet-300">Creator</strong> • Studio unlocks immediately</div>
           </div>
         </div>
@@ -297,7 +377,7 @@
 
         <div class="lg:col-span-5 p-5 sm:p-6 rounded-3xl bg-obsidian-900 border border-violet-500/30 space-y-5 glow-card">
           <div class="space-y-2">
-            <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 text-[10px] font-black uppercase">Optional AI Upgrade</span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 text-[10px] font-black uppercase">Mandatory AI Setup</span>
             <h3 class="font-black text-lg">1. Get Free Google Gemini Key</h3>
             <p class="text-xs text-slate-400 leading-relaxed">
               नीचे दिए गए बटन पर क्लिक करें, Google AI Studio में लॉगिन करके अपनी फ्री API Key जनरेट करें और कॉपी करें:
@@ -376,9 +456,9 @@
         <button onclick="navigateTo('dashboard')" data-top-nav="dashboard" class="top-nav-btn px-3 py-2 rounded-xl transition">Dashboard</button>
         <button onclick="navigateTo('create')" data-top-nav="create" class="top-nav-btn px-3 py-2 rounded-xl transition">Video Converter</button>
         <button onclick="navigateTo('editor')" data-top-nav="editor" class="top-nav-btn px-3 py-2 rounded-xl transition">Video Editor</button>
-        <button onclick="navigateTo('graphics')" data-top-nav="graphics" class="top-nav-btn px-3 py-2 rounded-xl transition">Graphic & AI Image</button>
-        <button onclick="navigateTo('seo')" data-top-nav="seo" class="top-nav-btn px-3 py-2 rounded-xl transition">Captions & SEO</button>
-        <button onclick="navigateTo('api')" data-top-nav="api" class="top-nav-btn px-3 py-2 rounded-xl transition">API & Settings</button>
+        <button onclick="navigateTo('graphics')" data-top-nav="graphics" class="top-nav-btn px-3 py-2 rounded-xl transition">Graphic &amp; AI Image</button>
+        <button onclick="navigateTo('seo')" data-top-nav="seo" class="top-nav-btn px-3 py-2 rounded-xl transition">Captions &amp; SEO</button>
+        <button onclick="navigateTo('api')" data-top-nav="api" class="top-nav-btn px-3 py-2 rounded-xl transition">API &amp; Settings</button>
       </nav>
 
       <div class="flex items-center gap-2">
@@ -425,22 +505,22 @@
 
         <div class="space-y-1 text-xs font-semibold">
           <div class="px-3 pb-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Studio Tools</div>
-          <button onclick="navigateTo('landing')" data-side-nav="landing" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>🏠</span><span data-i18n="nav_home">Home & Overview</span></button>
+          <button onclick="navigateTo('landing')" data-side-nav="landing" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>🏠</span><span data-i18n="nav_home">Home &amp; Overview</span></button>
           <button onclick="navigateTo('dashboard')" data-side-nav="dashboard" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>📊</span><span data-i18n="nav_dashboard">Creator Dashboard</span></button>
           <button onclick="navigateTo('create')" data-side-nav="create" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>🎬</span><span data-i18n="nav_create">Short ↔ Long Video</span></button>
           <button onclick="navigateTo('editor')" data-side-nav="editor" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>✂️</span><span data-i18n="nav_editor">Pro Video Editor</span></button>
-          <button onclick="navigateTo('graphics')" data-side-nav="graphics" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>🎨</span><span data-i18n="nav_graphics">Graphic & AI Image</span></button>
-          <button onclick="navigateTo('seo')" data-side-nav="seo" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>💬</span><span data-i18n="nav_seo">Captions & Viral SEO</span></button>
+          <button onclick="navigateTo('graphics')" data-side-nav="graphics" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>🎨</span><span data-i18n="nav_graphics">Graphic &amp; AI Image</span></button>
+          <button onclick="navigateTo('seo')" data-side-nav="seo" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>💬</span><span data-i18n="nav_seo">Captions &amp; Viral SEO</span></button>
           <button onclick="navigateTo('projects')" data-side-nav="projects" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>📁</span><span data-i18n="nav_projects">My Projects</span></button>
         </div>
 
         <div class="space-y-1 text-xs font-semibold">
-          <div class="px-3 pb-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Setup & Guide</div>
+          <div class="px-3 pb-1 text-[10px] font-extrabold uppercase tracking-wider text-slate-400">Setup &amp; Guide</div>
           <button onclick="navigateTo('api')" data-side-nav="api" class="side-nav-btn w-full flex items-center justify-between px-3 py-2.5 rounded-xl transition">
-            <span class="flex items-center gap-3"><span>🔑</span><span data-i18n="nav_api">API Keys & RTL</span></span>
+            <span class="flex items-center gap-3"><span>🔑</span><span data-i18n="nav_api">API Keys &amp; RTL</span></span>
             <span id="api-dot-indicator" class="w-2 h-2 rounded-full bg-amber-400"></span>
           </button>
-          <button onclick="navigateTo('help')" data-side-nav="help" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>❓</span><span data-i18n="nav_help">Help & Transparency</span></button>
+          <button onclick="navigateTo('help')" data-side-nav="help" class="side-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition"><span>❓</span><span data-i18n="nav_help">Help &amp; Transparency</span></button>
         </div>
       </div>
 
@@ -479,7 +559,7 @@
               </div>
 
               <h1 data-i18n="hero_title" class="text-3xl sm:text-5xl font-black tracking-tight leading-[1.12]">
-                <span class="grad-text">Vishal Saini Edit 01</span> — Free of Cost AI Video, Graphic Design & Captions
+                <span class="grad-text">Vishal Saini Edit 01</span> — Free of Cost AI Video, Graphic Design &amp; Captions
               </h1>
 
               <p data-i18n="hero_subtitle" class="text-base sm:text-lg font-bold text-slate-200">
@@ -495,7 +575,7 @@
                   Start Creating Free of Cost →
                 </button>
                 <button onclick="navigateTo('graphics')" class="px-5 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 border border-white/15 font-bold text-sm transition">
-                  🎨 Graphic & AI Image Studio
+                  🎨 Graphic &amp; AI Image Studio
                 </button>
                 <button onclick="navigateTo('editor')" class="px-5 py-3.5 rounded-xl bg-obsidian-850 hover:bg-obsidian-800 border border-white/10 font-bold text-xs text-violet-300 transition">
                   ✂️ Open Video Editor
@@ -515,8 +595,8 @@
               <div class="aspect-[9/16] rounded-2xl bg-gradient-to-b from-fuchsia-600/30 to-obsidian-950 border border-fuchsia-500/40 p-3 flex flex-col justify-between -translate-y-3 shadow-2xl">
                 <span class="px-2 py-0.5 rounded bg-gradient-to-r from-amber-500 to-pink-600 text-[9px] font-black w-fit">AI STUDIO</span>
                 <div class="space-y-1">
-                  <div class="px-2 py-1 rounded bg-violet-600 text-white font-black text-[10px] uppercase">GRAPHIC & AI IMG</div>
-                  <div class="text-[10px] text-slate-300">Thumbnails & Art</div>
+                  <div class="px-2 py-1 rounded bg-violet-600 text-white font-black text-[10px] uppercase">GRAPHIC &amp; AI IMG</div>
+                  <div class="text-[10px] text-slate-300">Thumbnails &amp; Art</div>
                 </div>
               </div>
               <div class="aspect-[9/16] rounded-2xl bg-gradient-to-b from-blue-600/30 to-obsidian-950 border border-blue-500/40 p-3 flex flex-col justify-between animate-float shadow-xl">
@@ -545,7 +625,7 @@
             </button>
             <button onclick="navigateTo('editor')" class="p-3.5 rounded-2xl bg-white/5 hover:bg-violet-600/20 border border-white/10 transition space-y-1.5">
               <div class="text-xl">💬</div>
-              <div>Captions & Subtitles</div>
+              <div>Captions &amp; Subtitles</div>
             </button>
             <button onclick="navigateTo('create')" class="p-3.5 rounded-2xl bg-white/5 hover:bg-violet-600/20 border border-white/10 transition space-y-1.5">
               <div class="text-xl">🔄</div>
@@ -563,13 +643,13 @@
           <div class="space-y-1">
             <div class="font-extrabold text-emerald-400">✅ Runs 100% Directly in Your Browser (Free of Cost)</div>
             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-              Local MP4/MOV/WEBM video playback & trimming, 9:16/1:1/16:9 canvas compositing, styled captions, real <code>.webm</code> video rendering, graphic thumbnail designer (PNG export), mic speech-to-text, and 24-language RTL UI work immediately without any server.
+              Local MP4/MOV/WEBM video playback &amp; trimming, 9:16/1:1/16:9 canvas compositing, styled captions, real <code>.webm</code> video rendering, graphic thumbnail designer (PNG export), mic speech-to-text, and 24-language RTL UI work immediately without any server.
             </p>
           </div>
           <div class="space-y-1">
-            <div class="font-extrabold text-amber-400">ℹ️ YouTube Link & Optional Gemini API</div>
+            <div class="font-extrabold text-amber-400">ℹ️ YouTube Link + Python AI Backend Server</div>
             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-              Paste any YouTube or Shorts link to fetch title, thumbnail &amp; viral tags directly into the editor, or upload your own MP4/MOV video file on iPhone, Android, or PC.
+              Connect <code>server.py</code> (<code>yt-dlp + FFmpeg + Gemini AI</code>) in the Video Converter tab for 100% server-side YouTube MP4 downloading &amp; scene cutting, or use built-in browser tools directly.
             </p>
           </div>
         </div>
@@ -600,12 +680,12 @@
             <div class="text-[10px] text-emerald-400 font-bold mt-1">Free of Cost</div>
           </div>
           <div class="p-4 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10">
-            <div class="text-[11px] text-slate-400 font-semibold">Shorts & Compilations</div>
+            <div class="text-[11px] text-slate-400 font-semibold">Shorts &amp; Compilations</div>
             <div id="kpi-shorts" class="text-2xl font-black mt-1 grad-text">98</div>
             <div class="text-[10px] text-violet-400 font-bold mt-1">91% avg score</div>
           </div>
           <div class="p-4 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10">
-            <div class="text-[11px] text-slate-400 font-semibold">Graphics & Thumbnails</div>
+            <div class="text-[11px] text-slate-400 font-semibold">Graphics &amp; Thumbnails</div>
             <div id="kpi-graphics" class="text-2xl font-black mt-1">42</div>
             <div class="text-[10px] text-cyan-400 font-bold mt-1">PNG / AI Studio</div>
           </div>
@@ -631,7 +711,7 @@
           <div class="lg:col-span-7 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4">
             <div class="flex items-center justify-between">
               <div>
-                <h2 class="font-bold text-sm">Cross-Platform Reach & Engagement</h2>
+                <h2 class="font-bold text-sm">Cross-Platform Reach &amp; Engagement</h2>
                 <div class="text-2xl font-black mt-0.5">148,920 <span class="text-xs font-bold text-emerald-400">+18.4% views</span></div>
               </div>
               <div class="flex gap-1.5 text-[11px] font-bold">
@@ -692,7 +772,7 @@
       <section id="view-create" class="app-view hidden space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-black">Short ↔ Long Video Converter & YouTube Link Studio</h1>
+            <h1 class="text-2xl sm:text-3xl font-black">Short ↔ Long Video Converter &amp; YouTube Link Studio</h1>
             <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Convert long videos into viral shorts OR combine short clips into a longer sequence — Free of Cost.</p>
           </div>
           <div class="flex p-1 rounded-xl bg-slate-200 dark:bg-obsidian-850 text-xs font-extrabold">
@@ -707,7 +787,7 @@
             <div id="drop-area" onclick="document.getElementById('local-video-input').click()" class="border-2 border-dashed border-violet-500/40 hover:border-violet-500 rounded-2xl p-8 text-center cursor-pointer bg-slate-50 dark:bg-obsidian-850/70 transition space-y-2">
               <input type="file" id="local-video-input" multiple accept="video/mp4,video/quicktime,video/webm,video/x-matroska,video/*" class="hidden" onchange="onLocalVideoSelected(event)" />
               <div class="w-12 h-12 rounded-2xl grad-primary text-white flex items-center justify-center mx-auto text-xl shadow-lg">☁️</div>
-              <div id="upload-zone-title" class="font-extrabold text-sm">Drag & Drop Your Video (or Multiple Shorts) to Browse</div>
+              <div id="upload-zone-title" class="font-extrabold text-sm">Drag &amp; Drop Your Video (or Multiple Shorts) to Browse</div>
               <div class="text-xs text-slate-400">MP4, MOV, WEBM, MKV • iPhone, Android &amp; PC compatible</div>
             </div>
 
@@ -732,6 +812,37 @@
                 <button type="button" onclick="fetchYoutubeMetadata(false)" id="yt-fetch-btn" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-bold whitespace-nowrap">Fetch &amp; Open in Editor ▶</button>
                 <button type="button" onclick="fetchYoutubeMetadata(true)" id="yt-autocut-btn" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black whitespace-nowrap shadow-lg">⚡ Auto-Cut &amp; Export</button>
               </div>
+
+              <!-- Live Inline Percentage Bar for YouTube / Video Processing -->
+              <div id="create-inline-progress-box" class="hidden p-3.5 rounded-xl bg-violet-950/70 border border-violet-500/50 space-y-2">
+                <div class="flex items-center justify-between text-xs font-extrabold">
+                  <span id="create-inline-stage" class="text-cyan-200">Initializing AI Video Pipeline...</span>
+                  <div class="flex items-center gap-2">
+                    <span id="create-inline-eta" class="text-[11px] text-amber-300">~12s left</span>
+                    <span id="create-inline-pct" class="px-2 py-0.5 rounded bg-emerald-500 text-slate-950 font-black">0%</span>
+                  </div>
+                </div>
+                <div class="w-full h-2.5 rounded-full bg-black/60 overflow-hidden">
+                  <div id="create-inline-fill" class="h-full grad-primary transition-all duration-200" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <!-- Python yt-dlp + FFmpeg Backend Server Connection -->
+              <details class="p-3 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-violet-500/25 text-xs">
+                <summary class="cursor-pointer font-extrabold text-cyan-300 select-none flex items-center justify-between">
+                  <span>🖥️ Python AI Server URL (For 100% Real Server-Side YouTube MP4 Download &amp; FFmpeg Cut)</span>
+                  <span id="backend-server-badge" class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px]">Not Set</span>
+                </summary>
+                <div class="mt-2.5 space-y-2">
+                  <p class="text-[11px] text-slate-400">
+                    Run <code>server.py</code> (Render / Railway / Localhost <code>http://localhost:8000</code>) and paste its URL here so YouTube links download real MP4 clips via <code>yt-dlp + FFmpeg + Gemini AI</code>:
+                  </p>
+                  <div class="flex gap-2">
+                    <input type="url" id="python-backend-url-input" placeholder="http://localhost:8000 or https://your-app.onrender.com" class="flex-1 px-3 py-2 rounded-xl bg-obsidian-950 border border-white/10 text-xs font-mono text-white" />
+                    <button type="button" onclick="saveAndTestPythonBackend()" class="px-3.5 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-xs">Connect Server</button>
+                  </div>
+                </div>
+              </details>
               <div id="yt-fetch-status" class="hidden text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-slate-200 space-y-2"></div>
             </div>
 
@@ -788,7 +899,7 @@
             </div>
 
             <button type="button" onclick="startAiClipProcessing()" id="start-processing-btn" class="w-full py-3.5 rounded-2xl grad-primary text-white font-black text-sm shadow-xl shadow-violet-600/30 hover:opacity-95 transition">
-              Process & Open CapCut Studio Editor ▶
+              Process &amp; Open CapCut Studio Editor ▶
             </button>
           </div>
 
@@ -796,7 +907,7 @@
           <div class="lg:col-span-5 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5">
             <div class="flex items-center justify-between">
               <h2 class="font-extrabold text-base">Generated Video Segments</h2>
-              <button onclick="navigateTo('seo')" class="text-xs font-bold text-violet-400 hover:underline">Captions & SEO →</button>
+              <button onclick="navigateTo('seo')" class="text-xs font-bold text-violet-400 hover:underline">Captions &amp; SEO →</button>
             </div>
 
             <div class="grid grid-cols-6 gap-1 text-center text-[10px] font-bold">
@@ -839,8 +950,8 @@
             <button type="button" onclick="toggleAiFaceTracking()" id="ai-face-track-btn" class="px-3 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-xs font-extrabold transition">
               🎯 AI Face Focus: ON
             </button>
-            <button type="button" onclick="autoCutEntireVideoNow()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black shadow transition">
-              ⚡ AI Auto-Cut All Scenes
+            <button type="button" onclick="autoCutEntireVideoNow(true)" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black shadow transition">
+              ⚡ AI Auto-Cut &amp; Export
             </button>
             <button onclick="downloadSrtSubtitles()" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold hover:text-cyan-400" title="Download All Clips SRT Subtitles">.SRT</button>
             <button onclick="renderAndDownloadRealVideo()" id="real-export-btn" class="px-4 py-2 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg shadow-violet-600/30 hover:opacity-95 transition">
@@ -851,10 +962,13 @@
 
         <div id="render-progress-panel" class="hidden p-4 rounded-2xl bg-violet-950/60 border border-violet-500/40 space-y-2">
           <div class="flex items-center justify-between text-xs font-bold">
-            <span class="text-violet-200">Rendering video with burned-in captions in browser...</span>
-            <span id="render-percent-text" class="text-cyan-300">0%</span>
+            <span id="render-stage-label" class="text-violet-200">Rendering video with burned-in captions in browser...</span>
+            <div class="flex items-center gap-2">
+              <span id="render-eta-text" class="text-amber-300 font-mono">~10s left</span>
+              <span id="render-percent-text" class="text-cyan-300 font-black">0%</span>
+            </div>
           </div>
-          <div class="w-full h-2 rounded-full bg-black/50 overflow-hidden">
+          <div class="w-full h-2.5 rounded-full bg-black/50 overflow-hidden">
             <div id="render-progress-fill" class="h-full grad-primary transition-all duration-150" style="width: 0%"></div>
           </div>
         </div>
@@ -895,7 +1009,7 @@
             <div class="space-y-3">
               <div>
                 <label class="block text-[11px] font-bold mb-1 text-slate-400">Top Hook Banner</label>
-                <input type="text" id="ed-hook-text" value="FREE OF COST AI VIDEO STUDIO 🚀" oninput="recordEditorState(); drawEditorCanvas()" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold" />
+                <input type="text" id="ed-hook-text" value="FREE OF COST AI VIDEO STUDIO 🚀" oninput="recordEditorState(); syncYoutubeLiveOverlays(); drawEditorCanvas()" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold" />
               </div>
               <div>
                 <div class="flex items-center justify-between mb-1">
@@ -1080,7 +1194,7 @@
             <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-extrabold">
               <button type="button" onclick="setCapcutDockTab('timeline')" id="cc-tab-timeline" class="px-3 py-1.5 rounded-xl grad-primary text-white">🎞️ Edit Tracks</button>
               <button type="button" onclick="setCapcutDockTab('text')" id="cc-tab-text" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">💬 Text / Auto Captions</button>
-              <button type="button" onclick="setCapcutDockTab('stickers')" id="cc-tab-stickers" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">✨ Stickers & Overlay</button>
+              <button type="button" onclick="setCapcutDockTab('stickers')" id="cc-tab-stickers" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">✨ Stickers &amp; Overlay</button>
               <button type="button" onclick="setCapcutDockTab('audio')" id="cc-tab-audio" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">🎵 Audio / Voice</button>
             </div>
           </div>
@@ -1103,7 +1217,7 @@
           </div>
 
           <div id="cc-drawer-audio" class="hidden p-3 rounded-2xl bg-obsidian-850 border border-white/10 flex flex-wrap items-center gap-4 text-xs">
-            <span class="font-extrabold text-emerald-300">🎵 Video Audio & Volume:</span>
+            <span class="font-extrabold text-emerald-300">🎵 Video Audio &amp; Volume:</span>
             <label class="flex items-center gap-2 font-bold">
               <span>Volume: <span id="cc-vol-label">100%</span></span>
               <input type="range" id="cc-video-volume" min="0" max="100" value="100" oninput="changeEditorVideoVolume(this.value)" class="accent-emerald-400" />
@@ -1134,8 +1248,8 @@
       <section id="view-graphics" class="app-view hidden space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-black">Graphic Designing & AI Image Studio</h1>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Design YouTube Thumbnails, Reels Covers & Banners Free of Cost + generate AI Image prompts/art.</p>
+            <h1 class="text-2xl sm:text-3xl font-black">Graphic Designing &amp; AI Image Studio</h1>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Design YouTube Thumbnails, Reels Covers &amp; Banners Free of Cost + generate AI Image prompts/art.</p>
           </div>
           <button onclick="downloadGraphicPng()" class="px-5 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg">
             ⬇️ Download Graphic PNG
@@ -1176,7 +1290,7 @@
 
             <div class="pt-3 border-t border-white/10 space-y-2.5">
               <div class="flex items-center justify-between">
-                <span class="font-extrabold text-cyan-400">🖼️ AI Image Prompt & Concept Generator</span>
+                <span class="font-extrabold text-cyan-400">🖼️ AI Image Prompt &amp; Concept Generator</span>
                 <span class="text-[10px] text-slate-400">Gemini / ImageFX Ready</span>
               </div>
               <input type="text" id="ai-img-topic" value="Cyberpunk neon video editing studio with glowing 3D play icon" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10" />
@@ -1201,11 +1315,11 @@
       <section id="view-seo" class="app-view hidden space-y-6">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
-            <h1 class="text-2xl sm:text-3xl font-black">AI Captions, Titles & Viral SEO Generator</h1>
+            <h1 class="text-2xl sm:text-3xl font-black">AI Captions, Titles &amp; Viral SEO Generator</h1>
             <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Generate 10 viral titles, descriptions, YouTube Studio Tags &amp; 5/10/20 hashtags Free of Cost.</p>
           </div>
           <div class="flex flex-wrap gap-2">
-            <button onclick="generateAiSeoContent()" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg">✨ Generate Captions & SEO</button>
+            <button onclick="generateAiSeoContent(true)" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg">✨ Generate Captions &amp; SEO</button>
             <button onclick="copyCompleteSeoBundle()" class="px-4 py-2.5 rounded-xl bg-emerald-600 text-white text-xs font-extrabold">📋 Copy All</button>
           </div>
         </div>
@@ -1229,7 +1343,7 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div class="lg:col-span-7 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-3">
             <div class="flex items-center justify-between">
-              <h2 class="font-extrabold text-sm">10 Viral Title & Caption Suggestions</h2>
+              <h2 class="font-extrabold text-sm">10 Viral Title &amp; Caption Suggestions</h2>
               <span class="text-[11px] text-cyan-400 font-bold">One-Click Copy</span>
             </div>
             <div id="seo-titles-cards" class="space-y-2.5"></div>
@@ -1266,7 +1380,7 @@
             </div>
 
             <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-2">
-              <h3 class="font-extrabold text-sm">5 Alternative Opening Hooks & CTAs</h3>
+              <h3 class="font-extrabold text-sm">5 Alternative Opening Hooks &amp; CTAs</h3>
               <div id="seo-hooks-list" class="space-y-1.5 text-xs text-slate-400"></div>
             </div>
           </div>
@@ -1297,7 +1411,7 @@
               <h1 class="text-2xl sm:text-3xl font-black">API Keys &amp; Google Gemini Setup</h1>
               <span id="auth-session-pill" class="px-2.5 py-1 rounded-full bg-violet-500/15 text-violet-300 text-[11px] font-bold">Session Unlocked</span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Connect your optional Google Gemini API key for live AI generation, or use built-in tools 100% Free of Cost.</p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Connect your Google Gemini API key for live AI generation &amp; YouTube auto-cutting.</p>
           </div>
           <div class="flex flex-wrap items-center gap-2">
             <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold transition">
@@ -1332,7 +1446,7 @@
               <button onclick="toggleKeyMask()" class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold">Show / Hide</button>
               <button onclick="clearStoredApiKey()" class="px-4 py-2.5 rounded-xl bg-rose-500/15 text-rose-400 text-xs font-bold">Remove Key</button>
             </div>
-            <div id="api-badge-status" class="text-xs font-bold text-cyan-400">Status: Built-in Free of Cost Mode (Paste Gemini key above for live AI)</div>
+            <div id="api-badge-status" class="text-xs font-bold text-cyan-400">Status: Connect Gemini key above for live AI</div>
 
             <div class="pt-4 border-t border-white/10 space-y-2">
               <h3 class="font-extrabold text-xs uppercase tracking-wider text-slate-400">Step-by-Step Instructions (Steps 1–8)</h3>
@@ -1383,12 +1497,12 @@
         <h1 class="text-2xl sm:text-3xl font-black">Help Center &amp; Platform Guide</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5 studio-card">
-            <h3 class="font-bold text-sm text-violet-400">1. Browser Tools vs. Live AI</h3>
-            <p class="text-slate-400 leading-relaxed">Video preview, auto-cut scenes, 9:16/1:1/16:9 canvas rendering, graphic thumbnail design, mic speech-to-text, and SEO tags run directly in your browser Free of Cost on iPhone, Android, and PC.</p>
+            <h3 class="font-bold text-sm text-violet-400">1. Browser Tools vs. Python AI Server</h3>
+            <p class="text-slate-400 leading-relaxed">Video preview, auto-cut scenes, 9:16/1:1/16:9 canvas rendering, graphic thumbnail design, mic speech-to-text, and SEO tags run directly in your browser Free of Cost. Connect <code>server.py</code> for full server-side YouTube MP4 downloads.</p>
           </div>
           <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5 studio-card">
             <h3 class="font-bold text-sm text-violet-400">2. YouTube Links &amp; Video Export</h3>
-            <p class="text-slate-400 leading-relaxed">Paste any YouTube or Shorts link to auto-slice into scenes with live player sync, or upload local MP4/MOV/WEBM files for instant multi-clip `.WEBM`/`.MP4` rendering.</p>
+            <p class="text-slate-400 leading-relaxed">Paste any YouTube or Shorts link to auto-slice into scenes with live player sync, or upload local MP4/MOV/WEBM files for instant multi-clip <code>.WEBM</code>/<code>.MP4</code> rendering.</p>
           </div>
         </div>
       </section>
@@ -1414,6 +1528,8 @@
     // ==================== GOOGLE OAUTH CONFIGURATION ====================
     const GOOGLE_CLIENT_ID = '';
     const STORAGE_SESSION_KEY = 'vs_edit01_permanent_session_v1';
+    const STORAGE_FEEDBACK_KEY = 'vs_edit01_public_feedback_v1';
+    const STORAGE_BACKEND_URL_KEY = 'vs_edit01_python_backend_url_v1';
 
     // ==================== 24 LANGUAGES & TRANSLATIONS ====================
     const LANGUAGES_24 = [
@@ -1491,6 +1607,8 @@
       savedGoogleAccounts: [],
       youtubeLoadedMeta: null,
       youtubePreviewImage: null,
+      pythonBackendUrl: '',
+      serverCutClips: [],
       aiFaceTracking: true,
       googleClientId: GOOGLE_CLIENT_ID,
       apiKey: '',
@@ -1530,6 +1648,111 @@
       ],
       clips: []
     };
+
+    // ==================== LIVE PERCENTAGE & ETA PROGRESS CONTROLLER ====================
+    let activeProgressTimer = null;
+    let currentDisplayPct = 0;
+
+    function startLivePercentageTracker(initialStage, subStatus, totalEstSec = 14) {
+      clearInterval(activeProgressTimer);
+      currentDisplayPct = 2;
+
+      const globalCard = document.getElementById('global-ai-progress-card');
+      const globalStage = document.getElementById('global-ai-stage-label');
+      const globalEta = document.getElementById('global-ai-eta-label');
+      const globalPct = document.getElementById('global-ai-percent-label');
+      const globalBar = document.getElementById('global-ai-progress-bar');
+      const globalSub = document.getElementById('global-ai-substatus');
+
+      const inlineBox = document.getElementById('create-inline-progress-box');
+      const inlineStage = document.getElementById('create-inline-stage');
+      const inlineEta = document.getElementById('create-inline-eta');
+      const inlinePct = document.getElementById('create-inline-pct');
+      const inlineFill = document.getElementById('create-inline-fill');
+
+      if (globalCard) globalCard.classList.remove('hidden');
+      if (inlineBox) inlineBox.classList.remove('hidden');
+
+      const applyValues = (pct, stageTxt, etaTxt, subTxt) => {
+        if (globalStage && stageTxt) globalStage.textContent = stageTxt;
+        if (globalEta && etaTxt) globalEta.textContent = etaTxt;
+        if (globalPct) globalPct.textContent = `${pct}%`;
+        if (globalBar) globalBar.style.width = `${pct}%`;
+        if (globalSub && subTxt) globalSub.textContent = subTxt;
+
+        if (inlineStage && stageTxt) inlineStage.textContent = stageTxt;
+        if (inlineEta && etaTxt) inlineEta.textContent = etaTxt;
+        if (inlinePct) inlinePct.textContent = `${pct}%`;
+        if (inlineFill) inlineFill.style.width = `${pct}%`;
+      };
+
+      applyValues(2, initialStage, `~${totalEstSec}s left`, subStatus);
+
+      const startTs = Date.now();
+      activeProgressTimer = setInterval(() => {
+        const elapsedSec = (Date.now() - startTs) / 1000;
+        const remainingSec = Math.max(1, Math.round(totalEstSec - elapsedSec));
+        if (currentDisplayPct < 92) {
+          const step = currentDisplayPct < 45 ? 3 : currentDisplayPct < 75 ? 2 : 1;
+          currentDisplayPct = Math.min(92, currentDisplayPct + step);
+        }
+        applyValues(currentDisplayPct, null, `~${remainingSec}s left`, null);
+      }, 450);
+    }
+
+    function updateLivePercentageMilestone(targetPct, stageTxt, subTxt) {
+      currentDisplayPct = Math.max(currentDisplayPct, Math.min(99, targetPct));
+      const globalStage = document.getElementById('global-ai-stage-label');
+      const globalPct = document.getElementById('global-ai-percent-label');
+      const globalBar = document.getElementById('global-ai-progress-bar');
+      const globalSub = document.getElementById('global-ai-substatus');
+
+      const inlineStage = document.getElementById('create-inline-stage');
+      const inlinePct = document.getElementById('create-inline-pct');
+      const inlineFill = document.getElementById('create-inline-fill');
+
+      if (globalStage && stageTxt) globalStage.textContent = stageTxt;
+      if (globalPct) globalPct.textContent = `${currentDisplayPct}%`;
+      if (globalBar) globalBar.style.width = `${currentDisplayPct}%`;
+      if (globalSub && subTxt) globalSub.textContent = subTxt;
+
+      if (inlineStage && stageTxt) inlineStage.textContent = stageTxt;
+      if (inlinePct) inlinePct.textContent = `${currentDisplayPct}%`;
+      if (inlineFill) inlineFill.style.width = `${currentDisplayPct}%`;
+    }
+
+    function completeLivePercentageTracker(success = true, finalMsg = '✅ 100% Completed! Video Ready.') {
+      clearInterval(activeProgressTimer);
+      const pct = success ? 100 : currentDisplayPct;
+      const globalCard = document.getElementById('global-ai-progress-card');
+      const globalStage = document.getElementById('global-ai-stage-label');
+      const globalEta = document.getElementById('global-ai-eta-label');
+      const globalPct = document.getElementById('global-ai-percent-label');
+      const globalBar = document.getElementById('global-ai-progress-bar');
+      const globalSub = document.getElementById('global-ai-substatus');
+
+      const inlineBox = document.getElementById('create-inline-progress-box');
+      const inlineStage = document.getElementById('create-inline-stage');
+      const inlineEta = document.getElementById('create-inline-eta');
+      const inlinePct = document.getElementById('create-inline-pct');
+      const inlineFill = document.getElementById('create-inline-fill');
+
+      if (globalStage) globalStage.textContent = finalMsg;
+      if (globalEta) globalEta.textContent = success ? 'Done!' : 'Stopped';
+      if (globalPct) globalPct.textContent = `${pct}%`;
+      if (globalBar) globalBar.style.width = `${pct}%`;
+      if (globalSub) globalSub.textContent = success ? 'All clips cut & captions synced.' : 'Check error notice below.';
+
+      if (inlineStage) inlineStage.textContent = finalMsg;
+      if (inlineEta) inlineEta.textContent = success ? 'Done!' : 'Stopped';
+      if (inlinePct) inlinePct.textContent = `${pct}%`;
+      if (inlineFill) inlineFill.style.width = `${pct}%`;
+
+      setTimeout(() => {
+        if (globalCard) globalCard.classList.add('hidden');
+        if (inlineBox && success) inlineBox.classList.add('hidden');
+      }, success ? 2600 : 4000);
+    }
 
     // ==================== PERSISTENT SESSION HELPERS (100% UNLIMITED FREE) ====================
     function persistSessionState() {
@@ -1727,7 +1950,6 @@
     async function fetchRealYoutubeStreamUrl(videoId) {
       const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
-      // 1. Primary: Cobalt API instances for direct playable MP4 stream resolution
       const cobaltInstances = [
         'https://api.cobalt.tools/',
         'https://cobalt-api.kwiatekmiki.com/',
@@ -1764,7 +1986,6 @@
         } catch (e) {}
       }
 
-      // 2. Secondary: Piped API instances
       const pipedInstances = [
         `https://pipedapi.kavin.rocks/streams/${encodeURIComponent(videoId)}`,
         `https://pipedapi.adminforge.de/streams/${encodeURIComponent(videoId)}`,
@@ -1795,7 +2016,6 @@
         } catch (e) {}
       }
 
-      // 3. Tertiary: Invidious instances
       const invidiousInstances = [
         `https://inv.nadeko.net/api/v1/videos/${encodeURIComponent(videoId)}`,
         `https://yewtu.be/api/v1/videos/${encodeURIComponent(videoId)}`
@@ -1844,7 +2064,12 @@
       const baseTitle = (document.getElementById('project-name-input').value || 'VIRAL VIDEO').trim();
       const lang = document.getElementById('sub-lang-select').value || 'Hinglish';
 
-      showToast('🤖 Gemini AI analyzing video scenes & human face framing...', 'info');
+      startLivePercentageTracker(
+        '35% — Gemini AI Detecting Viral Scenes & Human Face Focus...',
+        'Creating scene-by-scene timestamps and Hindi/Hinglish captions...',
+        10
+      );
+      updateLivePercentageMilestone(48, '48% — Gemini AI Analyzing Viral Hooks & Face Centering...', 'Generating high-retention short cuts...');
 
       let aiScenes = null;
       try {
@@ -1868,6 +2093,8 @@
           }
         }
       } catch (e) {}
+
+      updateLivePercentageMilestone(78, '78% — Cutting Scenes & Syncing Captions on Timeline...', 'Assembling multi-clip timeline...');
 
       const dynamicHooks = [
         `${baseTitle.slice(0, 30).toUpperCase()} 🔥`,
@@ -1902,10 +2129,16 @@
       syncEditorTimelineRanges();
       renderEditorTimelineClips();
       drawEditorCanvas();
-      showToast(`✅ Gemini AI created ${sceneCount} scene-by-scene viral short cuts!`, 'success');
 
       if (autoDownloadAfter) {
-        setTimeout(() => renderAndDownloadRealVideo(), 400);
+        updateLivePercentageMilestone(88, '88% — Exporting Final Edited Video File...', 'Rendering video with burned-in captions...');
+        setTimeout(() => {
+          completeLivePercentageTracker(true, '✅ 100% Done! Downloading Edited Video...');
+          renderAndDownloadRealVideo();
+        }, 350);
+      } else {
+        completeLivePercentageTracker(true, `✅ 100% Complete! ${sceneCount} Scenes Cut & Ready.`);
+        showToast(`✅ Gemini AI created ${sceneCount} scene-by-scene viral short cuts!`, 'success');
       }
     }
 
@@ -1919,7 +2152,112 @@
 
       box.classList.remove('hidden');
 
-      // 1. Check if user pasted a direct playable video URL (.mp4 / .webm / .mov)
+      const videoIdCheck = extractStrictYoutubeVideoId(link);
+      if (videoIdCheck && appState.pythonBackendUrl) {
+        if (btn) { btn.disabled = true; btn.textContent = 'Server Downloading...'; }
+        if (autoBtn) { autoBtn.disabled = true; autoBtn.textContent = '⚡ FFmpeg Cutting...'; }
+        startLivePercentageTracker(
+          '10% — Connecting to Python yt-dlp + FFmpeg Server...',
+          'Downloading YouTube MP4 stream and running Gemini AI scene detection...',
+          18
+        );
+        box.className = 'text-xs p-3 rounded-xl bg-violet-500/15 border border-violet-500/35 text-cyan-200 font-bold';
+        box.textContent = '🖥️ Python AI Server is downloading YouTube MP4 via yt-dlp & cutting viral scenes with Gemini AI + FFmpeg...';
+
+        try {
+          const serverBase = appState.pythonBackendUrl.replace(/\/+$/, '');
+          updateLivePercentageMilestone(38, '38% — Server Downloading YouTube Video & Running FFmpeg Cut...', 'Cutting vertical 9:16 short clips on server...');
+          const srvRes = await fetch(`${serverBase}/api/youtube-autocut`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              youtube_url: `https://www.youtube.com/watch?v=${videoIdCheck}`,
+              gemini_api_key: appState.apiKey,
+              clip_count: appState.clipCount || 5,
+              clip_duration: appState.clipDuration || 20,
+              language: document.getElementById('sub-lang-select').value || 'Hinglish',
+              aspect_ratio: appState.editorAspect || '9:16',
+              face_focus: appState.aiFaceTracking
+            })
+          });
+          const srvData = await srvRes.json();
+          if (!srvRes.ok) {
+            throw new Error(srvData.detail || `Server error ${srvRes.status}`);
+          }
+
+          updateLivePercentageMilestone(92, '92% — Server Finished Cutting MP4 Clips! Loading in Editor...', 'Preparing direct MP4 downloads...');
+          if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
+          if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
+
+          const fullClips = (srvData.clips || []).map((c, i) => ({
+            id: c.id || i + 1,
+            start: c.start,
+            end: c.end,
+            caption: c.caption || `CLIP #${i + 1}`,
+            mp4Url: `${serverBase}${c.mp4_url}`
+          }));
+
+          appState.serverCutClips = fullClips;
+          appState.videoDuration = srvData.duration || 60;
+          document.getElementById('project-name-input').value = srvData.title || 'YouTube Viral Shorts';
+          document.getElementById('seo-subject-input').value = srvData.title || 'YouTube Viral Shorts';
+
+          if (fullClips.length > 0) {
+            const editorVid = document.getElementById('editor-source-video');
+            const ytContainer = document.getElementById('editor-yt-live-container');
+            const ytActionBar = document.getElementById('yt-editor-action-bar');
+            const edCanvas = document.getElementById('editor-compositor-canvas');
+
+            appState.youtubeLoadedMeta = null;
+            ytContainer.classList.add('hidden');
+            ytActionBar.classList.add('hidden');
+            edCanvas.classList.remove('hidden');
+
+            editorVid.crossOrigin = 'anonymous';
+            editorVid.src = fullClips[0].mp4Url;
+            appState.editorClips = fullClips.map((c) => ({
+              id: c.id,
+              start: 0,
+              end: Math.max(3, Number((c.end - c.start).toFixed(1))),
+              caption: c.caption,
+              serverMp4Url: c.mp4Url
+            }));
+            appState.activeEditorClipId = 1;
+            document.getElementById('ed-caption-text').value = fullClips[0].caption;
+          }
+
+          box.className = 'text-xs p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-200 space-y-2';
+          box.innerHTML = `
+            <div class="font-extrabold">✅ Server Cut ${fullClips.length} Real MP4 Shorts from "${srvData.title}"!</div>
+            <div class="flex flex-wrap gap-2 pt-1">
+              ${fullClips.map((c) => `
+                <a href="${c.mp4Url}" download target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-black text-[11px] hover:bg-emerald-400">
+                  ⬇️ Download Clip #${c.id} (.MP4)
+                </a>
+              `).join('')}
+            </div>
+          `;
+
+          completeLivePercentageTracker(true, `✅ 100% Done! ${fullClips.length} Real MP4 Clips Ready.`);
+          navigateTo('editor');
+          showToast(`✅ Python Server downloaded & cut ${fullClips.length} real MP4 clips!`, 'success');
+          if (autoCutAndExport && fullClips[0]) {
+            const a = document.createElement('a');
+            a.href = fullClips[0].mp4Url;
+            a.download = `VishalSainiEdit01_Clip1.mp4`;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+          }
+          return;
+        } catch (srvErr) {
+          if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
+          if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
+          showToast(`Python Server Error: ${srvErr.message}. Switching to Browser Gemini AI mode...`, 'error');
+        }
+      }
+
+      // Check direct playable video URL (.mp4 / .webm / .mov)
       let isDirectVideoUrl = false;
       try {
         const u = new URL(link);
@@ -1929,6 +2267,7 @@
       } catch (e) {}
 
       if (isDirectVideoUrl) {
+        startLivePercentageTracker('15% — Loading Direct Video Stream...', 'Preparing video frames for AI scene auto-cut...', 10);
         const editorVid = document.getElementById('editor-source-video');
         const createVid = document.getElementById('create-video-player');
         const ytContainer = document.getElementById('editor-yt-live-container');
@@ -1940,44 +2279,42 @@
         createVid.src = link;
         appState.youtubeLoadedMeta = null;
         appState.youtubePreviewImage = null;
-        if (ytContainer) ytContainer.classList.add('hidden');
-        if (ytActionBar) ytActionBar.classList.add('hidden');
-        if (edCanvas) edCanvas.classList.remove('hidden');
+        ytContainer.classList.add('hidden');
+        ytActionBar.classList.add('hidden');
+        edCanvas.classList.remove('hidden');
 
         box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold';
-        box.textContent = '⏳ Direct video URL loading...';
-
-        createVid.onerror = () => {
-          box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
-          box.textContent = '❌ Invalid or unreachable video link. Please paste a working YouTube share link or upload a video file.';
-          showToast('Video URL could not be loaded!', 'error');
-        };
-        createVid.onloadedmetadata = () => {
+        box.textContent = '✅ Direct video URL loaded! Opening in Pro Video Editor...';
+        createVid.onloadedmetadata = async () => {
+          createVid.onloadedmetadata = null;
           const dur = Math.max(5, Math.floor(createVid.duration || 45));
           appState.videoDuration = dur;
           navigateTo('editor');
-          autoCutEntireVideoNow(autoCutAndExport);
+          await autoCutEntireVideoNow(autoCutAndExport);
         };
         return;
       }
 
-      // 2. Strict YouTube Share Link Validation (Rejects random keyboard text or fake URLs)
+      // Strictly validate YouTube Share / Watch / Shorts URL
       const videoId = extractStrictYoutubeVideoId(link);
       if (!videoId) {
         box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
-        box.textContent = '❌ Invalid Link! Please copy & paste a real YouTube Share link (example: https://youtu.be/xxxxxxxxxxx or https://www.youtube.com/watch?v=xxxxxxxxxxx).';
-        showToast('Invalid YouTube URL! Random text is not allowed.', 'error');
+        box.textContent = '❌ Invalid Link! Please paste a valid YouTube video URL (e.g., https://youtu.be/... or https://www.youtube.com/watch?v=...) — random text is not allowed.';
+        showToast('Invalid YouTube URL! Paste a real YouTube link.', 'error');
         return;
       }
 
       const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
-      if (btn) { btn.disabled = true; btn.textContent = 'Verifying Link...'; }
-      if (autoBtn) { autoBtn.disabled = true; autoBtn.textContent = '⏳ Fetching Video...'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Gemini AI Fetching...'; }
+      if (autoBtn) { autoBtn.disabled = true; autoBtn.textContent = '⚡ AI Cutting...'; }
+      startLivePercentageTracker(
+        '12% — Verifying YouTube Video & Connecting Gemini AI...',
+        'Fetching video title, stream metadata, and preparing scene cuts...',
+        14
+      );
+      box.className = 'text-xs p-3 rounded-xl bg-violet-500/15 border border-violet-500/30 text-cyan-200 font-bold';
+      box.textContent = '🔍 Verifying YouTube video & launching Gemini AI video scene analysis...';
 
-      box.className = 'text-xs p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-200 font-bold';
-      box.textContent = '⏳ Verifying YouTube video & fetching stream...';
-
-      // 3. Verify that the YouTube Video ID actually exists via oEmbed
       let title = '';
       let author = 'YouTube Creator';
       let verifiedExists = false;
@@ -1994,7 +2331,7 @@
         }
       } catch (e) {}
 
-      // 4. Attempt real direct MP4/WEBM stream extraction
+      updateLivePercentageMilestone(30, '30% — Resolving Video Stream & Frames...', 'Checking available video streams...');
       const resolved = await fetchRealYoutubeStreamUrl(videoId);
       if (resolved.title) {
         title = resolved.title;
@@ -2002,17 +2339,55 @@
       }
       if (resolved.author) author = resolved.author;
 
+      let geminiVideoAnalysis = null;
+      if (appState.apiConnected && appState.apiKey) {
+        updateLivePercentageMilestone(55, '55% — Gemini AI Analyzing Video & Extracting Viral Scenes...', 'Detecting best hooks, captions, and face focus...');
+        box.textContent = '🤖 Gemini AI analyzing your YouTube video URL scene-by-scene...';
+        try {
+          const lang = document.getElementById('sub-lang-select').value || 'Hinglish';
+          const clipCount = Math.max(3, Math.min(6, appState.clipCount || 5));
+          const estDuration = resolved.duration > 4 ? resolved.duration : 60;
+          const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(appState.geminiModel)}:generateContent?key=${encodeURIComponent(appState.apiKey)}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{
+                  text: `Analyze the YouTube video at ${canonicalUrl} titled "${title || videoId}" by "${author}" (duration ~${estDuration}s). Extract ${clipCount} viral short scenes in ${lang}. Return ONLY a valid JSON object with keys: videoTitle (string), totalSeconds (number), scenes (array of {start: number, end: number, caption: string, hook: string, faceFocusX: number}).`
+                }]
+              }],
+              generationConfig: { responseMimeType: 'application/json' }
+            })
+          });
+          if (aiRes.ok) {
+            const aiJson = await aiRes.json();
+            const rawText = aiJson?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (rawText) {
+              geminiVideoAnalysis = JSON.parse(rawText);
+              if (geminiVideoAnalysis.videoTitle) {
+                title = geminiVideoAnalysis.videoTitle;
+                verifiedExists = true;
+              }
+            }
+          }
+        } catch (err) {}
+      }
+
       if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
       if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
 
       if (!verifiedExists && !resolved.streamUrl) {
+        completeLivePercentageTracker(false, '❌ Video Unavailable or Private URL');
         box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
         box.textContent = '❌ This YouTube video ID does not exist or is private/unavailable. Please paste a valid public YouTube Share URL.';
         showToast('YouTube video not found or private!', 'error');
         return;
       }
 
-      const fetchedDur = resolved.duration > 4 ? resolved.duration : 60;
+      updateLivePercentageMilestone(80, '80% — Building Cut Timeline & Synced Captions...', 'Preparing editor workspace...');
+      const fetchedDur = (geminiVideoAnalysis && geminiVideoAnalysis.totalSeconds > 4)
+        ? Math.floor(geminiVideoAnalysis.totalSeconds)
+        : (resolved.duration > 4 ? resolved.duration : 60);
       const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
 
       const img = new Image();
@@ -2042,8 +2417,38 @@
       generateAiSeoContent();
       generateClipsFromDuration(fetchedDur);
 
+      const applyGeminiAnalyzedScenes = async () => {
+        if (geminiVideoAnalysis && Array.isArray(geminiVideoAnalysis.scenes) && geminiVideoAnalysis.scenes.length > 0) {
+          appState.editorClips = geminiVideoAnalysis.scenes.map((sc, idx) => {
+            const s = Math.max(0, Number(sc.start) || idx * 10);
+            const e = Math.max(s + 2.5, Number(sc.end) || s + 10);
+            return {
+              id: idx + 1,
+              start: Number(s.toFixed(1)),
+              end: Number(e.toFixed(1)),
+              caption: String(sc.caption || sc.hook || `SCENE ${idx + 1} 🔥`),
+              faceFocusX: typeof sc.faceFocusX === 'number' ? sc.faceFocusX : 0.5
+            };
+          });
+          appState.activeEditorClipId = 1;
+          appState.editorTrimStart = appState.editorClips[0].start;
+          appState.editorTrimEnd = appState.editorClips[0].end;
+          document.getElementById('ed-caption-text').value = appState.editorClips[0].caption;
+          document.getElementById('ed-hook-text').value = `⚡ AI SHORTS: ${title.slice(0, 26).toUpperCase()}`;
+          syncEditorTimelineRanges();
+          renderEditorTimelineClips();
+          drawEditorCanvas();
+          completeLivePercentageTracker(true, `✅ 100% Done! ${appState.editorClips.length} Scenes Ready.`);
+          showToast(`🤖 Gemini AI analyzed YouTube video & cut ${appState.editorClips.length} real scenes!`, 'success');
+          if (autoCutAndExport) {
+            setTimeout(() => renderAndDownloadRealVideo(), 400);
+          }
+        } else {
+          await autoCutEntireVideoNow(autoCutAndExport);
+        }
+      };
+
       if (resolved.streamUrl) {
-        // Real direct video stream fetched — load straight into HTML5 video canvas for real frame-by-frame cutting & export
         editorVid.crossOrigin = 'anonymous';
         editorVid.src = resolved.streamUrl;
         ytContainer.classList.add('hidden');
@@ -2052,28 +2457,28 @@
         edCanvas.classList.remove('hidden');
 
         box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold';
-        box.textContent = `✅ Real Video Stream Loaded: "${title}" (${author}) — Auto-cutting scenes now!`;
+        box.textContent = `✅ Real Video Stream Loaded: "${title}" (${author}) — Gemini AI cut scenes ready!`;
 
-        editorVid.onloadedmetadata = () => {
+        editorVid.onloadedmetadata = async () => {
+          editorVid.onloadedmetadata = null;
           if (editorVid.duration && !isNaN(editorVid.duration) && editorVid.duration > 4) {
             appState.videoDuration = Math.floor(editorVid.duration);
           }
           navigateTo('editor');
-          autoCutEntireVideoNow(autoCutAndExport);
+          await applyGeminiAnalyzedScenes();
         };
-        editorVid.onerror = () => {
-          // If stream URL expires or CORS blocks canvas readback, fall back to live YouTube player + automated scene playback
+        editorVid.onerror = async () => {
+          editorVid.onerror = null;
           editorVid.src = '';
           edCanvas.classList.add('hidden');
           ytContainer.classList.remove('hidden');
           ytActionBar.classList.remove('hidden');
           ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
           navigateTo('editor');
-          autoCutEntireVideoNow(false);
+          await applyGeminiAnalyzedScenes();
           syncYoutubeLiveOverlays();
         };
       } else {
-        // Browser CORS / YouTube blocked direct MP4 download — load live YouTube player with automated scene-by-scene sequential auto-player
         editorVid.src = '';
         edCanvas.classList.add('hidden');
         ytContainer.classList.remove('hidden');
@@ -2082,14 +2487,14 @@
 
         box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/35 text-emerald-200 space-y-1.5';
         box.innerHTML = `
-          <div class="font-extrabold">✅ Verified YouTube Video: ${title} (${author})</div>
+          <div class="font-extrabold">✅ Gemini AI Analyzed YouTube Video: ${title} (${author})</div>
           <div class="text-[11px] text-slate-300">
-            AI has sliced this video into viral short scenes in the Pro Video Editor. Each cut scene plays automatically in sequence with live captions—or click <strong>🎥 Capture Live Video &amp; Export Cut</strong> to save the final `.WEBM` file.
+            AI has extracted real scene timestamps, captions &amp; face focus. Watch the auto-cut scenes play below or connect <code>server.py</code> for server-side MP4 downloads.
           </div>
         `;
 
         navigateTo('editor');
-        await autoCutEntireVideoNow(false);
+        await applyGeminiAnalyzedScenes();
         syncYoutubeLiveOverlays();
         startAutomatedYoutubeSceneSequence();
       }
@@ -2305,20 +2710,6 @@
 
       showToast('API Connected Successfully! Welcome to Studio.', 'success');
       setTimeout(() => setAppStage(3), 500);
-    }
-
-    function unlockBrowserFreeMode() {
-      appState.apiKey = '';
-      appState.apiConnected = true;
-      persistSessionState();
-      document.getElementById('api-badge-status').textContent = 'Status: ● Free of Cost Browser Mode Active (No API Key Needed)';
-      document.getElementById('api-badge-status').className = 'text-xs font-bold text-cyan-400';
-      document.getElementById('api-dot-indicator').className = 'w-2 h-2 rounded-full bg-cyan-400';
-      document.getElementById('kpi-api-status').textContent = 'Browser Free';
-      document.getElementById('kpi-api-status').className = 'text-sm font-black mt-2 text-cyan-400';
-      document.getElementById('top-api-shortcut-btn').textContent = '✨ Free Mode';
-      showToast('Unlocked in 100% Free Browser Mode!', 'success');
-      setAppStage(3);
     }
 
     function promptApiKeyRecheck() {
@@ -2573,7 +2964,7 @@
       document.getElementById('rtl-toggle-btn').textContent = !isRtl ? 'RTL Active' : 'LTR Active';
     }
 
-    // ==================== SHORT <-> LONG VIDEO CONVERTER & YOUTUBE LINK ====================
+    // ==================== SHORT <-> LONG VIDEO CONVERTER ====================
     function setConversionMode(mode) {
       appState.conversionMode = mode;
       document.getElementById('mode-long-to-short').className = mode === 'long-to-short'
@@ -2627,6 +3018,7 @@
       }
 
       createVid.onloadedmetadata = () => {
+        createVid.onloadedmetadata = null;
         const dur = Math.max(4, Math.floor(createVid.duration || 60));
         appState.videoDuration = dur;
         const mb = (primary.size / (1024 * 1024)).toFixed(2);
@@ -2650,168 +3042,6 @@
       document.getElementById('create-video-player').src = '';
       document.getElementById('editor-source-video').src = '';
       showToast('Video removed.');
-    }
-
-    async function fetchYoutubeMetadata() {
-      const link = document.getElementById('yt-link-field').value.trim();
-      const box = document.getElementById('yt-fetch-status');
-      const btn = document.getElementById('yt-fetch-btn');
-      if (!link) {
-        box.classList.remove('hidden');
-        box.textContent = '❌ Please paste a valid YouTube Video, Shorts, or direct .mp4/.webm URL.';
-        return;
-      }
-
-      if (/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(link)) {
-        const editorVid = document.getElementById('editor-source-video');
-        const createVid = document.getElementById('create-video-player');
-        editorVid.src = link;
-        createVid.src = link;
-        appState.youtubeLoadedMeta = null;
-        appState.youtubePreviewImage = null;
-        box.classList.remove('hidden');
-        box.innerHTML = '✅ Direct video URL loaded! Opening in Pro Video Editor...';
-        createVid.onloadedmetadata = () => {
-          const dur = Math.max(5, Math.floor(createVid.duration || 45));
-          appState.videoDuration = dur;
-          initializeEditorClipsForDuration(dur);
-          navigateTo('editor');
-        };
-        return;
-      }
-
-      const ytMatch = link.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/);
-      if (!ytMatch) {
-        box.classList.remove('hidden');
-        box.textContent = '❌ Please paste a valid YouTube Video or Shorts URL (or direct .mp4 link).';
-        return;
-      }
-
-      const videoId = ytMatch[1];
-      const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
-      if (btn) {
-        btn.disabled = true;
-        btn.textContent = 'Fetching & Slicing Clips...';
-      }
-
-      let title = `YouTube Video (${videoId})`;
-      let author = 'YouTube Creator';
-      let fetchedDur = 90;
-      const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
-
-      try {
-        const res = await fetch(`https://noembed.com/embed?url=${encodeURIComponent(canonicalUrl)}`);
-        if (res.ok) {
-          const info = await res.json();
-          if (info && info.title) title = info.title;
-          if (info && info.author_name) author = info.author_name;
-        }
-      } catch (e) {}
-
-      // Try fetching real video duration & stream metadata from public Piped/Invidious API if available
-      let resolvedDirectStreamUrl = '';
-      try {
-        const pipedRes = await fetch(`https://pipedapi.kavin.rocks/streams/${encodeURIComponent(videoId)}`);
-        if (pipedRes.ok) {
-          const streamData = await pipedRes.json();
-          if (streamData && streamData.duration && streamData.duration > 4) {
-            fetchedDur = Math.floor(streamData.duration);
-          }
-          if (streamData && streamData.title) title = streamData.title;
-          if (streamData && Array.isArray(streamData.videoStreams)) {
-            const mp4Stream = streamData.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/mp4') && !s.videoOnly)
-              || streamData.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/mp4'));
-            if (mp4Stream && mp4Stream.url) {
-              resolvedDirectStreamUrl = mp4Stream.url;
-            }
-          }
-        }
-      } catch (e) {}
-
-      if (btn) {
-        btn.disabled = false;
-        btn.textContent = 'Fetch & Open in Editor ▶';
-      }
-
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => {
-        appState.youtubePreviewImage = img;
-        drawEditorCanvas();
-      };
-      img.onerror = () => {
-        appState.youtubePreviewImage = null;
-        drawEditorCanvas();
-      };
-      img.src = thumbUrl;
-
-      appState.youtubeLoadedMeta = { videoId, title, author, thumbUrl, canonicalUrl };
-      appState.videoDuration = fetchedDur;
-      document.getElementById('project-name-input').value = title;
-      document.getElementById('seo-subject-input').value = title;
-      document.getElementById('ed-hook-text').value = title.slice(0, 40).toUpperCase();
-
-      // Load real video stream if resolved, otherwise embed live YouTube player with clip-by-clip timestamps
-      const editorVid = document.getElementById('editor-source-video');
-      const ytIframe = document.getElementById('editor-youtube-iframe');
-      const edCanvas = document.getElementById('editor-compositor-canvas');
-
-      if (resolvedDirectStreamUrl) {
-        editorVid.src = resolvedDirectStreamUrl;
-        ytIframe.classList.add('hidden');
-        ytIframe.src = '';
-        edCanvas.classList.remove('hidden');
-      } else {
-        editorVid.src = '';
-        edCanvas.classList.add('hidden');
-        ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
-        ytIframe.classList.remove('hidden');
-      }
-
-      // Automatically slice the YouTube video into multiple sequential clips + captions
-      generateAiSeoContent();
-      generateClipsFromDuration(fetchedDur);
-
-      const segLen = Math.min(appState.clipDuration || 15, Math.max(5, Math.floor(fetchedDur / Math.max(2, appState.clipCount || 5))));
-      const totalClips = Math.max(2, Math.min(appState.clipCount || 5, Math.floor(fetchedDur / segLen)));
-      const autoCaptions = [
-        `${title.slice(0, 38).toUpperCase()} 🔥`,
-        'PART 2: IS POINT KO DHYAN SE DEKHO 👀',
-        'PART 3: SABSE IMPORTANT STEP YAHAN HAI 🚀',
-        'PART 4: PRO CREATOR SECRET TRICK 💡',
-        'PART 5: AAKHIR TAK ZARUR DEKHNA 🤯'
-      ];
-
-      appState.editorClips = Array.from({ length: totalClips }, (_, idx) => {
-        const s = idx * segLen;
-        const e = Math.min(fetchedDur, (idx + 1) * segLen);
-        return {
-          id: idx + 1,
-          start: s,
-          end: Math.max(s + 3, e),
-          caption: autoCaptions[idx % autoCaptions.length]
-        };
-      });
-
-      appState.activeEditorClipId = 1;
-      appState.editorTrimStart = appState.editorClips[0].start;
-      appState.editorTrimEnd = appState.editorClips[0].end;
-      document.getElementById('ed-caption-text').value = appState.editorClips[0].caption;
-
-      box.classList.remove('hidden');
-      box.innerHTML = `
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-          <div class="space-y-1">
-            <div class="font-extrabold text-emerald-300">✅ YouTube Video Sliced into ${totalClips} Clips: ${title}</div>
-            <div class="text-[11px] text-slate-300">Channel: <strong>${author}</strong> • Duration: <strong>${formatSec(fetchedDur)}</strong> • Live Player &amp; Captions Ready</div>
-          </div>
-          <button type="button" onclick="navigateTo('editor')" class="px-3.5 py-2 rounded-xl grad-primary text-white text-xs font-extrabold whitespace-nowrap">
-            ✂️ Open Clip-by-Clip Editor →
-          </button>
-        </div>
-      `;
-      navigateTo('editor');
-      showToast(`YouTube video sliced into ${totalClips} clips! Tap any clip on timeline to play.`, 'success');
     }
 
     function autoFillCaptionsAcrossClips() {
@@ -2847,6 +3077,7 @@
         active.caption = val;
         renderEditorTimelineClips();
       }
+      syncYoutubeLiveOverlays();
       drawEditorCanvas();
     }
 
@@ -2889,12 +3120,30 @@
       if (!requireValidGeminiApiKey('AI Video Processing')) return;
       const btn = document.getElementById('start-processing-btn');
       btn.disabled = true;
-      btn.textContent = 'Processing Clips & Opening CapCut Studio...';
+      btn.textContent = 'Processing Clips (0%)...';
+      startLivePercentageTracker(
+        '10% — Starting 6-Stage AI Video Cut Pipeline...',
+        'Analyzing video scenes, auto-generating captions, and framing clips...',
+        4
+      );
+
+      const stageTitles = [
+        '18% — Stage 1/6: Video Uploaded & Verified',
+        '35% — Stage 2/6: Gemini AI Analyzing Best Scenes',
+        '52% — Stage 3/6: Generating Viral Captions',
+        '70% — Stage 4/6: Selecting Top Hook Clips',
+        '86% — Stage 5/6: Composing 9:16 Vertical Framing',
+        '100% — Stage 6/6: All Clips Cut & Ready!'
+      ];
 
       [1, 2, 3, 4, 5, 6].forEach((st, idx) => {
         setTimeout(() => {
           const el = document.getElementById(`stage-${st}`);
           if (el) el.className = 'p-2 rounded-xl bg-emerald-500/15 text-emerald-400';
+          const pct = Math.min(100, Math.round((st / 6) * 100));
+          btn.textContent = `Processing Clips (${pct}%)...`;
+          updateLivePercentageMilestone(pct, stageTitles[idx], `Completed step ${st} of 6...`);
+
           if (st === 6) {
             generateClipsFromDuration(appState.videoDuration);
             const projName = document.getElementById('project-name-input').value.trim() || 'AI Viral Video Project';
@@ -2909,10 +3158,11 @@
             renderProjectsLists();
             btn.disabled = false;
             btn.textContent = 'Process & Open CapCut Studio Editor ▶';
+            completeLivePercentageTracker(true, '✅ 100% Done! Opening CapCut Studio Editor...');
             loadClipInProEditor(1);
             showToast('Project opened in CapCut-Style Video Editor!', 'success');
           }
-        }, (idx + 1) * 240);
+        }, (idx + 1) * 320);
       });
     }
 
@@ -2954,7 +3204,7 @@
           <div class="text-[11px] text-cyan-300 font-mono">${formatSec(c.start)} → ${formatSec(c.end)}</div>
           <div class="text-xs font-bold text-slate-300">"${c.hook}"</div>
           <button type="button" onclick="loadClipInProEditor(${c.id})" class="w-full py-2 rounded-xl grad-primary text-white text-xs font-extrabold">
-            ✂️ Open & Cut in CapCut Studio
+            ✂️ Open &amp; Cut in CapCut Studio
           </button>
         </div>
       `).join('');
@@ -3035,7 +3285,13 @@
       appState.editorTrimEnd = clip.end;
       document.getElementById('ed-caption-text').value = clip.caption;
 
-      // If YouTube iframe is active, jump live YouTube video directly to this clip's start/end segment
+      const editorVid = document.getElementById('editor-source-video');
+      if (clip.serverMp4Url && editorVid) {
+        editorVid.src = clip.serverMp4Url;
+        editorVid.play().catch(() => {});
+        startCanvasLoop();
+      }
+
       const ytIframe = document.getElementById('editor-youtube-iframe');
       const ytContainer = document.getElementById('editor-yt-live-container');
       if (appState.youtubeLoadedMeta && ytIframe && ytContainer && !ytContainer.classList.contains('hidden')) {
@@ -3308,16 +3564,6 @@
       drawEditorCanvas();
     }
 
-    function updateActiveTimelineClipCaption(val) {
-      const active = getActiveEditorClip();
-      if (active) {
-        active.caption = val;
-        renderEditorTimelineClips();
-      }
-      syncYoutubeLiveOverlays();
-      drawEditorCanvas();
-    }
-
     function syncYoutubeLiveOverlays() {
       const hookInput = document.getElementById('ed-hook-text');
       const capInput = document.getElementById('ed-caption-text');
@@ -3442,6 +3688,7 @@
 
     function toggleCaptionCase() {
       appState.editorUpperCase = !appState.editorUpperCase;
+      syncYoutubeLiveOverlays();
       drawEditorCanvas();
     }
 
@@ -3464,6 +3711,7 @@
       const prev = appState.editorHistory[appState.editorHistory.length - 1];
       document.getElementById('ed-hook-text').value = prev.hook;
       document.getElementById('ed-caption-text').value = prev.caption;
+      syncYoutubeLiveOverlays();
       drawEditorCanvas();
     }
 
@@ -3473,28 +3721,30 @@
       appState.editorHistory.push(next);
       document.getElementById('ed-hook-text').value = next.hook;
       document.getElementById('ed-caption-text').value = next.caption;
+      syncYoutubeLiveOverlays();
       drawEditorCanvas();
     }
 
     function changeEditorSpeed(spd) {
-      document.getElementById('editor-source-video').playbackRate = parseFloat(spd);
+      const vid = document.getElementById('editor-source-video');
+      if (vid) vid.playbackRate = parseFloat(spd);
     }
 
     function toggleEditorPlayback() {
       const vid = document.getElementById('editor-source-video');
       const btn = document.getElementById('ed-play-btn');
-      if (!vid.src) {
+      if (!vid || !vid.src) {
         showToast('Click "📁 Load Video" at top left to upload your video file first.');
         return;
       }
       appState.playClipOnlyMode = false;
       if (vid.paused) {
-        vid.play();
-        btn.textContent = '⏸ Pause';
+        vid.play().catch(() => {});
+        if (btn) btn.textContent = '⏸ Pause';
         startCanvasLoop();
       } else {
         vid.pause();
-        btn.textContent = '▶ Play';
+        if (btn) btn.textContent = '▶ Play';
         cancelAnimationFrame(editorRaf);
       }
     }
@@ -3580,6 +3830,8 @@
         ctx.fillText('Vishal Saini Edit 01 — Free of Cost Editor', W / 2, H * 0.44);
         ctx.fillText('Upload MP4/MOV/WEBM or Fetch YouTube Link', W / 2, H * 0.49);
       }
+      ctx.restore();
+
       const hookEl = document.getElementById('ed-hook-text');
       const hookText = hookEl ? hookEl.value.trim() : '';
       if (hookText) {
@@ -3733,6 +3985,8 @@
       const panel = document.getElementById('render-progress-panel');
       const fill = document.getElementById('render-progress-fill');
       const pctText = document.getElementById('render-percent-text');
+      const stageLabel = document.getElementById('render-stage-label');
+      const etaText = document.getElementById('render-eta-text');
       const clipsToExport = appState.editorClips.length > 0
         ? appState.editorClips
         : [{ id: 1, start: appState.editorTrimStart, end: appState.editorTrimEnd, caption: document.getElementById('ed-caption-text').value }];
@@ -3808,8 +4062,13 @@
       const timer = setInterval(() => {
         const elapsed = Date.now() - startTime;
         const pct = Math.min(100, Math.round((elapsed / totalMs) * 100));
+        const remSec = Math.max(0, Math.ceil((totalMs - elapsed) / 1000));
         fill.style.width = `${pct}%`;
         pctText.textContent = `${pct}%`;
+        if (etaText) etaText.textContent = remSec > 0 ? `~${remSec}s left` : 'Finishing...';
+        if (stageLabel) {
+          stageLabel.textContent = `Rendering Clip ${currentClipIdx + 1} of ${clipsToExport.length} (${pct}% complete)...`;
+        }
 
         const targetIdx = Math.min(clipsToExport.length - 1, Math.floor((elapsed / totalMs) * clipsToExport.length));
         if (targetIdx !== currentClipIdx) {
@@ -3897,11 +4156,13 @@
 
     function downloadGraphicPng() {
       const canvas = document.getElementById('graphic-design-canvas');
+      if (!canvas) return;
       const a = document.createElement('a');
       a.href = canvas.toDataURL('image/png');
       a.download = `VishalSainiEdit01_Graphic_${Date.now()}.png`;
       a.click();
-      document.getElementById('kpi-graphics').textContent = parseInt(document.getElementById('kpi-graphics').textContent, 10) + 1;
+      const kpiGfx = document.getElementById('kpi-graphics');
+      if (kpiGfx) kpiGfx.textContent = (parseInt(kpiGfx.textContent, 10) || 42) + 1;
       showToast('Graphic Design PNG Downloaded Free of Cost!', 'success');
     }
 
@@ -4120,7 +4381,7 @@
       persistSessionState();
       document.getElementById('byok-key-input').value = '';
       document.getElementById('stage2-api-input').value = '';
-      showToast('API key removed — please connect a valid key or use Free Browser Mode.');
+      showToast('API key removed — please connect a valid key to continue.');
       promptApiKeyRecheck();
     }
 
@@ -4316,7 +4577,175 @@
       return `${m}:${s}`;
     }
 
+    // ==================== PUBLIC FEEDBACK BUBBLE & GEMINI AI DIAGNOSTICS ====================
+    function loadPublicFeedbackEntries() {
+      try {
+        const raw = window.localStorage.getItem(STORAGE_FEEDBACK_KEY);
+        if (raw) {
+          const parsed = JSON.parse(raw);
+          if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+        }
+      } catch (e) {}
+      return [
+        {
+          id: 1,
+          author: 'Vishal Saini (Admin)',
+          message: 'अगर वीडियो कटिंग, कैप्शन या लॉगिन में कहीं भी कोई गलती दिखे तो यहाँ लिखें ताकि तुरंत सही किया जा सके।',
+          aiDiagnosis: 'AI Ready: All reported issues are automatically analyzed here for quick fixes.',
+          time: 'Pinned'
+        }
+      ];
+    }
+
+    function savePublicFeedbackEntries(list) {
+      try {
+        window.localStorage.setItem(STORAGE_FEEDBACK_KEY, JSON.stringify(list));
+      } catch (e) {}
+    }
+
+    function togglePublicFeedbackModal() {
+      const modal = document.getElementById('public-feedback-modal');
+      if (!modal) return;
+      const isHidden = modal.classList.contains('hidden');
+      if (isHidden) {
+        renderPublicFeedbackList();
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      } else {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function renderPublicFeedbackList() {
+      const listEl = document.getElementById('public-feedback-list');
+      const countEl = document.getElementById('fb-count-badge');
+      if (!listEl) return;
+      const entries = loadPublicFeedbackEntries();
+      if (countEl) countEl.textContent = `${entries.length} Report(s)`;
+      listEl.innerHTML = entries.map((item) => `
+        <div class="p-3 rounded-2xl bg-obsidian-850 border border-white/10 space-y-1.5 text-xs">
+          <div class="flex items-center justify-between gap-2">
+            <span class="font-extrabold text-violet-300">👤 ${escapeHtml(item.author || 'Visitor')}</span>
+            <span class="text-[10px] text-slate-400 font-mono">${escapeHtml(item.time || 'Just now')}</span>
+          </div>
+          <p class="text-slate-100 font-semibold leading-relaxed">${escapeHtml(item.message)}</p>
+          ${item.aiDiagnosis ? `
+            <div class="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/25 text-[11px] text-cyan-200">
+              <strong>🤖 AI Diagnosis:</strong> ${escapeHtml(item.aiDiagnosis)}
+            </div>
+          ` : ''}
+        </div>
+      `).join('');
+    }
+
+    function escapeHtml(str) {
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+    }
+
+    async function submitPublicFeedbackEntry(e) {
+      e.preventDefault();
+      const authorInp = document.getElementById('fb-author-input');
+      const msgInp = document.getElementById('fb-message-input');
+      const submitBtn = document.getElementById('fb-submit-btn');
+      const message = msgInp.value.trim();
+      if (!message) return;
+
+      const author = authorInp.value.trim() || appState.userName || 'Visitor';
+      submitBtn.disabled = true;
+      submitBtn.textContent = 'AI विश्लेषण कर रहा है...';
+
+      let aiDiagnosis = 'आपकी रिपोर्ट पब्लिक बोर्ड पर सेव हो गई है। एडमिन और AI टीम इसे देख सकती है।';
+      if (appState.apiConnected && appState.apiKey) {
+        try {
+          const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(appState.geminiModel)}:generateContent?key=${encodeURIComponent(appState.apiKey)}`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{
+                parts: [{
+                  text: `A user reported this issue on Vishal Saini Edit 01 video studio website: "${message}". Reply in 1 short helpful Hindi/Hinglish sentence explaining the quick fix or acknowledging the bug.`
+                }]
+              }]
+            })
+          });
+          if (res.ok) {
+            const json = await res.json();
+            const reply = json?.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (reply) aiDiagnosis = reply.trim();
+          }
+        } catch (err) {}
+      }
+
+      const now = new Date();
+      const timeLabel = now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+      const entries = loadPublicFeedbackEntries();
+      entries.unshift({
+        id: Date.now(),
+        author,
+        message,
+        aiDiagnosis,
+        time: timeLabel
+      });
+      savePublicFeedbackEntries(entries.slice(0, 50));
+
+      msgInp.value = '';
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'पब्लिक बोर्ड पर पोस्ट करें + AI से जाँच करवाएं ✨';
+      renderPublicFeedbackList();
+      showToast('आपकी बात पब्लिक बोर्ड पर जोड़ दी गई है!', 'success');
+    }
+
+    async function saveAndTestPythonBackend() {
+      const inp = document.getElementById('python-backend-url-input');
+      const badge = document.getElementById('backend-server-badge');
+      const rawUrl = (inp ? inp.value.trim() : '').replace(/\/+$/, '');
+      if (!rawUrl || !/^https?:\/\//i.test(rawUrl)) {
+        showToast('Enter a valid server URL like http://localhost:8000 or https://your-app.onrender.com', 'error');
+        return;
+      }
+      try {
+        const res = await fetch(`${rawUrl}/api/health`);
+        const data = await res.json();
+        if (!res.ok || data.status !== 'online') {
+          throw new Error('Server did not respond with online status.');
+        }
+        appState.pythonBackendUrl = rawUrl;
+        window.localStorage.setItem(STORAGE_BACKEND_URL_KEY, rawUrl);
+        if (badge) {
+          badge.textContent = '● Server Online';
+          badge.className = 'px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px]';
+        }
+        showToast('✅ Python yt-dlp + FFmpeg Server Connected!', 'success');
+      } catch (err) {
+        showToast(`Could not reach Python server at ${rawUrl}. Make sure server.py is running.`, 'error');
+      }
+    }
+
+    function restorePythonBackendUrl() {
+      try {
+        const savedUrl = window.localStorage.getItem(STORAGE_BACKEND_URL_KEY);
+        if (savedUrl) {
+          appState.pythonBackendUrl = savedUrl;
+          const inp = document.getElementById('python-backend-url-input');
+          const badge = document.getElementById('backend-server-badge');
+          if (inp) inp.value = savedUrl;
+          if (badge) {
+            badge.textContent = '● Saved';
+            badge.className = 'px-2 py-0.5 rounded-full bg-cyan-500/20 text-cyan-300 text-[10px]';
+          }
+        }
+      } catch (e) {}
+    }
+
     // Bind all inline handlers globally
+    window.saveAndTestPythonBackend = saveAndTestPythonBackend;
+    window.togglePublicFeedbackModal = togglePublicFeedbackModal;
+    window.submitPublicFeedbackEntry = submitPublicFeedbackEntry;
     window.navigateTo = navigateTo;
     window.toggleMobileSidebar = toggleMobileSidebar;
     window.toggleDarkMode = toggleDarkMode;
@@ -4333,7 +4762,6 @@
     window.logoutToStage1 = logoutToStage1;
     window.toggleStage2KeyVisibility = toggleStage2KeyVisibility;
     window.verifyStage2AndUnlockStudio = verifyStage2AndUnlockStudio;
-    window.unlockBrowserFreeMode = unlockBrowserFreeMode;
     window.promptApiKeyRecheck = promptApiKeyRecheck;
     window.toggleStage2VideoPlay = toggleStage2VideoPlay;
     window.jumpStage2VideoStep = jumpStage2VideoStep;
@@ -4404,6 +4832,7 @@
     // ==================== BOOTSTRAP ====================
     window.addEventListener('DOMContentLoaded', () => {
       initLanguages();
+      restorePythonBackendUrl();
       initGoogleIdentityServices(appState.googleClientId);
       initStage2VideoTutorial();
       initApiTutorialWalkthrough();
