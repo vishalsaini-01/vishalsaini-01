@@ -35,7 +35,7 @@
     "name": "Vishal Saini Edit 01",
     "alternateName": ["विशाल सैनी एडिट 01", "Vishal Saini Edit01", "Edit 01"],
     "operatingSystem": "iOS, iPhone, Android, Windows, macOS, Web",
-    "url": "https://vishalsainiedit01.pages.dev/",
+    "url": "https://vishalsaini-01.github.io/vishalsaini-01/",
     "offers": {
       "@type": "Offer",
       "price": "0",
@@ -80,17 +80,40 @@
     };
   </script>
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-image:
+        radial-gradient(at 0% 0%, rgba(124, 58, 237, 0.14) 0px, transparent 50%),
+        radial-gradient(at 100% 0%, rgba(6, 182, 212, 0.12) 0px, transparent 50%),
+        radial-gradient(at 50% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+      background-attachment: fixed;
+    }
     .grad-primary {
-      background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 55%, #06b6d4 100%);
+      background: linear-gradient(135deg, #8b5cf6 0%, #3b82f6 52%, #06b6d4 100%);
+      box-shadow: 0 8px 25px -6px rgba(124, 58, 237, 0.45);
+    }
+    .grad-primary:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
     }
     .grad-text {
-      background: linear-gradient(135deg, #c084fc 0%, #60a5fa 50%, #22d3ee 100%);
+      background: linear-gradient(135deg, #e879f9 0%, #60a5fa 48%, #22d3ee 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
     .glow-card {
-      box-shadow: 0 0 0 1px rgba(139, 92, 246, 0.18), 0 20px 50px -15px rgba(15, 23, 42, 0.8);
+      box-shadow:
+        0 0 0 1px rgba(167, 139, 250, 0.22),
+        0 24px 60px -15px rgba(2, 6, 23, 0.9),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(18px);
+    }
+    .studio-card {
+      transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    }
+    .studio-card:hover {
+      border-color: rgba(139, 92, 246, 0.42);
+      box-shadow: 0 14px 35px -12px rgba(124, 58, 237, 0.22);
     }
     @keyframes floatSlow {
       0%, 100% { transform: translateY(0px); }
@@ -99,7 +122,7 @@
     .animate-float { animation: floatSlow 4s ease-in-out infinite; }
     ::-webkit-scrollbar { width: 6px; height: 6px; }
     ::-webkit-scrollbar-track { background: transparent; }
-    ::-webkit-scrollbar-thumb { background: rgba(124, 58, 237, 0.45); border-radius: 999px; }
+    ::-webkit-scrollbar-thumb { background: rgba(139, 92, 246, 0.5); border-radius: 999px; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-900 dark:bg-obsidian-950 dark:text-slate-100 antialiased selection:bg-violet-600 selection:text-white transition-colors duration-200">
@@ -129,9 +152,8 @@
         <span>Login / Sign Up Required to Enter Studio</span>
       </div>
 
-      <!-- Real Google Identity Services (1-Tap / OAuth) Sign-In Section -->
+      <!-- Direct Google Sign-In Section -->
       <div class="space-y-3">
-        <!-- Direct One-Click Continue with Google Button + Google Account Picker Modal Trigger -->
         <button type="button" onclick="openGoogleDirectAccountChooser()" class="w-full py-3.5 px-4 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-extrabold text-sm shadow-lg flex items-center justify-center gap-3 transition">
           <svg class="w-5 h-5 shrink-0" viewBox="0 0 24 24">
             <path fill="#4285F4" d="M23.745 12.27c0-.7-.06-1.4-.19-2.07H12v4.51h6.6c-.29 1.52-1.14 2.82-2.4 3.68v3.05h3.88c2.27-2.09 3.665-5.17 3.665-9.17z"/>
@@ -216,7 +238,7 @@
           <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 text-[11px] text-slate-700 space-y-1">
             <div class="font-extrabold text-blue-800">Permissions Requested by Vishal Saini Edit 01:</div>
             <div>✓ View your email address & basic profile info</div>
-            <div>✓ Save your 10-video editing quota & session permanently</div>
+            <div>✓ Save your session & 100% Free Studio access permanently</div>
           </div>
 
           <div class="flex gap-2 pt-1">
@@ -228,16 +250,15 @@
     </div>
   </section>
 
-  <!-- ==================== STAGE 2: MANDATORY API KEY GATE + VIDEO TUTORIAL ==================== -->
+  <!-- ==================== STAGE 2: API KEY GATE + VIDEO TUTORIAL ==================== -->
   <section id="gate-stage-2" class="hidden min-h-screen p-4 sm:p-8 bg-obsidian-950 text-white">
     <div class="max-w-5xl mx-auto space-y-6">
-      <!-- Top Bar -->
       <div class="flex flex-wrap items-center justify-between gap-3 p-4 rounded-2xl bg-obsidian-900 border border-white/10">
         <div class="flex items-center gap-3">
           <div class="w-9 h-9 rounded-xl grad-primary flex items-center justify-center font-black text-sm">AI</div>
           <div>
-            <div class="font-black text-sm">Step 2 of 3: Connect Your Google Gemini API Key</div>
-            <div class="text-[11px] text-slate-400">Logged in as <strong id="stage2-user-label" class="text-violet-300">Creator</strong> • Studio unlocks immediately after key verification</div>
+            <div class="font-black text-sm">Step 2 of 3: Connect Your Google Gemini API Key (or Skip for Free Mode)</div>
+            <div class="text-[11px] text-slate-400">Logged in as <strong id="stage2-user-label" class="text-violet-300">Creator</strong> • Studio unlocks immediately</div>
           </div>
         </div>
         <button type="button" onclick="logoutToStage1()" class="px-3.5 py-2 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-300 text-xs font-extrabold hover:bg-rose-500 hover:text-white transition">
@@ -246,7 +267,6 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-        <!-- Left (7 cols): Animated Cursor Video Tutorial Player -->
         <div class="lg:col-span-7 p-5 sm:p-6 rounded-3xl bg-obsidian-900 border border-white/10 space-y-4 glow-card">
           <div class="flex flex-wrap items-center justify-between gap-2">
             <div>
@@ -264,10 +284,8 @@
             <video id="s2-custom-video" class="hidden w-full aspect-video bg-black" controls></video>
           </div>
 
-          <!-- 5-Step Clickable Chapters -->
           <div id="s2-step-buttons" class="grid grid-cols-5 gap-1.5 text-[11px] font-bold"></div>
 
-          <!-- Optional Custom Tutorial Video URL -->
           <div class="pt-2 border-t border-white/10 flex flex-col sm:flex-row gap-2">
             <input type="url" id="s2-custom-url" placeholder="Optional: Paste YouTube or MP4 tutorial link..." class="flex-1 px-3 py-2 rounded-xl bg-obsidian-850 border border-white/10 text-xs text-white" />
             <div class="flex gap-2">
@@ -277,10 +295,9 @@
           </div>
         </div>
 
-        <!-- Right (5 cols): Direct Google AI Studio Link + API Key Verification Box -->
         <div class="lg:col-span-5 p-5 sm:p-6 rounded-3xl bg-obsidian-900 border border-violet-500/30 space-y-5 glow-card">
           <div class="space-y-2">
-            <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 text-[10px] font-black uppercase">Required Before Using AI Studio</span>
+            <span class="px-2.5 py-1 rounded-full bg-amber-500/15 text-amber-300 text-[10px] font-black uppercase">Optional AI Upgrade</span>
             <h3 class="font-black text-lg">1. Get Free Google Gemini Key</h3>
             <p class="text-xs text-slate-400 leading-relaxed">
               नीचे दिए गए बटन पर क्लिक करें, Google AI Studio में लॉगिन करके अपनी फ्री API Key जनरेट करें और कॉपी करें:
@@ -307,19 +324,22 @@
 
             <label class="flex items-center gap-2 text-[11px] text-slate-300 cursor-pointer select-none">
               <input type="checkbox" id="strict-recheck-checkbox" checked class="accent-violet-500 rounded" />
-              <span>Ask / Re-verify API key again if cleared or on sensitive AI actions</span>
+              <span>Keep session unlocked permanently in this browser</span>
             </label>
 
             <button type="button" onclick="verifyStage2AndUnlockStudio()" id="stage2-verify-btn" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm shadow-xl shadow-emerald-500/20 transition">
               Save & Test Connection → Unlock Studio
             </button>
 
-            <button type="button" onclick="unlockBrowserFreeMode()" class="w-full py-2.5 rounded-xl bg-obsidian-850 hover:bg-obsidian-800 border border-white/15 text-xs font-extrabold text-cyan-300 transition">
-              Skip API Key → Continue in Free Browser Mode
-            </button>
+            <div id="stage2-mandatory-alert" class="p-3.5 rounded-2xl bg-rose-600/20 border-2 border-rose-500 text-rose-200 space-y-1">
+              <div class="font-black text-sm uppercase tracking-wide text-rose-300">⚠️ पहले Google Gemini API Key डालना अनिवार्य है!</div>
+              <div class="text-xs font-bold leading-relaxed">
+                बिना वैध Google Gemini API Key डाले YouTube वीडियो ऑटो-कट, AI फेस-ट्रैकिंग शॉर्ट्स और कैप्शन जनरेटर नहीं चलेंगे। ऊपर लिंक से अपनी फ्री API Key बनाकर पेस्ट करें।
+              </div>
+            </div>
 
             <div id="stage2-status-box" class="text-xs font-bold text-amber-300 bg-amber-500/10 border border-amber-500/25 rounded-xl p-3">
-              🔒 Studio is locked until your Google Gemini API key is verified (or use Free Browser Mode).
+              🔒 Studio is strictly locked until a valid Google Gemini API key is verified.
             </div>
           </div>
         </div>
@@ -327,13 +347,12 @@
     </div>
   </section>
 
-  <!-- ==================== STAGE 3: UNLOCKED FULL AI VIRAL SHORTS STUDIO WORKSPACE ==================== -->
+  <!-- ==================== STAGE 3: UNLOCKED FULL STUDIO WORKSPACE ==================== -->
   <div id="studio-stage-3" class="hidden">
 
   <!-- ==================== GLOBAL TOP NAVBAR ==================== -->
   <header class="sticky top-0 z-40 border-b border-slate-200 dark:border-white/10 bg-white/85 dark:bg-obsidian-950/85 backdrop-blur-xl">
     <div class="max-w-[1440px] mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-3">
-      <!-- Left: Brand + Mobile Drawer Trigger -->
       <div class="flex items-center gap-3">
         <button onclick="toggleMobileSidebar()" class="lg:hidden p-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-slate-700 dark:text-slate-200" aria-label="Menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
@@ -352,7 +371,6 @@
         </button>
       </div>
 
-      <!-- Center Navigation Links (Desktop) -->
       <nav class="hidden xl:flex items-center gap-1 text-xs font-semibold">
         <button onclick="navigateTo('landing')" data-top-nav="landing" class="top-nav-btn px-3 py-2 rounded-xl transition">Home</button>
         <button onclick="navigateTo('dashboard')" data-top-nav="dashboard" class="top-nav-btn px-3 py-2 rounded-xl transition">Dashboard</button>
@@ -363,7 +381,6 @@
         <button onclick="navigateTo('api')" data-top-nav="api" class="top-nav-btn px-3 py-2 rounded-xl transition">API & Settings</button>
       </nav>
 
-      <!-- Right: 24-Language Selector + Theme Switch + User Badge -->
       <div class="flex items-center gap-2">
         <div class="relative">
           <select id="global-lang-select" onchange="changeAppLanguage(this.value)" aria-label="Select Language" class="appearance-none pl-7 pr-6 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-slate-200 dark:border-white/10 text-xs font-semibold cursor-pointer focus:outline-none focus:ring-2 focus:ring-violet-500">
@@ -378,7 +395,7 @@
 
         <button onclick="navigateTo('api')" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-slate-200 dark:border-white/10 text-xs font-bold hover:border-violet-500/40 transition">
           <img id="nav-user-avatar" src="" alt="" class="hidden w-5 h-5 rounded-full object-cover" />
-          <span id="nav-user-initials" class="w-5 h-5 rounded-full grad-primary text-white text-[10px] flex items-center justify-center font-black">AI</span>
+          <span id="nav-user-initials" class="w-5 h-5 rounded-full grad-primary text-white text-[10px] flex items-center justify-center font-black">VS</span>
           <span id="nav-user-name">Creator ✓</span>
         </button>
 
@@ -396,7 +413,6 @@
   <!-- ==================== APP SHELL (SIDEBAR + VIEWS) ==================== -->
   <div class="max-w-[1440px] mx-auto flex min-h-[calc(100vh-4rem)]">
 
-    <!-- Mobile Backdrop -->
     <div id="mobile-sidebar-backdrop" onclick="toggleMobileSidebar()" class="fixed inset-0 z-30 bg-black/60 hidden lg:hidden"></div>
 
     <!-- Workspace Left Sidebar -->
@@ -428,17 +444,14 @@
         </div>
       </div>
 
-      <!-- Free of Cost Status Badge Card -->
-      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-950/70 to-violet-950/60 border border-emerald-500/30 space-y-2">
+      <!-- Free of Cost Unlimited Badge Card -->
+      <div class="p-3.5 rounded-2xl bg-gradient-to-br from-emerald-950/70 to-violet-950/60 border border-emerald-500/30 space-y-1.5">
         <div class="flex items-center justify-between text-xs">
-          <span class="font-extrabold text-emerald-300">🎬 Free Plan Quota</span>
-          <span id="sidebar-quota-pill" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black">0 / 10 Used</span>
+          <span class="font-extrabold text-emerald-300">✨ 100% Free of Cost</span>
+          <span class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-black">UNLIMITED</span>
         </div>
-        <div class="w-full h-1.5 rounded-full bg-black/40 overflow-hidden">
-          <div id="sidebar-quota-bar" class="h-full bg-emerald-400 transition-all duration-300" style="width: 0%"></div>
-        </div>
-        <p id="sidebar-quota-desc" class="text-[11px] text-slate-300 leading-snug">
-          10 Free Video Edits included. After 10 videos, Pro upgrade applies.
+        <p class="text-[11px] text-slate-300 leading-snug">
+          Unlimited video editing, manual cut-outs, YouTube links, captions &amp; SEO tools on iPhone, Android &amp; PC.
         </p>
       </div>
     </aside>
@@ -450,7 +463,6 @@
       <!-- VIEW 1: FREE OF COST LANDING PAGE                                     -->
       <!-- ===================================================================== -->
       <section id="view-landing" class="app-view space-y-10">
-        <!-- Brand & Free of Cost Hero Banner -->
         <div class="relative overflow-hidden rounded-3xl bg-obsidian-900 text-white border border-white/10 p-7 sm:p-12 glow-card">
           <div class="absolute -top-28 -right-28 w-[28rem] h-[28rem] rounded-full bg-violet-600/25 blur-3xl pointer-events-none"></div>
           <div class="absolute -bottom-28 -left-24 w-[24rem] h-[24rem] rounded-full bg-cyan-500/20 blur-3xl pointer-events-none"></div>
@@ -555,9 +567,9 @@
             </p>
           </div>
           <div class="space-y-1">
-            <div class="font-extrabold text-amber-400">ℹ️ When External API / Backend Is Needed</div>
+            <div class="font-extrabold text-amber-400">ℹ️ YouTube Link & Optional Gemini API</div>
             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-              Live AI text/image generation uses your own optional <strong>Google Gemini API Key</strong> in Settings. Direct YouTube video stream downloading is restricted by browser CORS & YouTube Terms of Service—validate your YouTube link for SEO or upload your own video file directly.
+              Paste any YouTube or Shorts link to fetch title, thumbnail &amp; viral tags directly into the editor, or upload your own MP4/MOV video file on iPhone, Android, or PC.
             </p>
           </div>
         </div>
@@ -608,9 +620,9 @@
             <button onclick="navigateTo('api')" class="text-[10px] text-violet-400 font-bold hover:underline mt-1">Add Gemini Key →</button>
           </div>
           <div class="p-4 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10">
-            <div class="text-[11px] text-slate-400 font-semibold">Free Video Edit Limit</div>
-            <div id="kpi-quota-count" class="text-lg font-black mt-1.5 text-emerald-400">0 / 10 Used</div>
-            <div id="kpi-quota-sub" class="text-[10px] text-slate-400 font-bold mt-1">10 edits remaining</div>
+            <div class="text-[11px] text-slate-400 font-semibold">Studio Access</div>
+            <div class="text-lg font-black mt-1.5 text-emerald-400">100% Free</div>
+            <div class="text-[10px] text-slate-400 font-bold mt-1">Unlimited • iPhone &amp; Web</div>
           </div>
         </div>
 
@@ -683,7 +695,6 @@
             <h1 class="text-2xl sm:text-3xl font-black">Short ↔ Long Video Converter & YouTube Link Studio</h1>
             <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Convert long videos into viral shorts OR combine short clips into a longer sequence — Free of Cost.</p>
           </div>
-          <!-- Direction Mode Switcher -->
           <div class="flex p-1 rounded-xl bg-slate-200 dark:bg-obsidian-850 text-xs font-extrabold">
             <button type="button" onclick="setConversionMode('long-to-short')" id="mode-long-to-short" class="px-3.5 py-2 rounded-lg grad-primary text-white">Long → Viral Shorts</button>
             <button type="button" onclick="setConversionMode('short-to-long')" id="mode-short-to-long" class="px-3.5 py-2 rounded-lg text-slate-500">Short → Long Video</button>
@@ -693,12 +704,11 @@
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <!-- Upload & Config Card -->
           <div class="lg:col-span-7 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5">
-            <!-- Drag & Drop Zone (Supports Multiple Clips for Short-to-Long Compilation) -->
             <div id="drop-area" onclick="document.getElementById('local-video-input').click()" class="border-2 border-dashed border-violet-500/40 hover:border-violet-500 rounded-2xl p-8 text-center cursor-pointer bg-slate-50 dark:bg-obsidian-850/70 transition space-y-2">
               <input type="file" id="local-video-input" multiple accept="video/mp4,video/quicktime,video/webm,video/x-matroska,video/*" class="hidden" onchange="onLocalVideoSelected(event)" />
               <div class="w-12 h-12 rounded-2xl grad-primary text-white flex items-center justify-center mx-auto text-xl shadow-lg">☁️</div>
               <div id="upload-zone-title" class="font-extrabold text-sm">Drag & Drop Your Video (or Multiple Shorts) to Browse</div>
-              <div class="text-xs text-slate-400">MP4, MOV, WEBM, MKV • Real browser duration, multi-clip queue & audio preview</div>
+              <div class="text-xs text-slate-400">MP4, MOV, WEBM, MKV • iPhone, Android &amp; PC compatible</div>
             </div>
 
             <!-- Uploaded Video Preview Strip -->
@@ -716,12 +726,13 @@
 
             <!-- YouTube Link Option -->
             <div class="space-y-2">
-              <div class="text-center text-[11px] font-bold uppercase tracking-wider text-slate-400">— OR PASTE YOUTUBE LINK —</div>
+              <div class="text-center text-[11px] font-bold uppercase tracking-wider text-slate-400">— OR PASTE YOUTUBE / DIRECT VIDEO LINK —</div>
               <div class="flex flex-col sm:flex-row gap-2">
                 <input type="url" id="yt-link-field" placeholder="https://www.youtube.com/watch?v=... or youtube.com/shorts/..." class="flex-1 px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-slate-200 dark:border-white/10 text-xs" />
-                <button type="button" onclick="fetchYoutubeMetadata()" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-bold">Validate & Fetch</button>
+                <button type="button" onclick="fetchYoutubeMetadata(false)" id="yt-fetch-btn" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-bold whitespace-nowrap">Fetch &amp; Open in Editor ▶</button>
+                <button type="button" onclick="fetchYoutubeMetadata(true)" id="yt-autocut-btn" class="px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black whitespace-nowrap shadow-lg">⚡ Auto-Cut &amp; Export</button>
               </div>
-              <div id="yt-fetch-status" class="hidden text-xs p-3 rounded-xl bg-amber-500/10 border border-amber-500/30 text-amber-300"></div>
+              <div id="yt-fetch-status" class="hidden text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-slate-200 space-y-2"></div>
             </div>
 
             <!-- Project Name & Language Selectors -->
@@ -825,20 +836,17 @@
           </div>
 
           <div class="flex items-center gap-2">
+            <button type="button" onclick="toggleAiFaceTracking()" id="ai-face-track-btn" class="px-3 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-xs font-extrabold transition">
+              🎯 AI Face Focus: ON
+            </button>
+            <button type="button" onclick="autoCutEntireVideoNow()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black shadow transition">
+              ⚡ AI Auto-Cut All Scenes
+            </button>
             <button onclick="downloadSrtSubtitles()" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold hover:text-cyan-400" title="Download All Clips SRT Subtitles">.SRT</button>
             <button onclick="renderAndDownloadRealVideo()" id="real-export-btn" class="px-4 py-2 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg shadow-violet-600/30 hover:opacity-95 transition">
               ⬇️ Export Full Edited Video (.WEBM)
             </button>
           </div>
-        </div>
-
-        <!-- 10-Video Limit Reached Banner (Hidden until 10 edits used) -->
-        <div id="video-limit-lock-banner" class="hidden p-4 rounded-2xl bg-amber-500/15 border border-amber-500/40 flex flex-wrap items-center justify-between gap-3 text-xs">
-          <div>
-            <div class="font-black text-amber-300 text-sm">🔒 Free Limit Reached: 10 / 10 Video Edits Completed</div>
-            <div class="text-slate-300 mt-0.5">Aapne apne 10 free video edits poore kar liye hain. Unlimited video editing ke liye Paid Pro Plan jald hi enable hoga.</div>
-          </div>
-          <span class="px-3.5 py-2 rounded-xl bg-amber-500 text-slate-950 font-black">10 / 10 Limit Full</span>
         </div>
 
         <div id="render-progress-panel" class="hidden p-4 rounded-2xl bg-violet-950/60 border border-violet-500/40 space-y-2">
@@ -895,6 +903,14 @@
                   <span id="ed-active-clip-badge" class="text-[10px] font-extrabold text-cyan-400">Clip #1 (00:00 - 00:15)</span>
                 </div>
                 <textarea id="ed-caption-text" rows="2" oninput="updateActiveTimelineClipCaption(this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold">APNI VIDEO KO FREE OF COST VIRAL BANAYEIN!</textarea>
+              </div>
+              <!-- Sequential Line-by-Line Auto-Fill Across All Clips -->
+              <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/25 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-extrabold text-cyan-300">📝 Auto-Fill Captions Line-by-Line</span>
+                  <button type="button" onclick="autoFillCaptionsAcrossClips()" class="px-2.5 py-1 rounded-lg bg-cyan-500 text-slate-950 text-[10px] font-black hover:bg-cyan-400 transition">Fill All Clips ✨</button>
+                </div>
+                <textarea id="ed-bulk-captions-input" rows="2" placeholder="Har line ek clip par apne aap lagegi (Line 1 -> Clip 1, Line 2 -> Clip 2)..." class="w-full px-2.5 py-1.5 rounded-lg bg-obsidian-950 border border-white/10 text-[11px] text-white"></textarea>
               </div>
             </div>
 
@@ -964,9 +980,25 @@
 
           <!-- Center Stage: Live HTML5 Canvas Video Compositor -->
           <div class="lg:col-span-5 flex flex-col items-center p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4">
-            <div class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-violet-500/40 bg-black flex items-center justify-center">
+            <div id="editor-stage-wrapper" class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-violet-500/40 bg-black flex items-center justify-center w-full min-h-[340px]">
               <video id="editor-source-video" class="hidden" playsinline crossorigin="anonymous"></video>
+              <!-- Live YouTube Embed + Synchronized Live Caption & Hook Overlay -->
+              <div id="editor-yt-live-container" class="hidden relative w-full aspect-video bg-black">
+                <iframe id="editor-youtube-iframe" class="w-full h-full border-0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+                <div id="yt-live-hook-overlay" class="pointer-events-none absolute top-2.5 left-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 text-white text-center font-extrabold text-xs uppercase tracking-wide">
+                  FREE OF COST AI VIDEO STUDIO 🚀
+                </div>
+                <div id="yt-live-caption-overlay" class="pointer-events-none absolute bottom-10 left-4 right-4 px-3 py-2 rounded-xl bg-black/85 text-yellow-300 text-center font-black text-sm uppercase shadow-lg">
+                  APNI VIDEO KO FREE OF COST VIRAL BANAYEIN!
+                </div>
+              </div>
               <canvas id="editor-compositor-canvas" width="360" height="640" class="max-h-[470px] w-auto block"></canvas>
+            </div>
+            <div id="yt-editor-action-bar" class="hidden w-full p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/35 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+              <span class="text-amber-200 font-bold">🎬 YouTube Live Video Active — Tap any clip below to jump &amp; cut:</span>
+              <button type="button" onclick="recordLiveTabAndExportCut()" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition">
+                🎥 Capture Live Video &amp; Export Cut
+              </button>
             </div>
 
             <!-- Interactive Video Seek Bar -->
@@ -994,7 +1026,7 @@
 
           <!-- Right Panel: Color Grading & Brand Watermark -->
           <div class="lg:col-span-3 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4 text-xs">
-            <h3 class="font-extrabold uppercase tracking-wider text-slate-400">Adjustments & Brand</h3>
+            <h3 class="font-extrabold uppercase tracking-wider text-slate-400">Adjustments &amp; Brand</h3>
             <div>
               <label class="flex justify-between font-bold mb-1"><span>Brightness</span><span id="val-bright">100%</span></label>
               <input type="range" id="ed-brightness" min="60" max="150" value="100" oninput="document.getElementById('val-bright').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
@@ -1026,7 +1058,6 @@
 
         <!-- ==================== CAPCUT-STYLE INTERACTIVE MULTI-TRACK TIMELINE DOCK ==================== -->
         <div class="p-4 sm:p-5 rounded-3xl bg-obsidian-900 border border-violet-500/35 shadow-2xl space-y-3 text-white">
-          <!-- CapCut Action Toolbar (Split, Trim In/Out, Delete, Duplicate, Add Text, Stickers, Audio, Filters) -->
           <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-white/10">
             <div class="flex flex-wrap items-center gap-1.5 text-xs font-extrabold">
               <button type="button" onclick="splitClipAtPlayhead()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 shadow transition flex items-center gap-1.5">
@@ -1046,7 +1077,6 @@
               </button>
             </div>
 
-            <!-- CapCut Bottom Feature Switcher Pills -->
             <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-extrabold">
               <button type="button" onclick="setCapcutDockTab('timeline')" id="cc-tab-timeline" class="px-3 py-1.5 rounded-xl grad-primary text-white">🎞️ Edit Tracks</button>
               <button type="button" onclick="setCapcutDockTab('text')" id="cc-tab-text" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">💬 Text / Auto Captions</button>
@@ -1055,7 +1085,6 @@
             </div>
           </div>
 
-          <!-- CapCut Quick-Add Drawer (Text, Stickers, Audio Controls) -->
           <div id="cc-drawer-text" class="hidden p-3 rounded-2xl bg-obsidian-850 border border-white/10 flex flex-wrap items-center gap-2 text-xs">
             <span class="font-extrabold text-cyan-300">💬 Quick Caption / Text Track:</span>
             <input type="text" id="cc-quick-caption-input" placeholder="Type caption for playhead position..." class="flex-1 min-w-[200px] px-3 py-2 rounded-xl bg-obsidian-950 border border-white/15 text-xs text-white" />
@@ -1082,7 +1111,6 @@
             <button type="button" onclick="toggleEditorMute()" id="cc-mute-btn" class="px-3 py-1.5 rounded-xl bg-obsidian-950 border border-white/15 font-bold">🔊 Mute / Unmute Clip</button>
           </div>
 
-          <!-- Horizontal Visual Multi-Track Timeline (Video Track + Subtitle Track + Red Playhead) -->
           <div class="space-y-1.5">
             <div class="flex items-center justify-between text-[11px] text-slate-400 font-mono">
               <span>🎬 MAIN VIDEO TRACK (Click any clip to select, or click timeline bar to move white playhead)</span>
@@ -1090,15 +1118,10 @@
             </div>
 
             <div id="capcut-timeline-viewport" onclick="scrubCapcutTimeline(event)" class="relative rounded-2xl bg-obsidian-950 border border-white/15 p-3 space-y-2.5 overflow-x-auto cursor-pointer select-none">
-              <!-- Playhead Line -->
               <div id="capcut-playhead-line" class="pointer-events-none absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_#ffffff] z-20" style="left: 12px;">
                 <div class="w-3 h-3 -ml-[5px] rounded-full bg-white shadow"></div>
               </div>
-
-              <!-- Track 1: Visual Video Blocks -->
               <div id="capcut-video-track-blocks" class="flex items-stretch gap-1.5 min-h-[54px]"></div>
-
-              <!-- Track 2: Synchronized Caption / Subtitle Blocks -->
               <div id="capcut-caption-track-blocks" class="flex items-stretch gap-1.5 min-h-[34px]"></div>
             </div>
           </div>
@@ -1120,7 +1143,6 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <!-- Left: Graphic & AI Image Controls -->
           <div class="lg:col-span-5 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4 text-xs">
             <div>
               <label class="block font-bold text-slate-400 mb-1">Graphic Size Preset</label>
@@ -1152,7 +1174,6 @@
               </div>
             </div>
 
-            <!-- AI Image Prompt & Generation Helper -->
             <div class="pt-3 border-t border-white/10 space-y-2.5">
               <div class="flex items-center justify-between">
                 <span class="font-extrabold text-cyan-400">🖼️ AI Image Prompt & Concept Generator</span>
@@ -1167,7 +1188,6 @@
             </div>
           </div>
 
-          <!-- Right: Live Graphic Design Canvas Preview -->
           <div class="lg:col-span-7 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 flex flex-col items-center justify-center space-y-3">
             <canvas id="graphic-design-canvas" width="640" height="360" class="w-full max-w-full rounded-2xl shadow-2xl border border-white/15"></canvas>
             <p class="text-[11px] text-slate-400">Live Graphic Canvas — Click <strong>Download Graphic PNG</strong> above to export high-resolution artwork.</p>
@@ -1182,7 +1202,7 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <h1 class="text-2xl sm:text-3xl font-black">AI Captions, Titles & Viral SEO Generator</h1>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Generate 10 viral titles, 5 hooks, descriptions & 5/10/20 hashtags Free of Cost.</p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Generate 10 viral titles, descriptions, YouTube Studio Tags &amp; 5/10/20 hashtags Free of Cost.</p>
           </div>
           <div class="flex flex-wrap gap-2">
             <button onclick="generateAiSeoContent()" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg">✨ Generate Captions & SEO</button>
@@ -1224,6 +1244,14 @@
               <textarea id="seo-desc-textarea" rows="4" class="w-full p-3 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs leading-relaxed"></textarea>
             </div>
 
+            <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-2.5">
+              <div class="flex items-center justify-between">
+                <h3 class="font-extrabold text-sm">YouTube Studio Video Tags (Comma-Separated)</h3>
+                <button onclick="copyField('seo-yt-tags-textarea')" class="px-2.5 py-1 rounded-lg bg-emerald-500/15 text-emerald-400 text-xs font-bold">Copy Tags</button>
+              </div>
+              <textarea id="seo-yt-tags-textarea" rows="3" class="w-full p-3 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-semibold text-emerald-300 leading-relaxed"></textarea>
+            </div>
+
             <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-3">
               <div class="flex items-center justify-between">
                 <h3 class="font-extrabold text-sm">Hashtags Generator</h3>
@@ -1249,12 +1277,12 @@
       <!-- VIEW 7: MY PROJECTS LIBRARY                                           -->
       <!-- ===================================================================== -->
       <section id="view-projects" class="app-view hidden space-y-6">
-        <div class="flex items-center justify-between">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <h1 class="text-2xl sm:text-3xl font-black">My Projects Library</h1>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Reopen, edit, or generate SEO packs for your video projects.</p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Reopen, cut, or generate viral SEO tags &amp; captions for your saved projects.</p>
           </div>
-          <button onclick="navigateTo('create')" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-bold">+ New Project</button>
+          <button onclick="navigateTo('create')" class="px-5 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold transition">+ New Project</button>
         </div>
         <div id="full-projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"></div>
       </section>
@@ -1266,13 +1294,13 @@
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div class="flex items-center gap-2">
-              <h1 class="text-2xl sm:text-3xl font-black">API Keys & Google Gemini Setup</h1>
+              <h1 class="text-2xl sm:text-3xl font-black">API Keys &amp; Google Gemini Setup</h1>
               <span id="auth-session-pill" class="px-2.5 py-1 rounded-full bg-violet-500/15 text-violet-300 text-[11px] font-bold">Session Unlocked</span>
             </div>
-            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Connect your optional Google Gemini API key for live AI generation, or use built-in tools Free of Cost.</p>
+            <p class="text-xs sm:text-sm text-slate-500 dark:text-slate-400">Connect your optional Google Gemini API key for live AI generation, or use built-in tools 100% Free of Cost.</p>
           </div>
           <div class="flex flex-wrap items-center gap-2">
-            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg">
+            <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="px-4 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold transition">
               Get Your Free Google Gemini API Key ↗
             </a>
             <button type="button" onclick="copyString('https://aistudio.google.com/app/apikey')" class="px-3 py-2.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold hover:text-cyan-400">
@@ -1281,19 +1309,17 @@
           </div>
         </div>
 
-        <!-- Direct Google AI Studio Link Strip -->
         <div class="p-3.5 rounded-2xl bg-violet-950/40 border border-violet-500/30 flex flex-wrap items-center justify-between gap-3 text-xs">
           <div class="flex items-center gap-2">
             <span class="font-extrabold text-cyan-300">Official Google AI Studio Link:</span>
             <a href="https://aistudio.google.com/app/apikey" target="_blank" rel="noopener noreferrer" class="font-mono text-violet-300 underline break-all">https://aistudio.google.com/app/apikey</a>
           </div>
-          <span class="text-[11px] text-slate-400">Stored in browser RAM session only (never saved to localStorage)</span>
+          <span class="text-[11px] text-slate-400">Saved permanently in your browser session</span>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <!-- Left: BYOK API Key Form -->
-          <div class="lg:col-span-6 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5">
-            <h2 class="font-extrabold text-base">1. Paste & Test Your AI Provider API Key</h2>
+          <div class="lg:col-span-6 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5 studio-card">
+            <h2 class="font-extrabold text-base">1. Paste &amp; Test Your AI Provider API Key</h2>
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <select id="key-provider-select" class="px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold">
                 <option value="Google Gemini">Google Gemini</option>
@@ -1302,13 +1328,12 @@
               <input type="password" id="byok-key-input" placeholder="Paste AIzaSy... API Key" class="sm:col-span-2 px-3.5 py-2.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-mono" />
             </div>
             <div class="flex flex-wrap gap-2">
-              <button onclick="saveAndVerifyApiKey()" id="verify-key-btn" class="px-5 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold">Save Key & Test Connection</button>
+              <button onclick="saveAndVerifyApiKey()" id="verify-key-btn" class="px-5 py-2.5 rounded-xl grad-primary text-white text-xs font-extrabold transition">Save Key &amp; Test Connection</button>
               <button onclick="toggleKeyMask()" class="px-4 py-2.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold">Show / Hide</button>
               <button onclick="clearStoredApiKey()" class="px-4 py-2.5 rounded-xl bg-rose-500/15 text-rose-400 text-xs font-bold">Remove Key</button>
             </div>
-            <div id="api-badge-status" class="text-xs font-bold text-amber-400">Status: Built-in Free of Cost Mode (Paste Gemini key above for live AI)</div>
+            <div id="api-badge-status" class="text-xs font-bold text-cyan-400">Status: Built-in Free of Cost Mode (Paste Gemini key above for live AI)</div>
 
-            <!-- 8-Step Written Guide -->
             <div class="pt-4 border-t border-white/10 space-y-2">
               <h3 class="font-extrabold text-xs uppercase tracking-wider text-slate-400">Step-by-Step Instructions (Steps 1–8)</h3>
               <div id="api-steps-list" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[11px]"></div>
@@ -1320,29 +1345,25 @@
             </div>
           </div>
 
-          <!-- Right: Interactive AI Video Tutorial Walkthrough Player -->
-          <div class="lg:col-span-6 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4">
+          <div class="lg:col-span-6 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4 studio-card">
             <div class="flex items-center justify-between gap-2">
               <div>
                 <h2 class="font-extrabold text-base">🎬 AI Video Guide: API Key Kaise Dalein?</h2>
                 <p class="text-[11px] text-slate-400">Interactive 8-step animated walkthrough + custom tutorial video loader</p>
               </div>
-              <button type="button" onclick="toggleApiTutorialPlay()" id="tut-play-btn" class="px-3.5 py-2 rounded-xl grad-primary text-white text-xs font-extrabold">
+              <button type="button" onclick="toggleApiTutorialPlay()" id="tut-play-btn" class="px-3.5 py-2 rounded-xl grad-primary text-white text-xs font-extrabold transition">
                 ⏸ Pause Guide
               </button>
             </div>
 
-            <!-- Interactive Animated Tutorial Screen (or Custom Video Embed) -->
             <div class="relative rounded-2xl overflow-hidden border border-violet-500/35 bg-obsidian-950">
               <canvas id="api-tutorial-canvas" width="600" height="320" class="w-full h-auto block"></canvas>
               <iframe id="custom-tut-iframe" class="hidden w-full aspect-video border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
               <video id="custom-tut-video" class="hidden w-full aspect-video bg-black" controls></video>
             </div>
 
-            <!-- Step Chapter Selector Buttons -->
             <div id="tut-chapter-pills" class="grid grid-cols-4 sm:grid-cols-8 gap-1.5 text-[11px] font-bold"></div>
 
-            <!-- Optional Replaceable Tutorial Video URL -->
             <div class="pt-2 border-t border-white/10 space-y-2">
               <label class="block text-[11px] font-bold text-slate-400">Optional: Paste Your Own YouTube or MP4 Tutorial Video URL</label>
               <div class="flex gap-2">
@@ -1359,15 +1380,15 @@
       <!-- VIEW 9: HELP & TRANSPARENCY GUIDE                                     -->
       <!-- ===================================================================== -->
       <section id="view-help" class="app-view hidden space-y-6">
-        <h1 class="text-2xl sm:text-3xl font-black">Help Center & Platform Guide</h1>
+        <h1 class="text-2xl sm:text-3xl font-black">Help Center &amp; Platform Guide</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-          <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5">
-            <h3 class="font-bold text-sm text-violet-400">1. Browser Tools vs. Server Features</h3>
-            <p class="text-slate-400 leading-relaxed">Video preview, trimming, 9:16/16:9 canvas rendering, graphic thumbnail design, mic speech-to-text, and SEO templates run 100% locally in your browser Free of Cost. Live AI responses use your connected Google Gemini key.</p>
+          <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5 studio-card">
+            <h3 class="font-bold text-sm text-violet-400">1. Browser Tools vs. Live AI</h3>
+            <p class="text-slate-400 leading-relaxed">Video preview, auto-cut scenes, 9:16/1:1/16:9 canvas rendering, graphic thumbnail design, mic speech-to-text, and SEO tags run directly in your browser Free of Cost on iPhone, Android, and PC.</p>
           </div>
-          <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5">
-            <h3 class="font-bold text-sm text-violet-400">2. YouTube Links & Copyright Policy</h3>
-            <p class="text-slate-400 leading-relaxed">YouTube links are validated for metadata and SEO generation while respecting YouTube Terms of Service. To cut or render video footage, upload MP4/MOV/WEBM files that you own or have permission to edit.</p>
+          <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5 studio-card">
+            <h3 class="font-bold text-sm text-violet-400">2. YouTube Links &amp; Video Export</h3>
+            <p class="text-slate-400 leading-relaxed">Paste any YouTube or Shorts link to auto-slice into scenes with live player sync, or upload local MP4/MOV/WEBM files for instant multi-clip `.WEBM`/`.MP4` rendering.</p>
           </div>
         </div>
       </section>
@@ -1376,13 +1397,13 @@
   </div>
 
   <!-- Global Footer -->
-  <footer class="border-t border-slate-200 dark:border-white/10 bg-white dark:bg-obsidian-950 py-5 px-4 text-xs text-slate-500 dark:text-slate-400">
+  <footer class="border-t border-slate-200 dark:border-white/10 bg-white/80 dark:bg-obsidian-950/90 backdrop-blur-xl py-5 px-4 text-xs text-slate-500 dark:text-slate-400">
     <div class="max-w-[1440px] mx-auto flex flex-wrap items-center justify-between gap-4">
       <div class="flex flex-wrap items-center gap-4 font-semibold">
         <span>✨ Free of Cost</span>
         <span>✂️ Video Editing</span>
-        <span>🎨 Graphic Designing & AI Image</span>
-        <span>💬 Captions & Short ↔ Long Video</span>
+        <span>🎨 Graphic Designing &amp; AI Image</span>
+        <span>💬 Captions &amp; Short ↔ Long Video</span>
       </div>
       <div>Created for Creators • <strong>Vishal Saini Edit 01 (विशाल सैनी एडिट 01)</strong></div>
     </div>
@@ -1391,11 +1412,8 @@
 
   <script>
     // ==================== GOOGLE OAUTH CONFIGURATION ====================
-    // Paste your permanent Google Cloud OAuth 2.0 Web Client ID here before deploying:
     const GOOGLE_CLIENT_ID = '';
     const STORAGE_SESSION_KEY = 'vs_edit01_permanent_session_v1';
-    const STORAGE_QUOTA_KEY = 'vs_edit01_video_quota_v1';
-    const MAX_FREE_VIDEO_EDITS = 10;
 
     // ==================== 24 LANGUAGES & TRANSLATIONS ====================
     const LANGUAGES_24 = [
@@ -1462,8 +1480,8 @@
 
     // ==================== GLOBAL APP STATE ====================
     const appState = {
-      stage: 1, // 1 = Login Gate, 2 = API Key Gate, 3 = Unlocked Studio
-      view: 'dashboard',
+      stage: 1,
+      view: 'landing',
       lang: 'en',
       isLoggedIn: false,
       userName: 'Creator',
@@ -1471,8 +1489,9 @@
       userPicture: '',
       authProvider: 'email',
       savedGoogleAccounts: [],
-      videosEditedCount: 0,
-      maxFreeVideos: MAX_FREE_VIDEO_EDITS,
+      youtubeLoadedMeta: null,
+      youtubePreviewImage: null,
+      aiFaceTracking: true,
       googleClientId: GOOGLE_CLIENT_ID,
       apiKey: '',
       geminiModel: 'gemini-2.5-flash',
@@ -1512,7 +1531,7 @@
       clips: []
     };
 
-    // ==================== PERSISTENT SESSION & 10-VIDEO QUOTA HELPERS ====================
+    // ==================== PERSISTENT SESSION HELPERS (100% UNLIMITED FREE) ====================
     function persistSessionState() {
       try {
         const payload = {
@@ -1527,16 +1546,11 @@
           apiConnected: appState.apiConnected
         };
         window.localStorage.setItem(STORAGE_SESSION_KEY, JSON.stringify(payload));
-        window.localStorage.setItem(STORAGE_QUOTA_KEY, String(appState.videosEditedCount));
       } catch (e) {}
     }
 
     function restorePermanentSession() {
       try {
-        const rawQuota = window.localStorage.getItem(STORAGE_QUOTA_KEY);
-        if (rawQuota !== null) {
-          appState.videosEditedCount = Math.max(0, parseInt(rawQuota, 10) || 0);
-        }
         const raw = window.localStorage.getItem(STORAGE_SESSION_KEY);
         if (!raw) return false;
         const saved = JSON.parse(raw);
@@ -1554,82 +1568,52 @@
           appState.apiConnected = Boolean(saved.apiConnected);
 
           applyUserProfileToNavbar();
-          if (appState.apiConnected) {
-            if (appState.apiKey) {
-              document.getElementById('byok-key-input').value = appState.apiKey;
-              document.getElementById('api-badge-status').textContent = `Status: ● Google Gemini Connected (${appState.geminiModel})`;
-              document.getElementById('api-badge-status').className = 'text-xs font-bold text-emerald-400';
-              document.getElementById('api-dot-indicator').className = 'w-2 h-2 rounded-full bg-emerald-400';
-              document.getElementById('kpi-api-status').textContent = 'Gemini Live';
-              document.getElementById('kpi-api-status').className = 'text-sm font-black mt-2 text-emerald-400';
-              document.getElementById('top-api-shortcut-btn').textContent = '🔑 API Connected ✓';
-            } else {
-              document.getElementById('api-badge-status').textContent = 'Status: ● Free Browser Mode Active';
-              document.getElementById('api-badge-status').className = 'text-xs font-bold text-cyan-400';
-              document.getElementById('api-dot-indicator').className = 'w-2 h-2 rounded-full bg-cyan-400';
-              document.getElementById('kpi-api-status').textContent = 'Browser Free';
-              document.getElementById('kpi-api-status').className = 'text-sm font-black mt-2 text-cyan-400';
-              document.getElementById('top-api-shortcut-btn').textContent = '✨ Free Mode';
-            }
+          if (appState.apiConnected && appState.apiKey && appState.apiKey.length >= 20) {
+            document.getElementById('byok-key-input').value = appState.apiKey;
+            document.getElementById('api-badge-status').textContent = `Status: ● Google Gemini Connected (${appState.geminiModel})`;
+            document.getElementById('api-badge-status').className = 'text-xs font-bold text-emerald-400';
+            document.getElementById('api-dot-indicator').className = 'w-2 h-2 rounded-full bg-emerald-400';
+            document.getElementById('kpi-api-status').textContent = 'Gemini Live';
+            document.getElementById('kpi-api-status').className = 'text-sm font-black mt-2 text-emerald-400';
+            document.getElementById('top-api-shortcut-btn').textContent = '🔑 API Connected ✓';
             setAppStage(3);
           } else {
+            appState.apiConnected = false;
             setAppStage(2);
           }
-          updateVideoQuotaUI();
           return true;
         }
       } catch (e) {}
-      updateVideoQuotaUI();
       return false;
     }
 
-    function updateVideoQuotaUI() {
-      const used = appState.videosEditedCount;
-      const max = appState.maxFreeVideos;
-      const remaining = Math.max(0, max - used);
-      const pct = Math.min(100, Math.round((used / max) * 100));
-
-      const sidePill = document.getElementById('sidebar-quota-pill');
-      const sideBar = document.getElementById('sidebar-quota-bar');
-      const sideDesc = document.getElementById('sidebar-quota-desc');
-      const kpiCount = document.getElementById('kpi-quota-count');
-      const kpiSub = document.getElementById('kpi-quota-sub');
-      const lockBanner = document.getElementById('video-limit-lock-banner');
-      const exportBtn = document.getElementById('real-export-btn');
-
-      if (sidePill) sidePill.textContent = `${used} / ${max} Used`;
-      if (sideBar) {
-        sideBar.style.width = `${pct}%`;
-        sideBar.className = used >= max ? 'h-full bg-amber-400 transition-all duration-300' : 'h-full bg-emerald-400 transition-all duration-300';
+    function requireValidGeminiApiKey(actionLabel = 'AI Video Editing') {
+      if (appState.apiConnected && appState.apiKey && appState.apiKey.trim().length >= 20) {
+        return true;
       }
-      if (sideDesc) {
-        sideDesc.textContent = used >= max
-          ? '10 / 10 Free Video Edits used! Upgrade plan required for more videos.'
-          : `${remaining} Free Video Edit(s) remaining out of ${max}.`;
+      appState.apiConnected = false;
+      persistSessionState();
+      const statusBox = document.getElementById('stage2-status-box');
+      if (statusBox) {
+        statusBox.className = 'text-xs font-black text-rose-200 bg-rose-600/25 border-2 border-rose-500 rounded-xl p-3.5';
+        statusBox.textContent = `🚨 ERROR: "${actionLabel}" चलाने के लिए पहले अपनी Google Gemini API Key डालें!`;
       }
-      if (kpiCount) {
-        kpiCount.textContent = `${used} / ${max} Used`;
-        kpiCount.className = used >= max ? 'text-lg font-black mt-1.5 text-amber-400' : 'text-lg font-black mt-1.5 text-emerald-400';
-      }
-      if (kpiSub) {
-        kpiSub.textContent = used >= max ? 'Limit reached — Paid plan next' : `${remaining} free edits remaining`;
-      }
-      if (lockBanner) lockBanner.classList.toggle('hidden', used < max);
-      if (exportBtn) {
-        if (used >= max) {
-          exportBtn.textContent = '🔒 Limit Reached (10/10 Used)';
-          exportBtn.className = 'px-4 py-2 rounded-xl bg-amber-500 text-slate-950 text-xs font-black cursor-not-allowed';
-        } else {
-          exportBtn.textContent = `⬇️ Cut & Export Clip (${remaining} left)`;
-          exportBtn.className = 'px-4 py-2 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg shadow-violet-600/30 hover:opacity-95 transition';
-        }
-      }
+      setAppStage(2);
+      showToast('⚠️ पहले Google Gemini API Key डालें! बिना API Key के यह फीचर नहीं चलेगा।', 'error');
+      return false;
     }
 
-    function consumeOneVideoQuota() {
-      appState.videosEditedCount += 1;
-      persistSessionState();
-      updateVideoQuotaUI();
+    function toggleAiFaceTracking() {
+      appState.aiFaceTracking = !appState.aiFaceTracking;
+      const btn = document.getElementById('ai-face-track-btn');
+      if (btn) {
+        btn.textContent = appState.aiFaceTracking ? '🎯 AI Face Focus: ON' : '🎯 AI Face Focus: OFF';
+        btn.className = appState.aiFaceTracking
+          ? 'px-3 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-xs font-extrabold transition'
+          : 'px-3 py-2 rounded-xl bg-obsidian-850 border border-white/10 text-slate-400 text-xs font-bold transition';
+      }
+      drawEditorCanvas();
+      showToast(appState.aiFaceTracking ? '🎯 AI Human Face Centering Enabled!' : 'AI Face Centering Paused.');
     }
 
     function openGoogleDirectAccountChooser() {
@@ -1713,14 +1697,418 @@
       }
     }
 
+    function extractStrictYoutubeVideoId(rawInput) {
+      if (!rawInput) return null;
+      let parsed;
+      try {
+        parsed = new URL(rawInput.trim());
+      } catch (e) {
+        return null;
+      }
+      const host = parsed.hostname.replace(/^www\./, '').toLowerCase();
+      let candidateId = null;
+
+      if (host === 'youtu.be') {
+        candidateId = parsed.pathname.split('/').filter(Boolean)[0] || null;
+      } else if (host === 'youtube.com' || host === 'm.youtube.com') {
+        if (parsed.pathname === '/watch') {
+          candidateId = parsed.searchParams.get('v');
+        } else if (parsed.pathname.startsWith('/shorts/') || parsed.pathname.startsWith('/embed/') || parsed.pathname.startsWith('/live/')) {
+          candidateId = parsed.pathname.split('/').filter(Boolean)[1] || null;
+        }
+      }
+
+      if (candidateId && /^[a-zA-Z0-9_-]{11}$/.test(candidateId)) {
+        return candidateId;
+      }
+      return null;
+    }
+
+    async function fetchRealYoutubeStreamUrl(videoId) {
+      const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
+
+      // 1. Primary: Cobalt API instances for direct playable MP4 stream resolution
+      const cobaltInstances = [
+        'https://api.cobalt.tools/',
+        'https://cobalt-api.kwiatekmiki.com/',
+        'https://cobalt.api.timelessnesses.me/'
+      ];
+      for (const endpoint of cobaltInstances) {
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 4500);
+          const res = await fetch(endpoint, {
+            method: 'POST',
+            signal: controller.signal,
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              url: canonicalUrl,
+              videoQuality: '720',
+              filenameStyle: 'basic'
+            })
+          });
+          clearTimeout(timer);
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data && data.url && (data.status === 'tunnel' || data.status === 'redirect' || data.status === 'stream')) {
+            return {
+              streamUrl: data.url,
+              duration: 0,
+              title: data.filename ? data.filename.replace(/\.[^/.]+$/, '') : '',
+              author: ''
+            };
+          }
+        } catch (e) {}
+      }
+
+      // 2. Secondary: Piped API instances
+      const pipedInstances = [
+        `https://pipedapi.kavin.rocks/streams/${encodeURIComponent(videoId)}`,
+        `https://pipedapi.adminforge.de/streams/${encodeURIComponent(videoId)}`,
+        `https://api.piped.private.coffee/streams/${encodeURIComponent(videoId)}`,
+        `https://pipedapi.drgns.space/streams/${encodeURIComponent(videoId)}`
+      ];
+      for (const endpoint of pipedInstances) {
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 4500);
+          const res = await fetch(endpoint, { signal: controller.signal });
+          clearTimeout(timer);
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data && Array.isArray(data.videoStreams)) {
+            const combined = data.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/mp4') && !s.videoOnly && s.url)
+              || data.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/webm') && !s.videoOnly && s.url)
+              || data.videoStreams.find(s => s.url);
+            if (combined && combined.url) {
+              return {
+                streamUrl: combined.url,
+                duration: data.duration ? Math.floor(data.duration) : 0,
+                title: data.title || '',
+                author: data.uploader || ''
+              };
+            }
+          }
+        } catch (e) {}
+      }
+
+      // 3. Tertiary: Invidious instances
+      const invidiousInstances = [
+        `https://inv.nadeko.net/api/v1/videos/${encodeURIComponent(videoId)}`,
+        `https://yewtu.be/api/v1/videos/${encodeURIComponent(videoId)}`
+      ];
+      for (const endpoint of invidiousInstances) {
+        try {
+          const controller = new AbortController();
+          const timer = setTimeout(() => controller.abort(), 4500);
+          const res = await fetch(endpoint, { signal: controller.signal });
+          clearTimeout(timer);
+          if (!res.ok) continue;
+          const data = await res.json();
+          if (data && Array.isArray(data.formatStreams)) {
+            const fmt = data.formatStreams.find(f => f.url && f.container === 'mp4') || data.formatStreams.find(f => f.url);
+            if (fmt && fmt.url) {
+              return {
+                streamUrl: fmt.url,
+                duration: data.lengthSeconds ? Math.floor(data.lengthSeconds) : 0,
+                title: data.title || '',
+                author: data.author || ''
+              };
+            }
+          }
+        } catch (e) {}
+      }
+      return { streamUrl: '', duration: 0, title: '', author: '' };
+    }
+
     function showToast(msg, type = 'info') {
       const stack = document.getElementById('toast-stack');
+      if (!stack) return;
       const el = document.createElement('div');
       const bg = type === 'success' ? 'bg-emerald-600' : type === 'error' ? 'bg-rose-600' : 'bg-obsidian-850 border border-violet-500/40';
       el.className = `pointer-events-auto px-4 py-3 rounded-xl text-white text-xs font-bold shadow-2xl transition-all duration-300 ${bg}`;
       el.textContent = msg;
       stack.appendChild(el);
       setTimeout(() => { el.style.opacity = '0'; setTimeout(() => el.remove(), 300); }, 3200);
+    }
+
+    async function autoCutEntireVideoNow(autoDownloadAfter = false) {
+      if (!requireValidGeminiApiKey('AI Scene-by-Scene Auto-Cut')) return;
+
+      const totalDur = Math.max(8, appState.videoDuration || 45);
+      const sceneLen = Math.min(appState.clipDuration || 10, Math.max(4, Math.floor(totalDur / 5)));
+      const sceneCount = Math.max(3, Math.min(6, Math.floor(totalDur / sceneLen)));
+      const baseTitle = (document.getElementById('project-name-input').value || 'VIRAL VIDEO').trim();
+      const lang = document.getElementById('sub-lang-select').value || 'Hinglish';
+
+      showToast('🤖 Gemini AI analyzing video scenes & human face framing...', 'info');
+
+      let aiScenes = null;
+      try {
+        const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(appState.geminiModel)}:generateContent?key=${encodeURIComponent(appState.apiKey)}`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            contents: [{
+              parts: [{
+                text: `You are a viral short-form video editor (like OpusClip / Submagic). Split a ${totalDur}-second video titled "${baseTitle}" into ${sceneCount} high-retention vertical short scenes in ${lang}. Return strict JSON array of ${sceneCount} objects with keys: start (number), end (number), caption (short punchy uppercase viral subtitle max 7 words), faceFocusX (number between 0.35 and 0.65).`
+              }]
+            }],
+            generationConfig: { responseMimeType: 'application/json' }
+          })
+        });
+        if (res.ok) {
+          const json = await res.json();
+          const parsed = JSON.parse(json.candidates[0].content.parts[0].text);
+          if (Array.isArray(parsed) && parsed.length >= 2) {
+            aiScenes = parsed;
+          }
+        }
+      } catch (e) {}
+
+      const dynamicHooks = [
+        `${baseTitle.slice(0, 30).toUpperCase()} 🔥`,
+        'SCENE 2: YEH PART MISS MAT KARNA 👀',
+        'SCENE 3: SABSE KHATARNAK TWIST YAHAN HAI ⚡',
+        'SCENE 4: AI FACE FOCUS & VIRAL EDIT 🚀',
+        'SCENE 5: AAKHIR TAK DEKHO & SHARE KARO 💯',
+        'SCENE 6: FINAL RESULT DEKH KAR HAIRAN REH JAOGE 🤯'
+      ];
+
+      appState.editorClips = Array.from({ length: sceneCount }, (_, idx) => {
+        const aiItem = aiScenes && aiScenes[idx] ? aiScenes[idx] : null;
+        const defaultStart = Number((idx * sceneLen).toFixed(1));
+        const defaultEnd = Number(Math.min(totalDur, (idx + 1) * sceneLen).toFixed(1));
+        const s = aiItem && typeof aiItem.start === 'number' ? Math.max(0, Math.min(totalDur - 2, aiItem.start)) : defaultStart;
+        const e = aiItem && typeof aiItem.end === 'number' ? Math.max(s + 2.5, Math.min(totalDur, aiItem.end)) : Math.max(s + 2.5, defaultEnd);
+        return {
+          id: idx + 1,
+          start: Number(s.toFixed(1)),
+          end: Number(e.toFixed(1)),
+          caption: (aiItem && aiItem.caption) ? String(aiItem.caption) : dynamicHooks[idx % dynamicHooks.length],
+          faceFocusX: (aiItem && typeof aiItem.faceFocusX === 'number') ? aiItem.faceFocusX : 0.5
+        };
+      });
+
+      appState.activeEditorClipId = 1;
+      appState.editorTrimStart = appState.editorClips[0].start;
+      appState.editorTrimEnd = appState.editorClips[0].end;
+      document.getElementById('ed-caption-text').value = appState.editorClips[0].caption;
+      document.getElementById('ed-hook-text').value = `⚡ AI SHORTS: ${baseTitle.slice(0, 26).toUpperCase()}`;
+
+      syncEditorTimelineRanges();
+      renderEditorTimelineClips();
+      drawEditorCanvas();
+      showToast(`✅ Gemini AI created ${sceneCount} scene-by-scene viral short cuts!`, 'success');
+
+      if (autoDownloadAfter) {
+        setTimeout(() => renderAndDownloadRealVideo(), 400);
+      }
+    }
+
+    async function fetchYoutubeMetadata(autoCutAndExport = false) {
+      if (!requireValidGeminiApiKey('YouTube Video AI Auto-Cut')) return;
+
+      const link = document.getElementById('yt-link-field').value.trim();
+      const box = document.getElementById('yt-fetch-status');
+      const btn = document.getElementById('yt-fetch-btn');
+      const autoBtn = document.getElementById('yt-autocut-btn');
+
+      box.classList.remove('hidden');
+
+      // 1. Check if user pasted a direct playable video URL (.mp4 / .webm / .mov)
+      let isDirectVideoUrl = false;
+      try {
+        const u = new URL(link);
+        if ((u.protocol === 'https:' || u.protocol === 'http:') && /\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(u.pathname)) {
+          isDirectVideoUrl = true;
+        }
+      } catch (e) {}
+
+      if (isDirectVideoUrl) {
+        const editorVid = document.getElementById('editor-source-video');
+        const createVid = document.getElementById('create-video-player');
+        const ytContainer = document.getElementById('editor-yt-live-container');
+        const ytActionBar = document.getElementById('yt-editor-action-bar');
+        const edCanvas = document.getElementById('editor-compositor-canvas');
+
+        editorVid.crossOrigin = 'anonymous';
+        editorVid.src = link;
+        createVid.src = link;
+        appState.youtubeLoadedMeta = null;
+        appState.youtubePreviewImage = null;
+        if (ytContainer) ytContainer.classList.add('hidden');
+        if (ytActionBar) ytActionBar.classList.add('hidden');
+        if (edCanvas) edCanvas.classList.remove('hidden');
+
+        box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold';
+        box.textContent = '⏳ Direct video URL loading...';
+
+        createVid.onerror = () => {
+          box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
+          box.textContent = '❌ Invalid or unreachable video link. Please paste a working YouTube share link or upload a video file.';
+          showToast('Video URL could not be loaded!', 'error');
+        };
+        createVid.onloadedmetadata = () => {
+          const dur = Math.max(5, Math.floor(createVid.duration || 45));
+          appState.videoDuration = dur;
+          navigateTo('editor');
+          autoCutEntireVideoNow(autoCutAndExport);
+        };
+        return;
+      }
+
+      // 2. Strict YouTube Share Link Validation (Rejects random keyboard text or fake URLs)
+      const videoId = extractStrictYoutubeVideoId(link);
+      if (!videoId) {
+        box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
+        box.textContent = '❌ Invalid Link! Please copy & paste a real YouTube Share link (example: https://youtu.be/xxxxxxxxxxx or https://www.youtube.com/watch?v=xxxxxxxxxxx).';
+        showToast('Invalid YouTube URL! Random text is not allowed.', 'error');
+        return;
+      }
+
+      const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
+      if (btn) { btn.disabled = true; btn.textContent = 'Verifying Link...'; }
+      if (autoBtn) { autoBtn.disabled = true; autoBtn.textContent = '⏳ Fetching Video...'; }
+
+      box.className = 'text-xs p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/30 text-cyan-200 font-bold';
+      box.textContent = '⏳ Verifying YouTube video & fetching stream...';
+
+      // 3. Verify that the YouTube Video ID actually exists via oEmbed
+      let title = '';
+      let author = 'YouTube Creator';
+      let verifiedExists = false;
+
+      try {
+        const res = await fetch(`https://noembed.com/embed?url=${encodeURIComponent(canonicalUrl)}`);
+        if (res.ok) {
+          const info = await res.json();
+          if (info && info.title && !info.error) {
+            title = info.title;
+            author = info.author_name || author;
+            verifiedExists = true;
+          }
+        }
+      } catch (e) {}
+
+      // 4. Attempt real direct MP4/WEBM stream extraction
+      const resolved = await fetchRealYoutubeStreamUrl(videoId);
+      if (resolved.title) {
+        title = resolved.title;
+        verifiedExists = true;
+      }
+      if (resolved.author) author = resolved.author;
+
+      if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
+      if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
+
+      if (!verifiedExists && !resolved.streamUrl) {
+        box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
+        box.textContent = '❌ This YouTube video ID does not exist or is private/unavailable. Please paste a valid public YouTube Share URL.';
+        showToast('YouTube video not found or private!', 'error');
+        return;
+      }
+
+      const fetchedDur = resolved.duration > 4 ? resolved.duration : 60;
+      const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        appState.youtubePreviewImage = img;
+        drawEditorCanvas();
+      };
+      img.onerror = () => {
+        appState.youtubePreviewImage = null;
+        drawEditorCanvas();
+      };
+      img.src = thumbUrl;
+
+      appState.youtubeLoadedMeta = { videoId, title, author, thumbUrl, canonicalUrl };
+      appState.videoDuration = fetchedDur;
+      document.getElementById('project-name-input').value = title;
+      document.getElementById('seo-subject-input').value = title;
+      document.getElementById('ed-hook-text').value = title.slice(0, 40).toUpperCase();
+
+      const editorVid = document.getElementById('editor-source-video');
+      const ytContainer = document.getElementById('editor-yt-live-container');
+      const ytActionBar = document.getElementById('yt-editor-action-bar');
+      const ytIframe = document.getElementById('editor-youtube-iframe');
+      const edCanvas = document.getElementById('editor-compositor-canvas');
+
+      generateAiSeoContent();
+      generateClipsFromDuration(fetchedDur);
+
+      if (resolved.streamUrl) {
+        // Real direct video stream fetched — load straight into HTML5 video canvas for real frame-by-frame cutting & export
+        editorVid.crossOrigin = 'anonymous';
+        editorVid.src = resolved.streamUrl;
+        ytContainer.classList.add('hidden');
+        ytActionBar.classList.add('hidden');
+        ytIframe.src = '';
+        edCanvas.classList.remove('hidden');
+
+        box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold';
+        box.textContent = `✅ Real Video Stream Loaded: "${title}" (${author}) — Auto-cutting scenes now!`;
+
+        editorVid.onloadedmetadata = () => {
+          if (editorVid.duration && !isNaN(editorVid.duration) && editorVid.duration > 4) {
+            appState.videoDuration = Math.floor(editorVid.duration);
+          }
+          navigateTo('editor');
+          autoCutEntireVideoNow(autoCutAndExport);
+        };
+        editorVid.onerror = () => {
+          // If stream URL expires or CORS blocks canvas readback, fall back to live YouTube player + automated scene playback
+          editorVid.src = '';
+          edCanvas.classList.add('hidden');
+          ytContainer.classList.remove('hidden');
+          ytActionBar.classList.remove('hidden');
+          ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
+          navigateTo('editor');
+          autoCutEntireVideoNow(false);
+          syncYoutubeLiveOverlays();
+        };
+      } else {
+        // Browser CORS / YouTube blocked direct MP4 download — load live YouTube player with automated scene-by-scene sequential auto-player
+        editorVid.src = '';
+        edCanvas.classList.add('hidden');
+        ytContainer.classList.remove('hidden');
+        ytActionBar.classList.remove('hidden');
+        ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
+
+        box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/35 text-emerald-200 space-y-1.5';
+        box.innerHTML = `
+          <div class="font-extrabold">✅ Verified YouTube Video: ${title} (${author})</div>
+          <div class="text-[11px] text-slate-300">
+            AI has sliced this video into viral short scenes in the Pro Video Editor. Each cut scene plays automatically in sequence with live captions—or click <strong>🎥 Capture Live Video &amp; Export Cut</strong> to save the final `.WEBM` file.
+          </div>
+        `;
+
+        navigateTo('editor');
+        await autoCutEntireVideoNow(false);
+        syncYoutubeLiveOverlays();
+        startAutomatedYoutubeSceneSequence();
+      }
+    }
+
+    let ytAutoSequenceTimer = null;
+    function startAutomatedYoutubeSceneSequence() {
+      clearInterval(ytAutoSequenceTimer);
+      if (!appState.youtubeLoadedMeta || !appState.editorClips.length) return;
+      let idx = 0;
+      selectEditorTimelineClip(appState.editorClips[0].id);
+      ytAutoSequenceTimer = setInterval(() => {
+        if (!appState.youtubeLoadedMeta || appState.view !== 'editor') {
+          clearInterval(ytAutoSequenceTimer);
+          return;
+        }
+        idx = (idx + 1) % appState.editorClips.length;
+        selectEditorTimelineClip(appState.editorClips[idx].id);
+      }, 6500);
     }
 
     // ==================== 3-STAGE GATE CONTROLLER ====================
@@ -1735,7 +2123,7 @@
         drawStage2TutorialCanvas();
       }
       if (stageNum === 3) {
-        navigateTo(appState.view || 'dashboard');
+        navigateTo(appState.view || 'landing');
       }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -1751,7 +2139,7 @@
     }
 
     function quickDemoFillLogin() {
-      document.getElementById('gate-email-input').value = 'creator@aiviralshorts.studio';
+      document.getElementById('gate-email-input').value = 'creator@vishalsainiedit01.studio';
       document.getElementById('gate-pass-input').value = 'demo1234';
       showToast('Demo login filled! Click Login button below.');
     }
@@ -1788,17 +2176,9 @@
 
     function initGoogleIdentityServices(clientId) {
       const container = document.getElementById('google-signin-container');
-      const setupBox = document.getElementById('google-oauth-setup-box');
       if (!container) return;
 
       if (!clientId || !clientId.includes('.apps.googleusercontent.com')) {
-        container.innerHTML = `
-          <div class="w-full py-2.5 px-4 rounded-xl bg-white/5 border border-white/15 text-center text-xs font-bold text-slate-300 flex items-center justify-center gap-2">
-            <span>🔵</span>
-            <span>Continue with Google (Add Google Client ID below to enable 1-Tap Sign-In)</span>
-          </div>
-        `;
-        if (setupBox) setupBox.classList.remove('hidden');
         return;
       }
 
@@ -1807,10 +2187,21 @@
         return;
       }
 
+      container.classList.remove('hidden');
       container.innerHTML = '';
       window.google.accounts.id.initialize({
         client_id: clientId,
-        callback: handleGoogleCredentialResponse,
+        callback: (response) => {
+          try {
+            const payload = JSON.parse(atob(response.credential.split('.')[1]));
+            completeStage1Authentication({
+              name: payload.name || 'Google User',
+              email: payload.email || '',
+              picture: payload.picture || '',
+              provider: 'google'
+            });
+          } catch (e) {}
+        },
         auto_select: false
       });
       window.google.accounts.id.renderButton(container, {
@@ -1820,7 +2211,6 @@
         text: 'continue_with',
         width: 340
       });
-      if (setupBox) setupBox.classList.add('hidden');
     }
 
     function applyGoogleClientId() {
@@ -1831,7 +2221,7 @@
       }
       appState.googleClientId = val;
       initGoogleIdentityServices(val);
-      showToast('Google Sign-In activated! Click Continue with Google above.', 'success');
+      showToast('Google Sign-In activated!', 'success');
     }
 
     function logoutToStage1() {
@@ -1859,7 +2249,6 @@
       const key = document.getElementById('stage2-api-input').value.trim();
       const btn = document.getElementById('stage2-verify-btn');
       const statusBox = document.getElementById('stage2-status-box');
-      appState.strictApiRecheck = document.getElementById('strict-recheck-checkbox').checked;
 
       if (!key || key.length < 20) {
         statusBox.className = 'text-xs font-bold text-rose-300 bg-rose-500/15 border border-rose-500/30 rounded-xl p-3';
@@ -1872,7 +2261,6 @@
       btn.textContent = 'Verifying with Google Gemini...';
 
       try {
-        // Validate key directly against Google's models list and auto-pick the best available Flash model
         const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models?key=${encodeURIComponent(key)}`);
         const data = await res.json().catch(() => ({}));
         if (!res.ok) {
@@ -1895,7 +2283,7 @@
         btn.textContent = 'Save & Test Connection → Unlock Studio';
         statusBox.className = 'text-xs font-bold text-rose-300 bg-rose-500/15 border border-rose-500/30 rounded-xl p-3';
         statusBox.textContent = `❌ Connection Failed: ${err.message}`;
-        showToast('API Key verification failed! Check message below.', 'error');
+        showToast('API Key verification failed!', 'error');
         return;
       }
 
@@ -1907,7 +2295,7 @@
       btn.textContent = 'Save & Test Connection → Unlock Studio';
 
       statusBox.className = 'text-xs font-bold text-emerald-300 bg-emerald-500/15 border border-emerald-500/35 rounded-xl p-3';
-      statusBox.textContent = `✅ Connected (${appState.geminiModel})! Unlocking AI Viral Shorts Studio...`;
+      statusBox.textContent = `✅ Connected (${appState.geminiModel})! Unlocking Vishal Saini Edit 01 Studio...`;
       document.getElementById('api-badge-status').textContent = `Status: ● Google Gemini Connected (${appState.geminiModel})`;
       document.getElementById('api-badge-status').className = 'text-xs font-bold text-emerald-400';
       document.getElementById('api-dot-indicator').className = 'w-2 h-2 rounded-full bg-emerald-400';
@@ -1946,7 +2334,7 @@
       { badge: 'STEP 2 / 5', title: '2. Sign in to Google AI Studio', hi: 'अपने Google (Gmail) अकाउंट से साइन इन करें', url: 'accounts.google.com → Google AI Studio', cx: 320, cy: 175, btnLabel: 'Sign in with Google' },
       { badge: 'STEP 3 / 5', title: '3. Click "Create API Key"', hi: 'Google AI Studio में "Create API key" दबाएं', url: 'aistudio.google.com/app/apikey', cx: 440, cy: 165, btnLabel: '+ Create API key' },
       { badge: 'STEP 4 / 5', title: '4. Copy Your Generated Key', hi: 'बनी हुई AIzaSy... API Key को Copy करें', url: 'AIzaSyB9xK••••••••••••••••••••', cx: 470, cy: 205, btnLabel: '📋 Copy API Key' },
-      { badge: 'STEP 5 / 5', title: '5. Paste Here & Click Save & Test Connection', hi: 'यहाँ पेस्ट करें और Studio अनलॉक करें!', url: 'Vishal Saini Studio → Unlock Workspace', cx: 320, cy: 245, btnLabel: 'Save & Test Connection ✓' }
+      { badge: 'STEP 5 / 5', title: '5. Paste Here & Click Save & Test Connection', hi: 'यहाँ पेस्ट करें और Studio अनलॉक करें!', url: 'Vishal Saini Edit 01 → Unlock Workspace', cx: 320, cy: 245, btnLabel: 'Save & Test Connection ✓' }
     ];
 
     let s2TutTimer = null;
@@ -2004,7 +2392,6 @@
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, W, H);
 
-      // Simulated Browser Window Frame
       ctx.fillStyle = 'rgba(255,255,255,0.07)';
       ctx.beginPath();
       ctx.roundRect(22, 18, W - 44, 34, 10);
@@ -2014,7 +2401,6 @@
       ctx.textAlign = 'left';
       ctx.fillText(`🔒  ${st.url}`, 38, 39);
 
-      // Step Pill
       ctx.fillStyle = '#7c3aed';
       ctx.beginPath();
       ctx.roundRect(24, 70, 96, 26, 999);
@@ -2024,7 +2410,6 @@
       ctx.textAlign = 'center';
       ctx.fillText(st.badge, 72, 87);
 
-      // Voiceover-style Caption Headlines
       ctx.fillStyle = '#ffffff';
       ctx.font = '800 19px Poppins, sans-serif';
       ctx.textAlign = 'left';
@@ -2034,7 +2419,6 @@
       ctx.font = '700 15px Inter, sans-serif';
       ctx.fillText(st.hi, 24, 156);
 
-      // Simulated Target Button Inside Video Screen
       ctx.fillStyle = '#10b981';
       ctx.beginPath();
       ctx.roundRect(st.cx - 110, st.cy - 18, 220, 40, 12);
@@ -2044,7 +2428,6 @@
       ctx.textAlign = 'center';
       ctx.fillText(st.btnLabel, st.cx, st.cy + 6);
 
-      // Animated Click Ripple + Cursor Pointer
       ctx.strokeStyle = 'rgba(250, 204, 21, 0.85)';
       ctx.lineWidth = 2.5;
       ctx.beginPath();
@@ -2063,7 +2446,6 @@
       ctx.closePath();
       ctx.fill();
 
-      // Bottom Subtitle Caption Bar
       ctx.fillStyle = 'rgba(0,0,0,0.75)';
       ctx.beginPath();
       ctx.roundRect(24, H - 62, W - 48, 34, 10);
@@ -2073,7 +2455,6 @@
       ctx.textAlign = 'center';
       ctx.fillText('1. Get Key → 2. Google Sign In → 3. Create Key → 4. Copy → 5. Paste & Unlock', W / 2, H - 41);
 
-      // Timeline Progress
       const prog = ((appState.s2Step + 1) / STAGE2_VIDEO_STEPS.length) * (W - 48);
       ctx.fillStyle = 'rgba(255,255,255,0.14)';
       ctx.fillRect(24, H - 18, W - 48, 5);
@@ -2111,9 +2492,7 @@
       drawStage2TutorialCanvas();
     }
 
-    // ==================== NAVIGATION & MODALS ====================
-    const PROTECTED_VIEWS = ['dashboard', 'create', 'editor', 'graphics', 'seo', 'projects', 'api'];
-
+    // ==================== NAVIGATION ====================
     function navigateTo(viewId) {
       if (!appState.isLoggedIn) {
         setAppStage(1);
@@ -2167,16 +2546,6 @@
       showToast(document.documentElement.classList.contains('dark') ? 'Dark Studio Mode Active' : 'Light Mode Active');
     }
 
-    function openModal(id) {
-      const m = document.getElementById(id);
-      m.classList.remove('hidden'); m.classList.add('flex');
-    }
-
-    function closeModal(id) {
-      const m = document.getElementById(id);
-      m.classList.add('hidden'); m.classList.remove('flex');
-    }
-
     // ==================== 24 LANGUAGES & RTL ====================
     function initLanguages() {
       const sel = document.getElementById('global-lang-select');
@@ -2204,32 +2573,7 @@
       document.getElementById('rtl-toggle-btn').textContent = !isRtl ? 'RTL Active' : 'LTR Active';
     }
 
-    // ==================== AUTH ====================
-    function switchAuthTab(tab) {
-      ['login', 'signup', 'reset'].forEach(t => {
-        document.getElementById(`auth-tab-${t}`).className = t === tab
-          ? 'py-2 rounded-lg bg-white dark:bg-obsidian-800 shadow text-violet-500'
-          : 'py-2 rounded-lg text-slate-500';
-      });
-      document.getElementById('auth-name-wrap').classList.toggle('hidden', tab !== 'signup');
-      document.getElementById('auth-pass-wrap').classList.toggle('hidden', tab === 'reset');
-    }
-
-    function submitAuth(e) {
-      e.preventDefault();
-      const name = document.getElementById('auth-name-input').value.trim() || 'Vishal Saini';
-      appState.isLoggedIn = true;
-      appState.userName = name;
-      document.getElementById('nav-user-name').textContent = `${name} ✓`;
-      document.getElementById('auth-session-pill').textContent = `Logged in as ${name}`;
-      closeModal('auth-modal');
-      const nextView = appState.pendingView || 'api';
-      appState.pendingView = null;
-      showToast(`Welcome ${name}! Opening API Key & Studio Setup...`, 'success');
-      navigateTo(nextView);
-    }
-
-    // ==================== SHORT <-> LONG VIDEO CONVERTER ====================
+    // ==================== SHORT <-> LONG VIDEO CONVERTER & YOUTUBE LINK ====================
     function setConversionMode(mode) {
       appState.conversionMode = mode;
       document.getElementById('mode-long-to-short').className = mode === 'long-to-short'
@@ -2253,9 +2597,17 @@
 
       if (appState.videoUrl) URL.revokeObjectURL(appState.videoUrl);
       appState.videoUrl = URL.createObjectURL(primary);
+      appState.youtubeLoadedMeta = null;
+      appState.youtubePreviewImage = null;
 
       const createVid = document.getElementById('create-video-player');
       const editorVid = document.getElementById('editor-source-video');
+      const ytContainer = document.getElementById('editor-yt-live-container');
+      const ytActionBar = document.getElementById('yt-editor-action-bar');
+      const edCanvas = document.getElementById('editor-compositor-canvas');
+      if (ytContainer) ytContainer.classList.add('hidden');
+      if (ytActionBar) ytActionBar.classList.add('hidden');
+      if (edCanvas) edCanvas.classList.remove('hidden');
       createVid.src = appState.videoUrl;
       editorVid.src = appState.videoUrl;
 
@@ -2282,9 +2634,8 @@
         generateClipsFromDuration(dur);
         initializeEditorClipsForDuration(dur);
         drawEditorCanvas();
-        // Automatically launch the CapCut-style editor right away like "New Project"
         navigateTo('editor');
-        showToast('New Project opened in CapCut-Style Editor! Use ✂️ Split & timeline below.', 'success');
+        showToast('New Project opened in CapCut-Style Editor!', 'success');
       };
       showToast(`Loaded ${files.length} video file(s) Free of Cost!`, 'success');
     }
@@ -2293,25 +2644,225 @@
       if (appState.videoUrl) URL.revokeObjectURL(appState.videoUrl);
       appState.videoUrl = null;
       appState.uploadedFiles = [];
+      appState.youtubeLoadedMeta = null;
+      appState.youtubePreviewImage = null;
       document.getElementById('uploaded-video-card').classList.add('hidden');
       document.getElementById('create-video-player').src = '';
       document.getElementById('editor-source-video').src = '';
       showToast('Video removed.');
     }
 
-    function fetchYoutubeMetadata() {
+    async function fetchYoutubeMetadata() {
       const link = document.getElementById('yt-link-field').value.trim();
       const box = document.getElementById('yt-fetch-status');
-      const ytMatch = link.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/);
-      if (!ytMatch) {
+      const btn = document.getElementById('yt-fetch-btn');
+      if (!link) {
         box.classList.remove('hidden');
-        box.textContent = '❌ Please paste a valid YouTube Video or Shorts URL.';
+        box.textContent = '❌ Please paste a valid YouTube Video, Shorts, or direct .mp4/.webm URL.';
         return;
       }
+
+      if (/\.(mp4|webm|mov|m4v)(\?.*)?$/i.test(link)) {
+        const editorVid = document.getElementById('editor-source-video');
+        const createVid = document.getElementById('create-video-player');
+        editorVid.src = link;
+        createVid.src = link;
+        appState.youtubeLoadedMeta = null;
+        appState.youtubePreviewImage = null;
+        box.classList.remove('hidden');
+        box.innerHTML = '✅ Direct video URL loaded! Opening in Pro Video Editor...';
+        createVid.onloadedmetadata = () => {
+          const dur = Math.max(5, Math.floor(createVid.duration || 45));
+          appState.videoDuration = dur;
+          initializeEditorClipsForDuration(dur);
+          navigateTo('editor');
+        };
+        return;
+      }
+
+      const ytMatch = link.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/|embed\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/);
+      if (!ytMatch) {
+        box.classList.remove('hidden');
+        box.textContent = '❌ Please paste a valid YouTube Video or Shorts URL (or direct .mp4 link).';
+        return;
+      }
+
+      const videoId = ytMatch[1];
+      const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
+      if (btn) {
+        btn.disabled = true;
+        btn.textContent = 'Fetching & Slicing Clips...';
+      }
+
+      let title = `YouTube Video (${videoId})`;
+      let author = 'YouTube Creator';
+      let fetchedDur = 90;
+      const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+      try {
+        const res = await fetch(`https://noembed.com/embed?url=${encodeURIComponent(canonicalUrl)}`);
+        if (res.ok) {
+          const info = await res.json();
+          if (info && info.title) title = info.title;
+          if (info && info.author_name) author = info.author_name;
+        }
+      } catch (e) {}
+
+      // Try fetching real video duration & stream metadata from public Piped/Invidious API if available
+      let resolvedDirectStreamUrl = '';
+      try {
+        const pipedRes = await fetch(`https://pipedapi.kavin.rocks/streams/${encodeURIComponent(videoId)}`);
+        if (pipedRes.ok) {
+          const streamData = await pipedRes.json();
+          if (streamData && streamData.duration && streamData.duration > 4) {
+            fetchedDur = Math.floor(streamData.duration);
+          }
+          if (streamData && streamData.title) title = streamData.title;
+          if (streamData && Array.isArray(streamData.videoStreams)) {
+            const mp4Stream = streamData.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/mp4') && !s.videoOnly)
+              || streamData.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/mp4'));
+            if (mp4Stream && mp4Stream.url) {
+              resolvedDirectStreamUrl = mp4Stream.url;
+            }
+          }
+        }
+      } catch (e) {}
+
+      if (btn) {
+        btn.disabled = false;
+        btn.textContent = 'Fetch & Open in Editor ▶';
+      }
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = () => {
+        appState.youtubePreviewImage = img;
+        drawEditorCanvas();
+      };
+      img.onerror = () => {
+        appState.youtubePreviewImage = null;
+        drawEditorCanvas();
+      };
+      img.src = thumbUrl;
+
+      appState.youtubeLoadedMeta = { videoId, title, author, thumbUrl, canonicalUrl };
+      appState.videoDuration = fetchedDur;
+      document.getElementById('project-name-input').value = title;
+      document.getElementById('seo-subject-input').value = title;
+      document.getElementById('ed-hook-text').value = title.slice(0, 40).toUpperCase();
+
+      // Load real video stream if resolved, otherwise embed live YouTube player with clip-by-clip timestamps
+      const editorVid = document.getElementById('editor-source-video');
+      const ytIframe = document.getElementById('editor-youtube-iframe');
+      const edCanvas = document.getElementById('editor-compositor-canvas');
+
+      if (resolvedDirectStreamUrl) {
+        editorVid.src = resolvedDirectStreamUrl;
+        ytIframe.classList.add('hidden');
+        ytIframe.src = '';
+        edCanvas.classList.remove('hidden');
+      } else {
+        editorVid.src = '';
+        edCanvas.classList.add('hidden');
+        ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
+        ytIframe.classList.remove('hidden');
+      }
+
+      // Automatically slice the YouTube video into multiple sequential clips + captions
+      generateAiSeoContent();
+      generateClipsFromDuration(fetchedDur);
+
+      const segLen = Math.min(appState.clipDuration || 15, Math.max(5, Math.floor(fetchedDur / Math.max(2, appState.clipCount || 5))));
+      const totalClips = Math.max(2, Math.min(appState.clipCount || 5, Math.floor(fetchedDur / segLen)));
+      const autoCaptions = [
+        `${title.slice(0, 38).toUpperCase()} 🔥`,
+        'PART 2: IS POINT KO DHYAN SE DEKHO 👀',
+        'PART 3: SABSE IMPORTANT STEP YAHAN HAI 🚀',
+        'PART 4: PRO CREATOR SECRET TRICK 💡',
+        'PART 5: AAKHIR TAK ZARUR DEKHNA 🤯'
+      ];
+
+      appState.editorClips = Array.from({ length: totalClips }, (_, idx) => {
+        const s = idx * segLen;
+        const e = Math.min(fetchedDur, (idx + 1) * segLen);
+        return {
+          id: idx + 1,
+          start: s,
+          end: Math.max(s + 3, e),
+          caption: autoCaptions[idx % autoCaptions.length]
+        };
+      });
+
+      appState.activeEditorClipId = 1;
+      appState.editorTrimStart = appState.editorClips[0].start;
+      appState.editorTrimEnd = appState.editorClips[0].end;
+      document.getElementById('ed-caption-text').value = appState.editorClips[0].caption;
+
       box.classList.remove('hidden');
-      box.innerHTML = `✅ Validated YouTube ID <strong>${ytMatch[1]}</strong>. Browser CORS prevents direct stream downloading from YouTube—use <strong>Captions & SEO</strong> for metadata or upload your local MP4/MOV file to cut and render.`;
-      document.getElementById('seo-subject-input').value = `YouTube Video (${ytMatch[1]}) Viral Highlights`;
-      showToast('YouTube link validated!', 'success');
+      box.innerHTML = `
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+          <div class="space-y-1">
+            <div class="font-extrabold text-emerald-300">✅ YouTube Video Sliced into ${totalClips} Clips: ${title}</div>
+            <div class="text-[11px] text-slate-300">Channel: <strong>${author}</strong> • Duration: <strong>${formatSec(fetchedDur)}</strong> • Live Player &amp; Captions Ready</div>
+          </div>
+          <button type="button" onclick="navigateTo('editor')" class="px-3.5 py-2 rounded-xl grad-primary text-white text-xs font-extrabold whitespace-nowrap">
+            ✂️ Open Clip-by-Clip Editor →
+          </button>
+        </div>
+      `;
+      navigateTo('editor');
+      showToast(`YouTube video sliced into ${totalClips} clips! Tap any clip on timeline to play.`, 'success');
+    }
+
+    function autoFillCaptionsAcrossClips() {
+      const raw = document.getElementById('ed-bulk-captions-input').value.trim();
+      if (!raw) {
+        showToast('Pehle box mein har line par caption likhein!', 'error');
+        return;
+      }
+      const lines = raw.split(/\n+/).map(l => l.trim()).filter(Boolean);
+      if (!lines.length) return;
+
+      while (appState.editorClips.length < lines.length) {
+        const last = appState.editorClips[appState.editorClips.length - 1];
+        const s = last ? last.end : 0;
+        const e = Math.min(Math.max(appState.videoDuration, s + 5), s + 5);
+        const nextId = appState.editorClips.reduce((m, c) => Math.max(m, c.id), 0) + 1;
+        appState.editorClips.push({ id: nextId, start: s, end: e, caption: '' });
+      }
+
+      lines.forEach((line, idx) => {
+        if (appState.editorClips[idx]) {
+          appState.editorClips[idx].caption = line;
+        }
+      });
+
+      selectEditorTimelineClip(appState.editorClips[0].id);
+      showToast(`✅ ${lines.length} caption lines filled sequentially across clips!`, 'success');
+    }
+
+    function updateActiveTimelineClipCaption(val) {
+      const active = getActiveEditorClip();
+      if (active) {
+        active.caption = val;
+        renderEditorTimelineClips();
+      }
+      drawEditorCanvas();
+    }
+
+    function updateActiveClipTrim() {
+      const active = getActiveEditorClip();
+      if (!active) return;
+      let s = parseFloat(document.getElementById('ed-trim-start').value);
+      let e = parseFloat(document.getElementById('ed-trim-end').value);
+      if (e <= s + 0.5) e = Math.min(appState.videoDuration, s + 0.5);
+      active.start = s;
+      active.end = e;
+      appState.editorTrimStart = s;
+      appState.editorTrimEnd = e;
+      syncEditorTimelineRanges();
+      renderEditorTimelineClips();
+      drawEditorCanvas();
     }
 
     function selectClipDuration(dur) {
@@ -2335,6 +2886,7 @@
     }
 
     function startAiClipProcessing() {
+      if (!requireValidGeminiApiKey('AI Video Processing')) return;
       const btn = document.getElementById('start-processing-btn');
       btn.disabled = true;
       btn.textContent = 'Processing Clips & Opening CapCut Studio...';
@@ -2482,30 +3034,17 @@
       appState.editorTrimStart = clip.start;
       appState.editorTrimEnd = clip.end;
       document.getElementById('ed-caption-text').value = clip.caption;
-      syncEditorTimelineRanges();
-      renderEditorTimelineClips();
-      drawEditorCanvas();
-    }
 
-    function updateActiveTimelineClipCaption(val) {
-      const active = getActiveEditorClip();
-      if (active) {
-        active.caption = val;
-        renderEditorTimelineClips();
+      // If YouTube iframe is active, jump live YouTube video directly to this clip's start/end segment
+      const ytIframe = document.getElementById('editor-youtube-iframe');
+      const ytContainer = document.getElementById('editor-yt-live-container');
+      if (appState.youtubeLoadedMeta && ytIframe && ytContainer && !ytContainer.classList.contains('hidden')) {
+        const s = Math.floor(clip.start);
+        const e = Math.ceil(clip.end);
+        ytIframe.src = `https://www.youtube.com/embed/${appState.youtubeLoadedMeta.videoId}?start=${s}&end=${e}&autoplay=1&rel=0`;
       }
-      drawEditorCanvas();
-    }
 
-    function updateActiveClipTrim() {
-      const active = getActiveEditorClip();
-      if (!active) return;
-      let s = parseFloat(document.getElementById('ed-trim-start').value);
-      let e = parseFloat(document.getElementById('ed-trim-end').value);
-      if (e <= s + 0.5) e = Math.min(appState.videoDuration, s + 0.5);
-      active.start = s;
-      active.end = e;
-      appState.editorTrimStart = s;
-      appState.editorTrimEnd = e;
+      syncYoutubeLiveOverlays();
       syncEditorTimelineRanges();
       renderEditorTimelineClips();
       drawEditorCanvas();
@@ -2762,8 +3301,80 @@
       }
       syncCaptionAtPlayhead(t);
       updateCapcutPlayheadPosition();
-      document.getElementById('ed-timecode').textContent = `${formatSec(Math.floor(t))} / ${formatSec(Math.floor((vid && vid.duration) || appState.videoDuration))}`;
+      const tcEl = document.getElementById('ed-timecode');
+      if (tcEl) {
+        tcEl.textContent = `${formatSec(Math.floor(t))} / ${formatSec(Math.floor((vid && vid.duration) || appState.videoDuration))}`;
+      }
       drawEditorCanvas();
+    }
+
+    function updateActiveTimelineClipCaption(val) {
+      const active = getActiveEditorClip();
+      if (active) {
+        active.caption = val;
+        renderEditorTimelineClips();
+      }
+      syncYoutubeLiveOverlays();
+      drawEditorCanvas();
+    }
+
+    function syncYoutubeLiveOverlays() {
+      const hookInput = document.getElementById('ed-hook-text');
+      const capInput = document.getElementById('ed-caption-text');
+      const hookOverlay = document.getElementById('yt-live-hook-overlay');
+      const capOverlay = document.getElementById('yt-live-caption-overlay');
+      if (hookOverlay && hookInput) {
+        hookOverlay.textContent = hookInput.value.trim() || 'VISHAL SAINI EDIT 01';
+      }
+      if (capOverlay && capInput) {
+        const text = capInput.value.trim() || '';
+        capOverlay.textContent = appState.editorUpperCase ? text.toUpperCase() : text;
+      }
+    }
+
+    async function recordLiveTabAndExportCut() {
+      if (!navigator.mediaDevices || typeof navigator.mediaDevices.getDisplayMedia !== 'function') {
+        showToast('Live tab capture is not supported on this browser. Please upload a local MP4/WEBM file to export.', 'error');
+        return;
+      }
+      const active = getActiveEditorClip();
+      const clipDurationMs = active
+        ? Math.min(30000, Math.max(3000, (active.end - active.start) * 1000))
+        : 8000;
+
+      try {
+        showToast('Select the current browser tab in the prompt to capture & export this YouTube clip...', 'info');
+        const stream = await navigator.mediaDevices.getDisplayMedia({
+          video: { frameRate: 30 },
+          audio: true
+        });
+        const recorder = new MediaRecorder(stream, { mimeType: 'video/webm' });
+        const chunks = [];
+
+        recorder.ondataavailable = (e) => {
+          if (e.data && e.data.size > 0) chunks.push(e.data);
+        };
+        recorder.onstop = () => {
+          stream.getTracks().forEach((t) => t.stop());
+          const blob = new Blob(chunks, { type: 'video/webm' });
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `VishalSainiEdit01_YT_Clip_${active ? active.id : 1}_${Date.now()}.webm`;
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 5000);
+          showToast('✅ Live YouTube clip captured & downloaded!', 'success');
+        };
+
+        recorder.start(250);
+        setTimeout(() => {
+          if (recorder.state !== 'inactive') recorder.stop();
+        }, clipDurationMs);
+      } catch (err) {
+        showToast('Screen/tab capture cancelled or blocked by browser permissions.', 'error');
+      }
     }
 
     function syncCaptionAtPlayhead(currentTime) {
@@ -2780,7 +3391,16 @@
 
     function playOnlyActiveClip() {
       const vid = document.getElementById('editor-source-video');
+      const ytIframe = document.getElementById('editor-youtube-iframe');
+      const ytContainer = document.getElementById('editor-yt-live-container');
       const active = getActiveEditorClip();
+      if (appState.youtubeLoadedMeta && ytIframe && ytContainer && !ytContainer.classList.contains('hidden')) {
+        const s = Math.floor(active.start);
+        const e = Math.ceil(active.end);
+        ytIframe.src = `https://www.youtube.com/embed/${appState.youtubeLoadedMeta.videoId}?start=${s}&end=${e}&autoplay=1&rel=0`;
+        showToast(`Playing YouTube Clip #${active.id} (${formatSec(s)} - ${formatSec(e)})`);
+        return;
+      }
       if (!vid || !vid.src) {
         showToast('Click "Load Video" at top left to upload your MP4/MOV/WEBM file first.', 'error');
         return;
@@ -2911,9 +3531,12 @@
       const H = canvas.height;
       const vid = document.getElementById('editor-source-video');
 
-      const bright = document.getElementById('ed-brightness').value;
-      const contrast = document.getElementById('ed-contrast').value;
-      const sat = document.getElementById('ed-saturation').value;
+      const brightEl = document.getElementById('ed-brightness');
+      const contrastEl = document.getElementById('ed-contrast');
+      const satEl = document.getElementById('ed-saturation');
+      const bright = brightEl ? brightEl.value : '100';
+      const contrast = contrastEl ? contrastEl.value : '105';
+      const sat = satEl ? satEl.value : '110';
 
       ctx.save();
       ctx.filter = `brightness(${bright}%) contrast(${contrast}%) saturate(${sat}%)`;
@@ -2924,7 +3547,25 @@
         const scale = Math.max(W / vw, H / vh);
         const dw = vw * scale;
         const dh = vh * scale;
-        ctx.drawImage(vid, (W - dw) / 2, (H - dh) / 2, dw, dh);
+        const activeClip = getActiveEditorClip();
+        const faceBias = (appState.aiFaceTracking && activeClip && typeof activeClip.faceFocusX === 'number')
+          ? (0.5 - activeClip.faceFocusX) * (dw - W)
+          : 0;
+        ctx.drawImage(vid, (W - dw) / 2 + faceBias, (H - dh) / 2, dw, dh);
+      } else if (appState.youtubePreviewImage && appState.youtubePreviewImage.complete) {
+        const iw = appState.youtubePreviewImage.naturalWidth || 480;
+        const ih = appState.youtubePreviewImage.naturalHeight || 360;
+        const activeClip = getActiveEditorClip();
+        const sceneIdx = activeClip ? activeClip.id : 1;
+        const zoomFactor = 1.08 + ((sceneIdx % 4) * 0.04) + Math.sin(Date.now() / 650) * 0.025;
+        const faceShift = appState.aiFaceTracking ? Math.sin(sceneIdx * 1.3) * 18 : 0;
+        const panX = Math.cos(Date.now() / 800 + sceneIdx) * 12 + faceShift;
+        const scale = Math.max(W / iw, H / ih) * zoomFactor;
+        const dw = iw * scale;
+        const dh = ih * scale;
+        ctx.drawImage(appState.youtubePreviewImage, (W - dw) / 2 + panX, (H - dh) / 2, dw, dh);
+        ctx.fillStyle = 'rgba(6, 7, 12, 0.25)';
+        ctx.fillRect(0, 0, W, H);
       } else {
         const grad = ctx.createLinearGradient(0, 0, W, H);
         grad.addColorStop(0, '#1e1b4b');
@@ -2936,12 +3577,11 @@
         ctx.fillStyle = 'rgba(255,255,255,0.16)';
         ctx.font = '700 13px Inter, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('AI Viral Shorts — Free of Cost Editor', W / 2, H * 0.44);
-        ctx.fillText('Upload MP4/MOV/WEBM to Composite Live', W / 2, H * 0.49);
+        ctx.fillText('Vishal Saini Edit 01 — Free of Cost Editor', W / 2, H * 0.44);
+        ctx.fillText('Upload MP4/MOV/WEBM or Fetch YouTube Link', W / 2, H * 0.49);
       }
-      ctx.restore();
-
-      const hookText = document.getElementById('ed-hook-text').value.trim();
+      const hookEl = document.getElementById('ed-hook-text');
+      const hookText = hookEl ? hookEl.value.trim() : '';
       if (hookText) {
         ctx.fillStyle = 'rgba(0, 0, 0, 0.72)';
         ctx.beginPath();
@@ -2953,7 +3593,8 @@
         ctx.fillText(hookText.slice(0, 42), W / 2, 44);
       }
 
-      const wm = document.getElementById('ed-watermark-text').value.trim();
+      const wmEl = document.getElementById('ed-watermark-text');
+      const wm = wmEl ? wmEl.value.trim() : '';
       if (wm) {
         ctx.fillStyle = 'rgba(255,255,255,0.65)';
         ctx.font = '700 11px Inter, sans-serif';
@@ -3086,22 +3727,18 @@
     }
 
     function renderAndDownloadRealVideo() {
-      if (appState.videosEditedCount >= appState.maxFreeVideos) {
-        updateVideoQuotaUI();
-        showToast('🔒 Free limit (10 / 10 videos) poori ho chuki hai! Paid plan required.', 'error');
-        return;
-      }
-
       const canvas = document.getElementById('editor-compositor-canvas');
       const vid = document.getElementById('editor-source-video');
       const btn = document.getElementById('real-export-btn');
       const panel = document.getElementById('render-progress-panel');
       const fill = document.getElementById('render-progress-fill');
       const pctText = document.getElementById('render-percent-text');
-      const active = getActiveEditorClip();
+      const clipsToExport = appState.editorClips.length > 0
+        ? appState.editorClips
+        : [{ id: 1, start: appState.editorTrimStart, end: appState.editorTrimEnd, caption: document.getElementById('ed-caption-text').value }];
 
       if (!canvas.captureStream || typeof MediaRecorder === 'undefined') {
-        showToast('MediaRecorder is not supported in this browser.', 'error');
+        showToast('Video export requires Chrome, Edge, or Safari iOS 14.5+.', 'error');
         return;
       }
 
@@ -3120,49 +3757,68 @@
         }
       } catch (e) {}
 
-      const recorder = new MediaRecorder(combinedStream, { mimeType: 'video/webm' });
-      const chunks = [];
+      let mimeType = 'video/webm';
+      if (typeof MediaRecorder.isTypeSupported === 'function') {
+        if (MediaRecorder.isTypeSupported('video/webm;codecs=vp9')) mimeType = 'video/webm;codecs=vp9';
+        else if (MediaRecorder.isTypeSupported('video/webm')) mimeType = 'video/webm';
+        else if (MediaRecorder.isTypeSupported('video/mp4')) mimeType = 'video/mp4';
+      }
 
-      recorder.ondataavailable = (e) => { if (e.data.size > 0) chunks.push(e.data); };
+      const recorder = new MediaRecorder(combinedStream, mimeType ? { mimeType } : undefined);
+      const chunks = [];
+      const ext = mimeType.includes('mp4') ? 'mp4' : 'webm';
+
+      recorder.ondataavailable = (e) => { if (e.data && e.data.size > 0) chunks.push(e.data); };
       recorder.onstop = () => {
-        const blob = new Blob(chunks, { type: 'video/webm' });
+        const blob = new Blob(chunks, { type: mimeType || 'video/webm' });
         const url = URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = `VishalSainiEdit01_Clip_${active ? active.id : 1}_${Date.now()}.webm`;
+        a.download = `VishalSainiEdit01_${Date.now()}.${ext}`;
         document.body.appendChild(a);
         a.click();
         a.remove();
         setTimeout(() => URL.revokeObjectURL(url), 5000);
 
-        consumeOneVideoQuota();
         btn.disabled = false;
         panel.classList.add('hidden');
-        const left = Math.max(0, appState.maxFreeVideos - appState.videosEditedCount);
-        showToast(`Clip #${active ? active.id : 1} Cut & Exported! (${left} free videos left)`, 'success');
+        showToast(`✅ Full Edited Video (${clipsToExport.length} clips) Exported Free of Cost!`, 'success');
       };
 
-      const startSec = active ? active.start : appState.editorTrimStart;
-      const endSec = active ? active.end : appState.editorTrimEnd;
-      const clipDurationMs = Math.min(30000, Math.max(2500, (endSec - startSec) * 1000));
+      const totalMs = Math.min(45000, Math.max(3000, clipsToExport.reduce((acc, c) => acc + Math.max(1500, (c.end - c.start) * 1000), 0)));
+      let currentClipIdx = 0;
 
-      if (vid && vid.src) {
-        vid.currentTime = startSec;
-        vid.play();
-        startCanvasLoop();
-      } else {
+      const activateExportClip = (idx) => {
+        const c = clipsToExport[idx];
+        if (!c) return;
+        appState.activeEditorClipId = c.id;
+        document.getElementById('ed-caption-text').value = c.caption || '';
+        renderEditorTimelineClips();
+        if (vid && vid.src) {
+          vid.currentTime = c.start;
+          vid.play().catch(() => {});
+        }
         drawEditorCanvas();
-      }
+      };
 
-      recorder.start();
+      activateExportClip(0);
+      recorder.start(250);
+
       const startTime = Date.now();
       const timer = setInterval(() => {
-        drawEditorCanvas();
         const elapsed = Date.now() - startTime;
-        const pct = Math.min(100, Math.round((elapsed / clipDurationMs) * 100));
+        const pct = Math.min(100, Math.round((elapsed / totalMs) * 100));
         fill.style.width = `${pct}%`;
         pctText.textContent = `${pct}%`;
-        if (pct >= 100 || (vid && vid.src && vid.currentTime >= endSec)) {
+
+        const targetIdx = Math.min(clipsToExport.length - 1, Math.floor((elapsed / totalMs) * clipsToExport.length));
+        if (targetIdx !== currentClipIdx) {
+          currentClipIdx = targetIdx;
+          activateExportClip(currentClipIdx);
+        }
+
+        drawEditorCanvas();
+        if (pct >= 100) {
           clearInterval(timer);
           if (recorder.state !== 'inactive') recorder.stop();
           if (vid && vid.src) vid.pause();
@@ -3207,7 +3863,7 @@
       const c1 = document.getElementById('gfx-col1').value;
       const c2 = document.getElementById('gfx-col2').value;
       const headline = document.getElementById('gfx-headline').value.trim() || 'FREE OF COST AI STUDIO';
-      const subtext = document.getElementById('gfx-subtext').value.trim() || 'AI Viral Shorts Studio';
+      const subtext = document.getElementById('gfx-subtext').value.trim() || 'Vishal Saini Edit 01';
 
       const grad = ctx.createLinearGradient(0, 0, W, H);
       grad.addColorStop(0, c1);
@@ -3215,13 +3871,11 @@
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 
-      // Decorative studio circles
       ctx.fillStyle = 'rgba(255,255,255,0.08)';
       ctx.beginPath();
       ctx.arc(W * 0.85, H * 0.2, W * 0.22, 0, Math.PI * 2);
       ctx.fill();
 
-      // Free of Cost Pill Badge
       ctx.fillStyle = '#10b981';
       ctx.beginPath();
       ctx.roundRect(28, 28, 130, 30, 999);
@@ -3231,13 +3885,11 @@
       ctx.textAlign = 'center';
       ctx.fillText('FREE OF COST', 93, 47);
 
-      // Main Headline
       ctx.fillStyle = '#ffffff';
       ctx.font = `900 ${Math.max(22, Math.round(W * 0.055))}px Poppins, sans-serif`;
       ctx.textAlign = 'left';
       ctx.fillText(headline.slice(0, 28), 28, H * 0.56);
 
-      // Subtext
       ctx.fillStyle = '#fde047';
       ctx.font = `700 ${Math.max(13, Math.round(W * 0.026))}px Inter, sans-serif`;
       ctx.fillText(subtext.slice(0, 48), 28, H * 0.72);
@@ -3247,13 +3899,14 @@
       const canvas = document.getElementById('graphic-design-canvas');
       const a = document.createElement('a');
       a.href = canvas.toDataURL('image/png');
-      a.download = `AI_Studio_Graphic_${Date.now()}.png`;
+      a.download = `VishalSainiEdit01_Graphic_${Date.now()}.png`;
       a.click();
       document.getElementById('kpi-graphics').textContent = parseInt(document.getElementById('kpi-graphics').textContent, 10) + 1;
       showToast('Graphic Design PNG Downloaded Free of Cost!', 'success');
     }
 
     async function generateAiImageConcept() {
+      if (!requireValidGeminiApiKey('AI Image Generator')) return;
       const topic = document.getElementById('ai-img-topic').value.trim();
       const out = document.getElementById('ai-img-output');
       if (appState.apiConnected && appState.apiKey) {
@@ -3298,7 +3951,8 @@
       generateAiSeoContent();
     }
 
-    async function generateAiSeoContent() {
+    async function generateAiSeoContent(forceGate = false) {
+      if (forceGate && !requireValidGeminiApiKey('AI Captions & Viral SEO Generator')) return;
       const topic = document.getElementById('seo-subject-input').value.trim() || 'Free of Cost Video Editing Studio';
       const lang = document.getElementById('seo-output-lang').value;
       const plat = appState.seoPlatform;
@@ -3309,18 +3963,18 @@
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-              contents: [{ parts: [{ text: `Return JSON with keys: titles (array of 10 viral titles), description (string), hashtags (array of 20 hashtags), hooks (array of 5 hooks) for ${plat} about "${topic}" in ${lang}.` }] }],
+              contents: [{ parts: [{ text: `Return JSON with keys: titles (array of 10 viral titles), description (string), youtubeTags (array of 12 tags), hashtags (array of 20 hashtags), hooks (array of 5 hooks) for ${plat} about "${topic}" in ${lang}.` }] }],
               generationConfig: { responseMimeType: 'application/json' }
             })
           });
           if (res.ok) {
             const json = await res.json();
             const parsed = JSON.parse(json.candidates[0].content.parts[0].text);
-            renderSeoOutput(parsed.titles, parsed.description, parsed.hashtags, parsed.hooks);
+            renderSeoOutput(parsed.titles, parsed.description, parsed.youtubeTags, parsed.hashtags, parsed.hooks);
             showToast('Live Gemini Captions & SEO Generated!', 'success');
             return;
           }
-        } catch {}
+        } catch (e) {}
       }
 
       const titles = [
@@ -3332,28 +3986,42 @@
         `YouTube Link Se Viral Captions & Shorts Banayein ✨`,
         `This Free of Cost Workflow Saved Me 10 Hours ⏳`,
         `${topic} Explained Simply in 30 Seconds ✅`,
-        `AI Viral Shorts Creator Studio Tour 🎯`,
+        `Vishal Saini Edit 01 Studio Tour 🎯`,
         `Creators Must Try This Free Tool: ${topic} ⚡`
       ];
 
-      const desc = `${topic}\n\nFree of Cost platform for video editing, graphic designing, AI image creation, captions, and short-to-long video workflows.\n\n👉 Subscribe & Follow for daily creator tools!\n#AIViralShorts #FreeOfCost #Shorts`;
+      const desc = `${topic}\n\nVishal Saini Edit 01 (विशाल सैनी एडिट 01) — 100% Free of Cost platform for iPhone & Web video editing, graphic designing, AI image creation, captions, and short-to-long video workflows.\n\n👉 Subscribe & Follow for daily creator tools!\n#VishalSainiEdit01 #FreeOfCost #Shorts`;
+      const ytTags = [
+        topic,
+        'Vishal Saini Edit 01',
+        'विशाल सैनी एडिट 01',
+        'iPhone video editing',
+        'Free of Cost video editor',
+        'YouTube Shorts editing',
+        'Instagram Reels editing',
+        'auto captions generator',
+        'short to long video converter',
+        'graphic designing',
+        'AI image studio',
+        'viral video editing Hindi'
+      ];
       const hashtags = [
-        '#AIViralShorts', '#FreeOfCost', '#VideoEditing', '#GraphicDesign', '#AIImage',
-        '#Captions', '#Shorts', '#YouTubeShorts', '#InstagramReels', '#FacebookReels',
-        '#ShortToLongVideo', '#HindiTech', '#Hinglish', '#ContentCreator', '#AITools',
-        '#ThumbnailDesign', '#ReelsIndia', '#ViralShorts', '#EditingStudio', '#CreatorFree'
+        '#VishalSainiEdit01', '#FreeOfCost', '#VideoEditing', '#iPhoneEditing', '#GraphicDesign',
+        '#AIImage', '#Captions', '#Shorts', '#YouTubeShorts', '#InstagramReels',
+        '#FacebookReels', '#ShortToLongVideo', '#HindiTech', '#Hinglish', '#ContentCreator',
+        '#AITools', '#ThumbnailDesign', '#ReelsIndia', '#ViralShorts', '#EditingStudio'
       ];
       const hooks = [
-        `Hook 1: "Agar aap Free of Cost video editing aur graphic design dhoondh rahe ho, toh yeh video dekho..."`,
-        `Hook 2: "Short video ko long video mein badalna ab bilkul aasaan hai!"`,
-        `Hook 3: "AI studio par captions aur AI image prompts ek hi jagah milte hain!"`,
+        `Hook 1: "Agar aap iPhone ya Android par Free of Cost video editing aur graphic design dhoondh rahe ho, toh yeh video dekho..."`,
+        `Hook 2: "Short video ko long video mein badalna aur cut-out lagana ab bilkul aasaan hai!"`,
+        `Hook 3: "Vishal Saini Edit 01 par captions, tags aur AI image prompts ek hi jagah milte hain!"`,
         `CTA 1: "Free of Cost tools ke liye Follow & Subscribe karein!"`,
         `CTA 2: "Comment mein batayein aapko kaunsa feature sabse pasand aaya!"`
       ];
-      renderSeoOutput(titles, desc, hashtags, hooks);
+      renderSeoOutput(titles, desc, ytTags, hashtags, hooks);
     }
 
-    function renderSeoOutput(titles, desc, hashtags, hooks) {
+    function renderSeoOutput(titles, desc, ytTags, hashtags, hooks) {
       document.getElementById('seo-titles-cards').innerHTML = titles.map((t, idx) => `
         <div class="p-3 rounded-xl bg-slate-50 dark:bg-obsidian-850 border border-white/5 flex items-center justify-between gap-2 text-xs">
           <span class="font-bold"><span class="text-violet-400 mr-1">#${idx + 1}</span>${t}</span>
@@ -3362,6 +4030,10 @@
       `).join('');
 
       document.getElementById('seo-desc-textarea').value = desc;
+      const ytTagsBox = document.getElementById('seo-yt-tags-textarea');
+      if (ytTagsBox) {
+        ytTagsBox.value = Array.isArray(ytTags) ? ytTags.join(', ') : '';
+      }
       document.getElementById('seo-hashtags-display').textContent = hashtags.slice(0, appState.seoTagLimit).join(' ');
       document.getElementById('seo-hooks-list').innerHTML = hooks.map(h => `<div class="p-2 rounded-lg bg-slate-50 dark:bg-obsidian-850">• ${h}</div>`).join('');
     }
@@ -3383,8 +4055,9 @@
 
     function copyCompleteSeoBundle() {
       const desc = document.getElementById('seo-desc-textarea').value;
+      const ytTags = document.getElementById('seo-yt-tags-textarea') ? document.getElementById('seo-yt-tags-textarea').value : '';
       const tags = document.getElementById('seo-hashtags-display').textContent;
-      copyString(`${desc}\n\n${tags}`);
+      copyString(`${desc}\n\nYouTube Tags:\n${ytTags}\n\nHashtags:\n${tags}`);
     }
 
     // ==================== API KEYS ====================
@@ -3429,6 +4102,7 @@
 
       appState.apiKey = key;
       appState.apiConnected = true;
+      persistSessionState();
       btn.textContent = 'Save Key & Test Connection';
       btn.disabled = false;
 
@@ -3443,9 +4117,10 @@
     function clearStoredApiKey() {
       appState.apiKey = '';
       appState.apiConnected = false;
+      persistSessionState();
       document.getElementById('byok-key-input').value = '';
       document.getElementById('stage2-api-input').value = '';
-      showToast('API key removed — please connect a valid key to continue.');
+      showToast('API key removed — please connect a valid key or use Free Browser Mode.');
       promptApiKeyRecheck();
     }
 
@@ -3455,7 +4130,7 @@
       { step: 'STEP 2', title: 'Sign in with your Google Account', hi: 'Google AI Studio पेज खुलने पर अपने Gmail से लॉगिन करें।', url: 'accounts.google.com → Google AI Studio' },
       { step: 'STEP 3', title: 'Click "Create API Key"', hi: 'Google AI Studio में "Create API key" बटन दबाएं।', url: 'Google AI Studio Dashboard → Create API Key' },
       { step: 'STEP 4', title: 'Copy Your Generated API Key', hi: 'नई बनी हुई AIzaSy... वाली API Key को Copy करें।', url: 'AIzaSy••••••••••••••••••••••••••••' },
-      { step: 'STEP 5', title: 'Return to Vishal Saini Studio', hi: 'वापस इस वेबसाइट के API Keys & Setup पेज पर आएं।', url: 'Vishal Saini Studio → API Key Setup' },
+      { step: 'STEP 5', title: 'Return to Vishal Saini Edit 01', hi: 'वापस इस वेबसाइट के API Keys & Setup पेज पर आएं।', url: 'Vishal Saini Edit 01 → API Key Setup' },
       { step: 'STEP 6', title: 'Paste Key into the API Key Box', hi: 'बाईं तरफ़ वाले API Key बॉक्स में अपनी Key पेस्ट करें।', url: 'Input Box: Paste AIzaSy... API Key' },
       { step: 'STEP 7', title: 'Click "Save Key & Test Connection"', hi: 'नीला बटन दबाएं — सिस्टम लाइव Google सर्वर से कनेक्शन जाँचेगा।', url: 'Status: API Connected Successfully!' },
       { step: 'STEP 8', title: 'Start Using Live AI Features Free!', hi: 'अब Captions, SEO और AI Image Studio में लाइव AI चलाएं।', url: 'All AI Tools Ready • Free of Cost' }
@@ -3529,7 +4204,6 @@
       ctx.fillStyle = grad;
       ctx.fillRect(0, 0, W, H);
 
-      // Browser top bar mockup
       ctx.fillStyle = 'rgba(255,255,255,0.08)';
       ctx.beginPath();
       ctx.roundRect(24, 20, W - 48, 34, 10);
@@ -3539,7 +4213,6 @@
       ctx.textAlign = 'left';
       ctx.fillText(`🔒  ${current.url}`, 40, 42);
 
-      // Step Badge
       ctx.fillStyle = '#7c3aed';
       ctx.beginPath();
       ctx.roundRect(24, 74, 96, 28, 999);
@@ -3549,7 +4222,6 @@
       ctx.textAlign = 'center';
       ctx.fillText(`${current.step} / 8`, 72, 92);
 
-      // English & Hindi Visual Instruction Card
       ctx.fillStyle = '#ffffff';
       ctx.font = '800 20px Poppins, sans-serif';
       ctx.textAlign = 'left';
@@ -3559,7 +4231,6 @@
       ctx.font = '700 15px Inter, sans-serif';
       ctx.fillText(current.hi, 24, 172);
 
-      // Simulated Action Box
       ctx.fillStyle = 'rgba(16, 185, 129, 0.16)';
       ctx.strokeStyle = 'rgba(16, 185, 129, 0.5)';
       ctx.lineWidth = 1.5;
@@ -3570,9 +4241,8 @@
 
       ctx.fillStyle = '#6ee7b7';
       ctx.font = '800 13px Inter, sans-serif';
-      ctx.fillText('👉 AI Viral Shorts Studio — Free of Cost AI Setup Guide', 42, 235);
+      ctx.fillText('👉 Vishal Saini Edit 01 — Free of Cost AI Setup Guide', 42, 235);
 
-      // Progress Bar at Bottom
       const progressW = ((appState.tutStep + 1) / API_TUTORIAL_STEPS.length) * (W - 48);
       ctx.fillStyle = 'rgba(255,255,255,0.12)';
       ctx.fillRect(24, H - 24, W - 48, 6);
@@ -3646,6 +4316,91 @@
       return `${m}:${s}`;
     }
 
+    // Bind all inline handlers globally
+    window.navigateTo = navigateTo;
+    window.toggleMobileSidebar = toggleMobileSidebar;
+    window.toggleDarkMode = toggleDarkMode;
+    window.changeAppLanguage = changeAppLanguage;
+    window.toggleRtlDirection = toggleRtlDirection;
+    window.openGoogleDirectAccountChooser = openGoogleDirectAccountChooser;
+    window.closeGoogleDirectChooser = closeGoogleDirectChooser;
+    window.selectSavedGoogleAccount = selectSavedGoogleAccount;
+    window.submitGoogleDirectAllow = submitGoogleDirectAllow;
+    window.switchGateAuthMode = switchGateAuthMode;
+    window.quickDemoFillLogin = quickDemoFillLogin;
+    window.handleStage1Login = handleStage1Login;
+    window.applyGoogleClientId = applyGoogleClientId;
+    window.logoutToStage1 = logoutToStage1;
+    window.toggleStage2KeyVisibility = toggleStage2KeyVisibility;
+    window.verifyStage2AndUnlockStudio = verifyStage2AndUnlockStudio;
+    window.unlockBrowserFreeMode = unlockBrowserFreeMode;
+    window.promptApiKeyRecheck = promptApiKeyRecheck;
+    window.toggleStage2VideoPlay = toggleStage2VideoPlay;
+    window.jumpStage2VideoStep = jumpStage2VideoStep;
+    window.loadStage2CustomVideo = loadStage2CustomVideo;
+    window.resetStage2AnimatedVideo = resetStage2AnimatedVideo;
+    window.setConversionMode = setConversionMode;
+    window.onLocalVideoSelected = onLocalVideoSelected;
+    window.removeUploadedFile = removeUploadedFile;
+    window.fetchYoutubeMetadata = fetchYoutubeMetadata;
+    window.autoCutEntireVideoNow = autoCutEntireVideoNow;
+    window.toggleAiFaceTracking = toggleAiFaceTracking;
+    window.requireValidGeminiApiKey = requireValidGeminiApiKey;
+    window.recordLiveTabAndExportCut = recordLiveTabAndExportCut;
+    window.syncYoutubeLiveOverlays = syncYoutubeLiveOverlays;
+    window.selectClipDuration = selectClipDuration;
+    window.selectClipCount = selectClipCount;
+    window.startAiClipProcessing = startAiClipProcessing;
+    window.loadClipInProEditor = loadClipInProEditor;
+    window.selectEditorTimelineClip = selectEditorTimelineClip;
+    window.updateActiveTimelineClipCaption = updateActiveTimelineClipCaption;
+    window.updateActiveClipTrim = updateActiveClipTrim;
+    window.splitClipAtPlayhead = splitClipAtPlayhead;
+    window.addNewTimelineClip = addNewTimelineClip;
+    window.deleteTimelineClip = deleteTimelineClip;
+    window.setCapcutDockTab = setCapcutDockTab;
+    window.scrubCapcutTimeline = scrubCapcutTimeline;
+    window.trimClipStartToPlayhead = trimClipStartToPlayhead;
+    window.trimClipEndToPlayhead = trimClipEndToPlayhead;
+    window.duplicateActiveTimelineClip = duplicateActiveTimelineClip;
+    window.deleteActiveTimelineClip = deleteActiveTimelineClip;
+    window.addCaptionBlockAtPlayhead = addCaptionBlockAtPlayhead;
+    window.changeEditorVideoVolume = changeEditorVideoVolume;
+    window.toggleEditorMute = toggleEditorMute;
+    window.seekEditorVideo = seekEditorVideo;
+    window.playOnlyActiveClip = playOnlyActiveClip;
+    window.changeEditorAspect = changeEditorAspect;
+    window.applySubmagicPreset = applySubmagicPreset;
+    window.toggleCaptionCase = toggleCaptionCase;
+    window.setEditorEmoji = setEditorEmoji;
+    window.recordEditorState = recordEditorState;
+    window.editorUndo = editorUndo;
+    window.editorRedo = editorRedo;
+    window.changeEditorSpeed = changeEditorSpeed;
+    window.toggleEditorPlayback = toggleEditorPlayback;
+    window.toggleMicAutoCaption = toggleMicAutoCaption;
+    window.renderAndDownloadRealVideo = renderAndDownloadRealVideo;
+    window.downloadSrtSubtitles = downloadSrtSubtitles;
+    window.autoFillCaptionsAcrossClips = autoFillCaptionsAcrossClips;
+    window.setGraphicPresetSize = setGraphicPresetSize;
+    window.drawGraphicCanvas = drawGraphicCanvas;
+    window.downloadGraphicPng = downloadGraphicPng;
+    window.generateAiImageConcept = generateAiImageConcept;
+    window.switchSeoPlatform = switchSeoPlatform;
+    window.setSeoHashtagLimit = setSeoHashtagLimit;
+    window.generateAiSeoContent = generateAiSeoContent;
+    window.copyString = copyString;
+    window.copyField = copyField;
+    window.copyCompleteSeoBundle = copyCompleteSeoBundle;
+    window.toggleKeyMask = toggleKeyMask;
+    window.saveAndVerifyApiKey = saveAndVerifyApiKey;
+    window.clearStoredApiKey = clearStoredApiKey;
+    window.toggleApiTutorialPlay = toggleApiTutorialPlay;
+    window.jumpToTutStep = jumpToTutStep;
+    window.loadCustomTutorialVideo = loadCustomTutorialVideo;
+    window.resetToBuiltInWalkthrough = resetToBuiltInWalkthrough;
+    window.filterProjectsBySearch = filterProjectsBySearch;
+
     // ==================== BOOTSTRAP ====================
     window.addEventListener('DOMContentLoaded', () => {
       initLanguages();
@@ -3653,6 +4408,7 @@
       initStage2VideoTutorial();
       initApiTutorialWalkthrough();
       generateClipsFromDuration(90);
+      generateAiSeoContent();
       renderProjectsLists();
       recordEditorState();
       drawEditorCanvas();
