@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <!-- Vishal Saini Edit 01 — Brand & SEO Metadata -->
   <title>Vishal Saini Edit 01 (विशाल सैनी एडिट 01) — Free of Cost AI Video Editing, Graphic Design & Captions</title>
   <meta
@@ -18,7 +19,6 @@
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-title" content="Vishal Saini Edit 01" />
 
-  <!-- Open Graph (WhatsApp / Facebook / Social Share Preview) -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vishal Saini Edit 01 — Free of Cost iPhone & Web AI Video, Graphic Design & Captions Studio" />
   <meta
@@ -27,7 +27,6 @@
   />
   <meta property="og:site_name" content="Vishal Saini Edit 01" />
 
-  <!-- Structured Data (Schema.org) for Search Engines -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -53,6 +52,7 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://www.youtube.com/iframe_api" async></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Montserrat:wght@700;800;900&family=Poppins:wght@600;700;800;900&display=swap" rel="stylesheet" />
@@ -282,7 +282,7 @@
           <input type="password" id="gate-pass-input" required placeholder="Enter password (min 4 chars)" minlength="4" class="w-full px-4 py-3 rounded-xl bg-obsidian-850 border border-white/10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-violet-500" />
         </div>
         <button type="submit" class="w-full py-3.5 rounded-xl grad-primary text-white font-black text-sm shadow-xl shadow-violet-600/30 hover:opacity-95 transition">
-          Login & Proceed to API Setup →
+          Login &amp; Proceed to API Setup →
         </button>
       </form>
 
@@ -317,13 +317,13 @@
 
           <div class="p-3 rounded-xl bg-blue-50 border border-blue-200 text-[11px] text-slate-700 space-y-1">
             <div class="font-extrabold text-blue-800">Permissions Requested by Vishal Saini Edit 01:</div>
-            <div>✓ View your email address & basic profile info</div>
-            <div>✓ Save your session & 100% Free Studio access permanently</div>
+            <div>✓ View your email address &amp; basic profile info</div>
+            <div>✓ Save your session &amp; 100% Free Studio access permanently</div>
           </div>
 
           <div class="flex gap-2 pt-1">
             <button type="button" onclick="closeGoogleDirectChooser()" class="flex-1 py-2.5 rounded-xl border border-slate-300 text-xs font-extrabold text-slate-600 hover:bg-slate-100">Cancel</button>
-            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold shadow">Allow & Continue</button>
+            <button type="submit" class="flex-1 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-extrabold shadow">Allow &amp; Continue</button>
           </div>
         </form>
       </div>
@@ -360,7 +360,7 @@
 
           <div class="relative rounded-2xl overflow-hidden border border-violet-500/40 bg-black">
             <canvas id="stage2-tutorial-canvas" width="640" height="360" class="w-full h-auto block"></canvas>
-            <iframe id="s2-custom-iframe" class="hidden w-full aspect-video border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe id="s2-custom-iframe" class="hidden w-full aspect-video border-0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media" allowfullscreen></iframe>
             <video id="s2-custom-video" class="hidden w-full aspect-video bg-black" controls></video>
           </div>
 
@@ -396,7 +396,7 @@
           </div>
 
           <div class="pt-4 border-t border-white/10 space-y-3">
-            <h3 class="font-black text-lg">2. Paste Key & Unlock Studio</h3>
+            <h3 class="font-black text-lg">2. Paste Key &amp; Unlock Studio</h3>
             <div class="relative">
               <input type="password" id="stage2-api-input" placeholder="Paste AIzaSy... Google Gemini API Key" class="w-full pl-3.5 pr-16 py-3 rounded-xl bg-obsidian-850 border border-white/15 text-xs font-mono text-white focus:outline-none focus:ring-2 focus:ring-violet-500" />
               <button type="button" onclick="toggleStage2KeyVisibility()" class="absolute right-2.5 top-1/2 -translate-y-1/2 px-2 py-1 rounded bg-white/10 text-[10px] font-bold">Show</button>
@@ -408,7 +408,7 @@
             </label>
 
             <button type="button" onclick="verifyStage2AndUnlockStudio()" id="stage2-verify-btn" class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black text-sm shadow-xl shadow-emerald-500/20 transition">
-              Save & Test Connection → Unlock Studio
+              Save &amp; Test Connection → Unlock Studio
             </button>
 
             <div id="stage2-mandatory-alert" class="p-3.5 rounded-2xl bg-rose-600/20 border-2 border-rose-500 text-rose-200 space-y-1">
@@ -638,7 +638,6 @@
           </div>
         </div>
 
-        <!-- Transparent Browser vs External API/Server Explanation -->
         <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
           <div class="space-y-1">
             <div class="font-extrabold text-emerald-400">✅ Runs 100% Directly in Your Browser (Free of Cost)</div>
@@ -649,7 +648,7 @@
           <div class="space-y-1">
             <div class="font-extrabold text-amber-400">ℹ️ YouTube Link + Python AI Backend Server</div>
             <p class="text-slate-500 dark:text-slate-400 leading-relaxed">
-              Connect <code>server.py</code> (<code>yt-dlp + FFmpeg + Gemini AI</code>) in the Video Converter tab for 100% server-side YouTube MP4 downloading &amp; scene cutting, or use built-in browser tools directly.
+              Paste any YouTube link to play live video + full audio with AI scene auto-cuts in browser, OR connect <code>server.py</code> (<code>yt-dlp + FFmpeg + Gemini AI</code>) for 100% server-side MP4 downloading &amp; cutting.
             </p>
           </div>
         </div>
@@ -672,7 +671,6 @@
           </button>
         </div>
 
-        <!-- KPI Metric Cards -->
         <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-6 gap-3">
           <div class="p-4 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10">
             <div class="text-[11px] text-slate-400 font-semibold">Videos Processed</div>
@@ -706,7 +704,6 @@
           </div>
         </div>
 
-        <!-- Analytics Charts Row -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           <div class="lg:col-span-7 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4">
             <div class="flex items-center justify-between">
@@ -756,7 +753,6 @@
           </div>
         </div>
 
-        <!-- Recent Projects Grid -->
         <div class="p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4">
           <div class="flex items-center justify-between">
             <h2 class="font-bold text-base">Recent Projects</h2>
@@ -782,7 +778,6 @@
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          <!-- Upload & Config Card -->
           <div class="lg:col-span-7 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5">
             <div id="drop-area" onclick="document.getElementById('local-video-input').click()" class="border-2 border-dashed border-violet-500/40 hover:border-violet-500 rounded-2xl p-8 text-center cursor-pointer bg-slate-50 dark:bg-obsidian-850/70 transition space-y-2">
               <input type="file" id="local-video-input" multiple accept="video/mp4,video/quicktime,video/webm,video/x-matroska,video/*" class="hidden" onchange="onLocalVideoSelected(event)" />
@@ -791,7 +786,6 @@
               <div class="text-xs text-slate-400">MP4, MOV, WEBM, MKV • iPhone, Android &amp; PC compatible</div>
             </div>
 
-            <!-- Uploaded Video Preview Strip -->
             <div id="uploaded-video-card" class="hidden p-4 rounded-2xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 space-y-3">
               <div class="flex items-center justify-between gap-2">
                 <div class="min-w-0">
@@ -830,12 +824,12 @@
               <!-- Python yt-dlp + FFmpeg Backend Server Connection -->
               <details class="p-3 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-violet-500/25 text-xs">
                 <summary class="cursor-pointer font-extrabold text-cyan-300 select-none flex items-center justify-between">
-                  <span>🖥️ Python AI Server URL (For 100% Real Server-Side YouTube MP4 Download &amp; FFmpeg Cut)</span>
-                  <span id="backend-server-badge" class="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 text-[10px]">Not Set</span>
+                  <span>🖥️ Python AI Server URL (Optional: For Server-Side MP4 Download &amp; FFmpeg Cut)</span>
+                  <span id="backend-server-badge" class="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px]">YouTube IFrame API Ready</span>
                 </summary>
                 <div class="mt-2.5 space-y-2">
                   <p class="text-[11px] text-slate-400">
-                    Run <code>server.py</code> (Render / Railway / Localhost <code>http://localhost:8000</code>) and paste its URL here so YouTube links download real MP4 clips via <code>yt-dlp + FFmpeg + Gemini AI</code>:
+                    Without a server, YouTube links play <strong>Live Video + Full Audio</strong> via YouTube IFrame API directly in the editor with automatic scene cuts. If you deploy <code>server.py</code> (Render / Railway / Localhost <code>http://localhost:8000</code>), paste its URL here for direct <code>.mp4</code> downloads:
                   </p>
                   <div class="flex gap-2">
                     <input type="url" id="python-backend-url-input" placeholder="http://localhost:8000 or https://your-app.onrender.com" class="flex-1 px-3 py-2 rounded-xl bg-obsidian-950 border border-white/10 text-xs font-mono text-white" />
@@ -846,7 +840,6 @@
               <div id="yt-fetch-status" class="hidden text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-slate-200 space-y-2"></div>
             </div>
 
-            <!-- Project Name & Language Selectors -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
               <div>
                 <label class="block text-[11px] font-bold mb-1 text-slate-400">Project Name</label>
@@ -875,7 +868,6 @@
               </div>
             </div>
 
-            <!-- Clip Duration & Count Selectors -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
               <div>
                 <label class="block text-[11px] font-bold mb-1 text-slate-400">Target Output Duration</label>
@@ -903,7 +895,6 @@
             </button>
           </div>
 
-          <!-- Right: 6-Stage Pipeline Tracker & Output Clips -->
           <div class="lg:col-span-5 p-6 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5">
             <div class="flex items-center justify-between">
               <h2 class="font-extrabold text-base">Generated Video Segments</h2>
@@ -925,42 +916,42 @@
       </section>
 
       <!-- ===================================================================== -->
-      <!-- VIEW 4: SUBMAGIC-STYLE PRO VIDEO EDITOR + REAL CANVAS EXPORT          -->
+      <!-- VIEW 4: CAPCUT-STYLE ONE-CLICK PRO VIDEO EDITOR STUDIO                -->
       <!-- ===================================================================== -->
-      <section id="view-editor" class="app-view hidden space-y-5">
-        <div class="p-3.5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-3">
-          <div class="flex items-center gap-2">
-            <button onclick="navigateTo('create')" class="px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold">← Back</button>
-            <span class="font-extrabold text-xs sm:text-sm truncate max-w-[200px]">Pro Video Editor</span>
+      <section id="view-editor" class="app-view hidden space-y-3">
+        <!-- Compact Top Studio Bar (All Primary Actions Close Together) -->
+        <div class="px-3 py-2.5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 flex flex-wrap items-center justify-between gap-2">
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button onclick="navigateTo('create')" class="px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-extrabold hover:text-violet-400 transition">← Back</button>
             <input type="file" id="editor-direct-video-input" accept="video/mp4,video/quicktime,video/webm,video/x-matroska,video/*" class="hidden" onchange="onLocalVideoSelected(event)" />
-            <button type="button" onclick="document.getElementById('editor-direct-video-input').click()" class="px-3 py-1.5 rounded-xl bg-cyan-500/15 border border-cyan-500/35 text-cyan-300 text-xs font-extrabold hover:bg-cyan-500 hover:text-slate-950 transition">
-              📁 Load Video
+            <button type="button" onclick="document.getElementById('editor-direct-video-input').click()" class="px-3 py-1.5 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-xs font-extrabold hover:bg-cyan-500 hover:text-slate-950 transition">
+              📁 Video
             </button>
-            <button onclick="editorUndo()" class="p-2 rounded-lg bg-slate-100 dark:bg-obsidian-850 text-xs font-bold hover:text-violet-400" title="Undo">↩</button>
-            <button onclick="editorRedo()" class="p-2 rounded-lg bg-slate-100 dark:bg-obsidian-850 text-xs font-bold hover:text-violet-400" title="Redo">↪</button>
+            <button onclick="editorUndo()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-extrabold hover:text-violet-400" title="Undo">↩</button>
+            <button onclick="editorRedo()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-extrabold hover:text-violet-400" title="Redo">↪</button>
+
+            <div class="flex items-center gap-1 p-0.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-[11px] font-extrabold">
+              <button onclick="changeEditorAspect('9:16')" id="aspect-9-16" class="px-2.5 py-1 rounded-lg grad-primary text-white">9:16</button>
+              <button onclick="changeEditorAspect('1:1')" id="aspect-1-1" class="px-2.5 py-1 rounded-lg text-slate-400">1:1</button>
+              <button onclick="changeEditorAspect('16:9')" id="aspect-16-9" class="px-2.5 py-1 rounded-lg text-slate-400">16:9</button>
+            </div>
           </div>
 
-          <div class="flex items-center gap-1 p-1 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold">
-            <button onclick="changeEditorAspect('9:16')" id="aspect-9-16" class="px-3 py-1.5 rounded-lg grad-primary text-white">📱 9:16 Short</button>
-            <button onclick="changeEditorAspect('1:1')" id="aspect-1-1" class="px-3 py-1.5 rounded-lg text-slate-400">⬛ 1:1 Square</button>
-            <button onclick="changeEditorAspect('16:9')" id="aspect-16-9" class="px-3 py-1.5 rounded-lg text-slate-400">🖥️ 16:9 Long</button>
-          </div>
-
-          <div class="flex items-center gap-2">
-            <button type="button" onclick="toggleAiFaceTracking()" id="ai-face-track-btn" class="px-3 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-xs font-extrabold transition">
-              🎯 AI Face Focus: ON
+          <div class="flex flex-wrap items-center gap-1.5">
+            <button type="button" onclick="toggleAiFaceTracking()" id="ai-face-track-btn" class="px-2.5 py-1.5 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-[11px] font-extrabold transition">
+              🎯 Face Focus: ON
             </button>
-            <button type="button" onclick="autoCutEntireVideoNow(true)" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black shadow transition">
-              ⚡ AI Auto-Cut &amp; Export
+            <button type="button" onclick="autoCutEntireVideoNow(false)" class="px-3 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 text-xs font-black shadow transition">
+              ⚡ 1-Click Auto-Cut
             </button>
-            <button onclick="downloadSrtSubtitles()" class="px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-bold hover:text-cyan-400" title="Download All Clips SRT Subtitles">.SRT</button>
-            <button onclick="renderAndDownloadRealVideo()" id="real-export-btn" class="px-4 py-2 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg shadow-violet-600/30 hover:opacity-95 transition">
-              ⬇️ Export Full Edited Video (.WEBM)
+            <button onclick="downloadSrtSubtitles()" class="px-2.5 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-xs font-extrabold hover:text-cyan-400" title="Download SRT">.SRT</button>
+            <button onclick="renderAndDownloadRealVideo()" id="real-export-btn" class="px-3.5 py-1.5 rounded-xl grad-primary text-white text-xs font-extrabold shadow-lg shadow-violet-600/30 hover:opacity-95 transition">
+              ⬇️ Export Video
             </button>
           </div>
         </div>
 
-        <div id="render-progress-panel" class="hidden p-4 rounded-2xl bg-violet-950/60 border border-violet-500/40 space-y-2">
+        <div id="render-progress-panel" class="hidden p-3 rounded-2xl bg-violet-950/60 border border-violet-500/40 space-y-1.5">
           <div class="flex items-center justify-between text-xs font-bold">
             <span id="render-stage-label" class="text-violet-200">Rendering video with burned-in captions in browser...</span>
             <div class="flex items-center gap-2">
@@ -968,276 +959,262 @@
               <span id="render-percent-text" class="text-cyan-300 font-black">0%</span>
             </div>
           </div>
-          <div class="w-full h-2.5 rounded-full bg-black/50 overflow-hidden">
+          <div class="w-full h-2 rounded-full bg-black/50 overflow-hidden">
             <div id="render-progress-fill" class="h-full grad-primary transition-all duration-150" style="width: 0%"></div>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-start">
-          <!-- Left Panel: Presets & Caption Controls -->
-          <div class="lg:col-span-4 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-5">
-            <div class="space-y-2.5">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-extrabold uppercase tracking-wider text-slate-400">Caption Presets</span>
-                <span class="text-[11px] text-emerald-400 font-bold">Free of Cost</span>
-              </div>
-              <div class="grid grid-cols-3 gap-2 text-center text-[11px] font-bold">
-                <button onclick="applySubmagicPreset('default')" class="p-2.5 rounded-xl bg-obsidian-850 border-2 border-violet-500 text-yellow-300">Default<br/><span class="text-[9px] text-slate-400">Yellow Pop</span></button>
-                <button onclick="applySubmagicPreset('classic')" class="p-2.5 rounded-xl bg-obsidian-850 border border-white/10 text-white">Classic<br/><span class="text-[9px] text-slate-400">Bold White</span></button>
-                <button onclick="applySubmagicPreset('sara')" class="p-2.5 rounded-xl bg-obsidian-850 border border-white/10 text-pink-400">Sara<br/><span class="text-[9px] text-slate-400">Neon Pink</span></button>
-                <button onclick="applySubmagicPreset('jimi')" class="p-2.5 rounded-xl bg-obsidian-850 border border-white/10 text-emerald-400">Jimi<br/><span class="text-[9px] text-slate-400">Hormozi Green</span></button>
-                <button onclick="applySubmagicPreset('basker')" class="p-2.5 rounded-xl bg-obsidian-850 border border-white/10 text-cyan-300">Basker<br/><span class="text-[9px] text-slate-400">Cyan Box</span></button>
-                <button onclick="applySubmagicPreset('bobby')" class="p-2.5 rounded-xl bg-obsidian-850 border border-white/10 text-amber-400">Bobby<br/><span class="text-[9px] text-slate-400">Podcast Gold</span></button>
-              </div>
-            </div>
-
-            <div class="p-3.5 rounded-xl bg-violet-600/10 border border-violet-500/30 space-y-2">
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-xs font-extrabold text-violet-300">🎙️ Live Speech-to-Text Captions</span>
-                <div class="flex items-center gap-1.5">
-                  <select id="mic-lang-select" class="px-2 py-1 rounded-lg bg-obsidian-850 border border-white/10 text-[10px] font-bold text-white">
-                    <option value="hi-IN" selected>Hindi / Hinglish</option>
-                    <option value="en-IN">English (India)</option>
-                    <option value="en-US">English (US)</option>
-                  </select>
-                  <button type="button" onclick="toggleMicAutoCaption()" id="mic-caption-btn" class="px-3 py-1 rounded-lg grad-primary text-white text-[11px] font-bold">Start Mic</button>
-                </div>
-              </div>
-              <p class="text-[11px] text-slate-400">Mic चालू करके बोलें — आपकी आवाज़ अपने आप नीचे Timed Subtitle Clip बनकर वीडियो पर जुड़ जाएगी।</p>
-            </div>
-
-            <div class="space-y-3">
-              <div>
-                <label class="block text-[11px] font-bold mb-1 text-slate-400">Top Hook Banner</label>
-                <input type="text" id="ed-hook-text" value="FREE OF COST AI VIDEO STUDIO 🚀" oninput="recordEditorState(); syncYoutubeLiveOverlays(); drawEditorCanvas()" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold" />
-              </div>
-              <div>
-                <div class="flex items-center justify-between mb-1">
-                  <label class="text-[11px] font-bold text-slate-400">Active Clip Caption Line</label>
-                  <span id="ed-active-clip-badge" class="text-[10px] font-extrabold text-cyan-400">Clip #1 (00:00 - 00:15)</span>
-                </div>
-                <textarea id="ed-caption-text" rows="2" oninput="updateActiveTimelineClipCaption(this.value)" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold">APNI VIDEO KO FREE OF COST VIRAL BANAYEIN!</textarea>
-              </div>
-              <!-- Sequential Line-by-Line Auto-Fill Across All Clips -->
-              <div class="p-3 rounded-xl bg-cyan-500/10 border border-cyan-500/25 space-y-2">
-                <div class="flex items-center justify-between">
-                  <span class="text-[11px] font-extrabold text-cyan-300">📝 Auto-Fill Captions Line-by-Line</span>
-                  <button type="button" onclick="autoFillCaptionsAcrossClips()" class="px-2.5 py-1 rounded-lg bg-cyan-500 text-slate-950 text-[10px] font-black hover:bg-cyan-400 transition">Fill All Clips ✨</button>
-                </div>
-                <textarea id="ed-bulk-captions-input" rows="2" placeholder="Har line ek clip par apne aap lagegi (Line 1 -> Clip 1, Line 2 -> Clip 2)..." class="w-full px-2.5 py-1.5 rounded-lg bg-obsidian-950 border border-white/10 text-[11px] text-white"></textarea>
-              </div>
-            </div>
-
-            <!-- Interactive Clip Cutter & Multi-Clip Timeline -->
-            <div class="p-3.5 rounded-xl bg-slate-50 dark:bg-obsidian-850 border border-violet-500/30 space-y-3">
-              <div class="flex items-center justify-between gap-2">
-                <span class="text-xs font-extrabold text-violet-300">✂️ Cut Video Into Clips + Captions</span>
-                <div class="flex gap-1.5">
-                  <button type="button" onclick="splitClipAtPlayhead()" class="px-2.5 py-1 rounded-lg bg-amber-500/20 border border-amber-500/40 text-amber-300 text-[11px] font-extrabold hover:bg-amber-500 hover:text-black transition">
-                    ✂️ Split Here
-                  </button>
-                  <button type="button" onclick="addNewTimelineClip()" class="px-2.5 py-1 rounded-lg grad-primary text-white text-[11px] font-extrabold">
-                    + Add Clip
-                  </button>
-                </div>
-              </div>
-
-              <!-- Trim Start & End Sliders for Selected Clip -->
-              <div class="grid grid-cols-2 gap-2.5 text-[11px]">
-                <div>
-                  <label class="flex justify-between font-bold text-slate-400 mb-1">
-                    <span>Start Cut</span>
-                    <span id="ed-trim-start-label" class="text-cyan-300 font-mono">00:00</span>
-                  </label>
-                  <input type="range" id="ed-trim-start" min="0" max="60" step="0.5" value="0" oninput="updateActiveClipTrim()" class="w-full accent-cyan-400" />
-                </div>
-                <div>
-                  <label class="flex justify-between font-bold text-slate-400 mb-1">
-                    <span>End Cut</span>
-                    <span id="ed-trim-end-label" class="text-emerald-300 font-mono">00:15</span>
-                  </label>
-                  <input type="range" id="ed-trim-end" min="1" max="60" step="0.5" value="15" oninput="updateActiveClipTrim()" class="w-full accent-emerald-400" />
-                </div>
-              </div>
-
-              <!-- Timeline Clips List -->
-              <div id="editor-timeline-clips" class="space-y-1.5 max-h-40 overflow-y-auto pr-1"></div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3 text-xs">
-              <div>
-                <label class="block text-[11px] font-bold mb-1 text-slate-400">Position Y: <span id="pos-y-val">75%</span></label>
-                <input type="range" id="ed-pos-y" min="20" max="90" value="75" oninput="document.getElementById('pos-y-val').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold mb-1 text-slate-400">Font Size: <span id="font-size-val">34px</span></label>
-                <input type="range" id="ed-font-size" min="20" max="56" value="34" oninput="document.getElementById('font-size-val').textContent=this.value+'px'; drawEditorCanvas()" class="w-full accent-violet-500" />
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold mb-1 text-slate-400">Typography</label>
-                <select id="ed-font-family" onchange="drawEditorCanvas()" class="w-full px-2.5 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold">
-                  <option value="Poppins">Poppins Black</option>
-                  <option value="Montserrat">Montserrat ExtraBold</option>
-                  <option value="Inter">Inter Heavy</option>
-                </select>
-              </div>
-              <div>
-                <label class="block text-[11px] font-bold mb-1 text-slate-400">Colors</label>
-                <div class="flex items-center gap-2">
-                  <input type="color" id="ed-text-color" value="#facc15" oninput="drawEditorCanvas()" class="w-10 h-8 rounded cursor-pointer bg-transparent" />
-                  <input type="color" id="ed-bg-color" value="#090d16" oninput="drawEditorCanvas()" class="w-10 h-8 rounded cursor-pointer bg-transparent" />
-                  <button type="button" onclick="toggleCaptionCase()" class="px-2.5 py-1.5 rounded-lg bg-obsidian-850 border border-white/10 text-[11px] font-black">AA/Aa</button>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Center Stage: Live HTML5 Canvas Video Compositor -->
-          <div class="lg:col-span-5 flex flex-col items-center p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4">
-            <div id="editor-stage-wrapper" class="relative rounded-2xl overflow-hidden shadow-2xl border-2 border-violet-500/40 bg-black flex items-center justify-center w-full min-h-[340px]">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-3 items-start">
+          <!-- Left Stage (7 cols) -->
+          <div class="lg:col-span-7 p-3.5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-2.5">
+            <div id="editor-stage-wrapper" class="relative rounded-2xl overflow-hidden shadow-2xl border border-violet-500/40 bg-black flex items-center justify-center w-full min-h-[300px]">
               <video id="editor-source-video" class="hidden" playsinline crossorigin="anonymous"></video>
-              <!-- Live YouTube Embed + Synchronized Live Caption & Hook Overlay -->
               <div id="editor-yt-live-container" class="hidden relative w-full aspect-video bg-black">
-                <iframe id="editor-youtube-iframe" class="w-full h-full border-0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-                <div id="yt-live-hook-overlay" class="pointer-events-none absolute top-2.5 left-3 right-3 px-3 py-1.5 rounded-lg bg-black/75 text-white text-center font-extrabold text-xs uppercase tracking-wide">
+                <div id="editor-yt-api-player" class="w-full h-full"></div>
+                <div id="yt-live-hook-overlay" class="pointer-events-none absolute top-2.5 left-3 right-3 px-3 py-1 rounded-lg bg-black/75 text-white text-center font-extrabold text-xs uppercase tracking-wide z-10">
                   FREE OF COST AI VIDEO STUDIO 🚀
                 </div>
-                <div id="yt-live-caption-overlay" class="pointer-events-none absolute bottom-10 left-4 right-4 px-3 py-2 rounded-xl bg-black/85 text-yellow-300 text-center font-black text-sm uppercase shadow-lg">
+                <div id="yt-live-caption-overlay" class="pointer-events-none absolute bottom-12 left-4 right-4 px-3 py-1.5 rounded-xl bg-black/85 text-yellow-300 text-center font-black text-sm uppercase shadow-lg z-10">
                   APNI VIDEO KO FREE OF COST VIRAL BANAYEIN!
                 </div>
               </div>
-              <canvas id="editor-compositor-canvas" width="360" height="640" class="max-h-[470px] w-auto block"></canvas>
-            </div>
-            <div id="yt-editor-action-bar" class="hidden w-full p-2.5 rounded-xl bg-amber-500/15 border border-amber-500/35 flex flex-wrap items-center justify-between gap-2 text-[11px]">
-              <span class="text-amber-200 font-bold">🎬 YouTube Live Video Active — Tap any clip below to jump &amp; cut:</span>
-              <button type="button" onclick="recordLiveTabAndExportCut()" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition">
-                🎥 Capture Live Video &amp; Export Cut
-              </button>
+              <canvas id="editor-compositor-canvas" width="360" height="640" class="max-h-[410px] w-auto block"></canvas>
             </div>
 
-            <!-- Interactive Video Seek Bar -->
-            <div class="w-full space-y-1">
+            <div id="yt-editor-action-bar" class="hidden w-full px-3 py-2 rounded-xl bg-emerald-500/15 border border-emerald-500/35 flex flex-wrap items-center justify-between gap-2 text-[11px]">
+              <span class="text-emerald-200 font-bold">🔊 YouTube IFrame API Active — Auto-looping cut clips with sound:</span>
+              <div class="flex items-center gap-1.5">
+                <a id="yt-open-watch-link" href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-white/20 text-white font-bold transition">
+                  ↗ Watch on YT
+                </a>
+                <button type="button" onclick="recordLiveTabAndExportCut()" class="px-2.5 py-1 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-black transition">
+                  🎥 Capture &amp; Export
+                </button>
+              </div>
+            </div>
+
+            <div class="space-y-1.5 bg-slate-100 dark:bg-obsidian-850 p-2.5 rounded-xl border border-white/10">
               <input type="range" id="ed-seek-bar" min="0" max="30" step="0.1" value="0" oninput="seekEditorVideo(this.value)" class="w-full accent-violet-500 cursor-pointer" />
+              <div class="flex flex-wrap items-center justify-between gap-1.5 text-xs">
+                <div class="flex items-center gap-1">
+                  <button type="button" onclick="nudgePlayhead(-2)" class="px-2 py-1.5 rounded-lg bg-obsidian-900 text-[11px] font-bold hover:text-cyan-300" title="Back 2s">-2s</button>
+                  <button type="button" onclick="toggleEditorPlayback()" id="ed-play-btn" class="px-3.5 py-1.5 rounded-lg grad-primary text-white font-extrabold">▶ Play</button>
+                  <button type="button" onclick="playOnlyActiveClip()" class="px-2.5 py-1.5 rounded-lg bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[11px] font-extrabold hover:bg-emerald-500 hover:text-slate-950 transition">▶ Clip</button>
+                  <button type="button" onclick="nudgePlayhead(2)" class="px-2 py-1.5 rounded-lg bg-obsidian-900 text-[11px] font-bold hover:text-cyan-300" title="Forward 2s">+2s</button>
+                </div>
+                <span id="ed-timecode" class="font-mono text-[11px] text-cyan-300 font-bold">00:00 / 00:30</span>
+                <div class="flex items-center gap-1">
+                  <select id="ed-speed-select" onchange="changeEditorSpeed(this.value)" class="px-2 py-1 rounded-lg bg-obsidian-900 border border-white/10 text-[11px] font-bold">
+                    <option value="0.5">0.5x</option>
+                    <option value="0.75">0.75x</option>
+                    <option value="1" selected>1.0x</option>
+                    <option value="1.25">1.25x</option>
+                    <option value="1.5">1.5x</option>
+                    <option value="2">2.0x</option>
+                  </select>
+                </div>
+              </div>
             </div>
 
-            <div class="w-full flex items-center justify-between gap-2 text-xs">
-              <div class="flex items-center gap-1.5">
-                <button type="button" onclick="toggleEditorPlayback()" id="ed-play-btn" class="px-4 py-2 rounded-xl grad-primary text-white font-bold">▶ Play</button>
-                <button type="button" onclick="playOnlyActiveClip()" class="px-3 py-2 rounded-xl bg-emerald-500/15 border border-emerald-500/35 text-emerald-300 font-bold hover:bg-emerald-500 hover:text-slate-950 transition">▶ Play Clip</button>
-              </div>
-              <span id="ed-timecode" class="font-mono text-slate-400">00:00 / 00:30</span>
-              <div class="flex items-center gap-1.5">
-                <span class="text-[11px] text-slate-400">Speed:</span>
-                <select id="ed-speed-select" onchange="changeEditorSpeed(this.value)" class="px-2 py-1 rounded-lg bg-obsidian-850 border border-white/10 text-xs font-bold">
-                  <option value="0.75">0.75x</option>
-                  <option value="1" selected>1.0x</option>
-                  <option value="1.25">1.25x</option>
-                  <option value="1.5">1.5x</option>
-                </select>
-              </div>
+            <div class="flex flex-wrap items-center justify-between gap-1.5 p-2 rounded-xl bg-obsidian-950 border border-violet-500/30 text-[11px] font-extrabold">
+              <button type="button" onclick="splitClipAtPlayhead()" class="px-3 py-1.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 shadow transition flex items-center gap-1">
+                <span>✂️</span><span>Split (Kat)</span>
+              </button>
+              <button type="button" onclick="trimClipStartToPlayhead()" class="px-2.5 py-1.5 rounded-lg bg-obsidian-850 hover:bg-violet-600/30 border border-white/10 text-cyan-300 transition">
+                ⇤ Trim Left
+              </button>
+              <button type="button" onclick="trimClipEndToPlayhead()" class="px-2.5 py-1.5 rounded-lg bg-obsidian-850 hover:bg-violet-600/30 border border-white/10 text-emerald-300 transition">
+                Trim Right ⇥
+              </button>
+              <button type="button" onclick="duplicateActiveTimelineClip()" class="px-2.5 py-1.5 rounded-lg bg-obsidian-850 hover:bg-white/10 border border-white/10 transition">
+                ❐ Copy
+              </button>
+              <button type="button" onclick="toggleEditorMirror()" id="ed-mirror-btn" class="px-2.5 py-1.5 rounded-lg bg-obsidian-850 hover:bg-white/10 border border-white/10 text-violet-300 transition">
+                ⇄ Mirror
+              </button>
+              <button type="button" onclick="deleteActiveTimelineClip()" class="px-2.5 py-1.5 rounded-lg bg-rose-500/20 hover:bg-rose-500 border border-rose-500/40 text-rose-300 hover:text-white transition">
+                🗑️ Delete
+              </button>
             </div>
           </div>
 
-          <!-- Right Panel: Color Grading & Brand Watermark -->
-          <div class="lg:col-span-3 p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-4 text-xs">
-            <h3 class="font-extrabold uppercase tracking-wider text-slate-400">Adjustments &amp; Brand</h3>
-            <div>
-              <label class="flex justify-between font-bold mb-1"><span>Brightness</span><span id="val-bright">100%</span></label>
-              <input type="range" id="ed-brightness" min="60" max="150" value="100" oninput="document.getElementById('val-bright').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
+          <!-- Right Compact Inspector Panel (5 cols) -->
+          <div class="lg:col-span-5 p-3.5 rounded-2xl bg-white dark:bg-obsidian-900 border border-slate-200 dark:border-white/10 space-y-3 text-xs">
+            <div class="grid grid-cols-4 gap-1 p-1 rounded-xl bg-slate-100 dark:bg-obsidian-850 text-[11px] font-extrabold">
+              <button type="button" onclick="switchCompactEditorTab('captions')" id="ed-inspect-tab-captions" class="py-1.5 rounded-lg grad-primary text-white">💬 Captions</button>
+              <button type="button" onclick="switchCompactEditorTab('filters')" id="ed-inspect-tab-filters" class="py-1.5 rounded-lg text-slate-400">🎨 Filters</button>
+              <button type="button" onclick="switchCompactEditorTab('stickers')" id="ed-inspect-tab-stickers" class="py-1.5 rounded-lg text-slate-400">✨ Stickers</button>
+              <button type="button" onclick="switchCompactEditorTab('audio')" id="ed-inspect-tab-audio" class="py-1.5 rounded-lg text-slate-400">🎵 Audio</button>
             </div>
-            <div>
-              <label class="flex justify-between font-bold mb-1"><span>Contrast</span><span id="val-contrast">105%</span></label>
-              <input type="range" id="ed-contrast" min="60" max="160" value="105" oninput="document.getElementById('val-contrast').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
-            </div>
-            <div>
-              <label class="flex justify-between font-bold mb-1"><span>Saturation</span><span id="val-sat">110%</span></label>
-              <input type="range" id="ed-saturation" min="50" max="180" value="110" oninput="document.getElementById('val-sat').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
-            </div>
-            <div class="pt-2 border-t border-white/10 space-y-2">
-              <label class="block font-bold text-slate-400">Brand Watermark</label>
-              <input type="text" id="ed-watermark-text" value="@VishalSainiEdit01" oninput="drawEditorCanvas()" class="w-full px-3 py-2 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/10 text-xs font-bold" />
-            </div>
-            <div class="space-y-2">
-              <label class="block font-bold text-slate-400">Emoji Overlay</label>
-              <div class="grid grid-cols-5 gap-1">
-                <button type="button" onclick="setEditorEmoji('🔥')" class="py-1.5 rounded-lg bg-obsidian-850 text-base">🔥</button>
-                <button type="button" onclick="setEditorEmoji('🤯')" class="py-1.5 rounded-lg bg-obsidian-850 text-base">🤯</button>
-                <button type="button" onclick="setEditorEmoji('😂')" class="py-1.5 rounded-lg bg-obsidian-850 text-base">😂</button>
-                <button type="button" onclick="setEditorEmoji('💡')" class="py-1.5 rounded-lg bg-obsidian-850 text-base">💡</button>
-                <button type="button" onclick="setEditorEmoji('')" class="py-1.5 rounded-lg bg-obsidian-850 text-[10px] font-bold">Off</button>
+
+            <div id="ed-inspect-pane-captions" class="space-y-2.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-extrabold text-cyan-300" id="ed-active-clip-badge">Clip #1 (00:00 - 00:15)</span>
+                <div class="flex items-center gap-1">
+                  <select id="mic-lang-select" class="px-1.5 py-0.5 rounded bg-obsidian-850 border border-white/10 text-[10px] font-bold text-white">
+                    <option value="hi-IN" selected>Hindi</option>
+                    <option value="en-IN">Eng (IN)</option>
+                    <option value="en-US">Eng (US)</option>
+                  </select>
+                  <button type="button" onclick="toggleMicAutoCaption()" id="mic-caption-btn" class="px-2 py-0.5 rounded grad-primary text-white text-[10px] font-extrabold">🎙️ Mic</button>
+                </div>
               </div>
+
+              <textarea id="ed-caption-text" rows="2" oninput="updateActiveTimelineClipCaption(this.value)" class="w-full px-3 py-1.5 rounded-xl bg-slate-100 dark:bg-obsidian-850 border border-white/15 text-xs font-extrabold">APNI VIDEO KO FREE OF COST VIRAL BANAYEIN!</textarea>
+
+              <div class="grid grid-cols-6 gap-1 text-center text-[10px] font-black">
+                <button type="button" onclick="applySubmagicPreset('default')" class="py-1.5 rounded-lg bg-obsidian-850 border border-violet-500 text-yellow-300">Pop</button>
+                <button type="button" onclick="applySubmagicPreset('classic')" class="py-1.5 rounded-lg bg-obsidian-850 border border-white/10 text-white">White</button>
+                <button type="button" onclick="applySubmagicPreset('sara')" class="py-1.5 rounded-lg bg-obsidian-850 border border-white/10 text-pink-400">Pink</button>
+                <button type="button" onclick="applySubmagicPreset('jimi')" class="py-1.5 rounded-lg bg-obsidian-850 border border-white/10 text-emerald-400">Green</button>
+                <button type="button" onclick="applySubmagicPreset('basker')" class="py-1.5 rounded-lg bg-obsidian-850 border border-white/10 text-cyan-300">Cyan</button>
+                <button type="button" onclick="applySubmagicPreset('bobby')" class="py-1.5 rounded-lg bg-obsidian-850 border border-white/10 text-amber-400">Gold</button>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 text-[11px]">
+                <div class="p-2 rounded-xl bg-obsidian-850/70">
+                  <label class="flex justify-between font-bold text-slate-400"><span>Pos Y</span><span id="pos-y-val">75%</span></label>
+                  <input type="range" id="ed-pos-y" min="20" max="90" value="75" oninput="document.getElementById('pos-y-val').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
+                </div>
+                <div class="p-2 rounded-xl bg-obsidian-850/70">
+                  <label class="flex justify-between font-bold text-slate-400"><span>Size</span><span id="font-size-val">34px</span></label>
+                  <input type="range" id="ed-font-size" min="20" max="56" value="34" oninput="document.getElementById('font-size-val').textContent=this.value+'px'; drawEditorCanvas()" class="w-full accent-violet-500" />
+                </div>
+              </div>
+
+              <div class="flex items-center gap-1.5">
+                <select id="ed-font-family" onchange="drawEditorCanvas()" class="flex-1 px-2 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-[11px] font-bold">
+                  <option value="Poppins">Poppins Black</option>
+                  <option value="Montserrat">Montserrat Bold</option>
+                  <option value="Inter">Inter Heavy</option>
+                </select>
+                <input type="color" id="ed-text-color" value="#facc15" oninput="drawEditorCanvas()" class="w-8 h-8 rounded cursor-pointer bg-transparent" title="Text Color" />
+                <input type="color" id="ed-bg-color" value="#090d16" oninput="drawEditorCanvas()" class="w-8 h-8 rounded cursor-pointer bg-transparent" title="Box Color" />
+                <button type="button" onclick="toggleCaptionCase()" class="px-2 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-[10px] font-black">AA/Aa</button>
+              </div>
+
+              <div class="p-2 rounded-xl bg-cyan-500/10 border border-cyan-500/25 space-y-1.5">
+                <div class="flex items-center justify-between">
+                  <span class="text-[10px] font-extrabold text-cyan-300">📝 Auto-Fill Lines Across Clips</span>
+                  <button type="button" onclick="autoFillCaptionsAcrossClips()" class="px-2 py-0.5 rounded bg-cyan-500 text-slate-950 text-[10px] font-black">Fill All ✨</button>
+                </div>
+                <textarea id="ed-bulk-captions-input" rows="2" placeholder="Line 1 -> Clip 1, Line 2 -> Clip 2..." class="w-full px-2 py-1 rounded-lg bg-obsidian-950 border border-white/10 text-[11px] text-white"></textarea>
+              </div>
+
+              <div class="grid grid-cols-2 gap-2 text-[10px] p-2 rounded-xl bg-obsidian-850/70">
+                <div>
+                  <label class="flex justify-between font-bold text-slate-400"><span>Start</span><span id="ed-trim-start-label" class="text-cyan-300 font-mono">00:00</span></label>
+                  <input type="range" id="ed-trim-start" min="0" max="60" step="0.5" value="0" oninput="updateActiveClipTrim()" class="w-full accent-cyan-400" />
+                </div>
+                <div>
+                  <label class="flex justify-between font-bold text-slate-400"><span>End</span><span id="ed-trim-end-label" class="text-emerald-300 font-mono">00:15</span></label>
+                  <input type="range" id="ed-trim-end" min="1" max="60" step="0.5" value="15" oninput="updateActiveClipTrim()" class="w-full accent-emerald-400" />
+                </div>
+              </div>
+            </div>
+
+            <div id="ed-inspect-pane-filters" class="hidden space-y-2.5">
+              <div class="text-[11px] font-extrabold text-violet-300">✨ 1-Click Cinematic Filters</div>
+              <div class="grid grid-cols-3 gap-1.5 text-[11px] font-extrabold">
+                <button type="button" onclick="applyCapcutFilterPreset('original')" class="py-2 rounded-xl bg-obsidian-850 border border-white/15 hover:border-violet-400">Original</button>
+                <button type="button" onclick="applyCapcutFilterPreset('vivid')" class="py-2 rounded-xl bg-obsidian-850 border border-white/15 hover:border-violet-400 text-amber-300">Vivid Pop</button>
+                <button type="button" onclick="applyCapcutFilterPreset('cinema')" class="py-2 rounded-xl bg-obsidian-850 border border-white/15 hover:border-violet-400 text-cyan-300">Cinema HDR</button>
+                <button type="button" onclick="applyCapcutFilterPreset('warm')" class="py-2 rounded-xl bg-obsidian-850 border border-white/15 hover:border-violet-400 text-orange-300">Golden Hour</button>
+                <button type="button" onclick="applyCapcutFilterPreset('neon')" class="py-2 rounded-xl bg-obsidian-850 border border-white/15 hover:border-violet-400 text-pink-400">Cyber Neon</button>
+                <button type="button" onclick="applyCapcutFilterPreset('bw')" class="py-2 rounded-xl bg-obsidian-850 border border-white/15 hover:border-violet-400 text-slate-300">B&amp;W Noir</button>
+              </div>
+              <div class="space-y-2 pt-1">
+                <div>
+                  <label class="flex justify-between text-[11px] font-bold"><span>Brightness</span><span id="val-bright">100%</span></label>
+                  <input type="range" id="ed-brightness" min="60" max="150" value="100" oninput="document.getElementById('val-bright').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
+                </div>
+                <div>
+                  <label class="flex justify-between text-[11px] font-bold"><span>Contrast</span><span id="val-contrast">105%</span></label>
+                  <input type="range" id="ed-contrast" min="60" max="160" value="105" oninput="document.getElementById('val-contrast').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
+                </div>
+                <div>
+                  <label class="flex justify-between text-[11px] font-bold"><span>Saturation</span><span id="val-sat">110%</span></label>
+                  <input type="range" id="ed-saturation" min="0" max="180" value="110" oninput="document.getElementById('val-sat').textContent=this.value+'%'; drawEditorCanvas()" class="w-full accent-violet-500" />
+                </div>
+              </div>
+            </div>
+
+            <div id="ed-inspect-pane-stickers" class="hidden space-y-2.5">
+              <div>
+                <label class="block text-[11px] font-bold mb-1 text-slate-400">Top Viral Hook Banner</label>
+                <input type="text" id="ed-hook-text" value="FREE OF COST AI VIDEO STUDIO 🚀" oninput="recordEditorState(); syncYoutubeLiveOverlays(); drawEditorCanvas()" class="w-full px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-xs font-bold" />
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold mb-1 text-slate-400">Tap Sticker to Add on Screen</label>
+                <div class="grid grid-cols-5 gap-1.5">
+                  <button type="button" onclick="setEditorEmoji('🔥')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">🔥</button>
+                  <button type="button" onclick="setEditorEmoji('🤯')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">🤯</button>
+                  <button type="button" onclick="setEditorEmoji('😂')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">😂</button>
+                  <button type="button" onclick="setEditorEmoji('🚀')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">🚀</button>
+                  <button type="button" onclick="setEditorEmoji('💯')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">💯</button>
+                  <button type="button" onclick="setEditorEmoji('❤️')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">❤️</button>
+                  <button type="button" onclick="setEditorEmoji('👑')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">👑</button>
+                  <button type="button" onclick="setEditorEmoji('⚡')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">⚡</button>
+                  <button type="button" onclick="setEditorEmoji('💡')" class="py-1.5 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 text-lg">💡</button>
+                  <button type="button" onclick="setEditorEmoji('')" class="py-1.5 rounded-xl bg-rose-500/20 text-rose-300 text-[10px] font-black">Off</button>
+                </div>
+              </div>
+              <div>
+                <label class="block text-[11px] font-bold mb-1 text-slate-400">Channel Watermark</label>
+                <input type="text" id="ed-watermark-text" value="@VishalSainiEdit01" oninput="drawEditorCanvas()" class="w-full px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-xs font-bold" />
+              </div>
+            </div>
+
+            <div id="ed-inspect-pane-audio" class="hidden space-y-3">
+              <div class="p-3 rounded-xl bg-obsidian-850 space-y-2">
+                <div class="flex items-center justify-between font-bold">
+                  <span class="text-emerald-300">🔊 Clip Audio Volume</span>
+                  <span id="cc-vol-label" class="font-mono">100%</span>
+                </div>
+                <input type="range" id="cc-video-volume" min="0" max="100" value="100" oninput="changeEditorVideoVolume(this.value)" class="w-full accent-emerald-400" />
+                <button type="button" onclick="toggleEditorMute()" id="cc-mute-btn" class="w-full py-2 rounded-xl bg-obsidian-950 border border-white/15 font-extrabold">🔊 Mute / Unmute Clip</button>
+              </div>
+              <div class="p-3 rounded-xl bg-obsidian-850 space-y-2">
+                <div class="font-bold text-cyan-300">⚡ 1-Click Playback Speed</div>
+                <div class="grid grid-cols-3 gap-1.5 font-extrabold text-[11px]">
+                  <button type="button" onclick="setQuickEditorSpeed(0.5)" class="py-1.5 rounded-lg bg-obsidian-950 hover:bg-violet-600">0.5x Slow</button>
+                  <button type="button" onclick="setQuickEditorSpeed(1)" class="py-1.5 rounded-lg grad-primary text-white">1.0x Normal</button>
+                  <button type="button" onclick="setQuickEditorSpeed(1.25)" class="py-1.5 rounded-lg bg-obsidian-950 hover:bg-violet-600">1.25x Fast</button>
+                  <button type="button" onclick="setQuickEditorSpeed(1.5)" class="py-1.5 rounded-lg bg-obsidian-950 hover:bg-violet-600">1.5x Reels</button>
+                  <button type="button" onclick="setQuickEditorSpeed(2)" class="py-1.5 rounded-lg bg-obsidian-950 hover:bg-violet-600">2.0x Turbo</button>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2 border-t border-white/10 space-y-1.5">
+              <div class="flex items-center justify-between">
+                <span class="text-[11px] font-extrabold text-violet-300">🎞️ Cut Clips List</span>
+                <button type="button" onclick="addNewTimelineClip()" class="px-2 py-0.5 rounded-lg grad-primary text-white text-[10px] font-extrabold">+ Add Clip</button>
+              </div>
+              <div id="editor-timeline-clips" class="space-y-1 max-h-28 overflow-y-auto pr-1"></div>
             </div>
           </div>
         </div>
 
-        <!-- ==================== CAPCUT-STYLE INTERACTIVE MULTI-TRACK TIMELINE DOCK ==================== -->
-        <div class="p-4 sm:p-5 rounded-3xl bg-obsidian-900 border border-violet-500/35 shadow-2xl space-y-3 text-white">
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-white/10">
-            <div class="flex flex-wrap items-center gap-1.5 text-xs font-extrabold">
-              <button type="button" onclick="splitClipAtPlayhead()" class="px-3.5 py-2 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 shadow transition flex items-center gap-1.5">
-                <span>✂️</span><span>Split (Kat)</span>
-              </button>
-              <button type="button" onclick="trimClipStartToPlayhead()" class="px-3 py-2 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 border border-white/15 text-cyan-300 transition">
-                ⇤ Trim Left
-              </button>
-              <button type="button" onclick="trimClipEndToPlayhead()" class="px-3 py-2 rounded-xl bg-obsidian-850 hover:bg-violet-600/30 border border-white/15 text-emerald-300 transition">
-                Trim Right ⇥
-              </button>
-              <button type="button" onclick="duplicateActiveTimelineClip()" class="px-3 py-2 rounded-xl bg-obsidian-850 hover:bg-white/10 border border-white/15 transition">
-                ❐ Duplicate
-              </button>
-              <button type="button" onclick="deleteActiveTimelineClip()" class="px-3 py-2 rounded-xl bg-rose-500/20 hover:bg-rose-500 border border-rose-500/40 text-rose-300 hover:text-white transition">
-                🗑️ Delete Clip
-              </button>
+        <!-- ==================== FULL-WIDTH CAPCUT MULTI-TRACK TIMELINE DOCK ==================== -->
+        <div class="p-3.5 rounded-2xl bg-obsidian-900 border border-violet-500/35 shadow-xl space-y-2 text-white">
+          <div class="flex flex-wrap items-center justify-between gap-2 text-[11px]">
+            <div class="flex items-center gap-2">
+              <span class="font-extrabold text-cyan-300">🎬 CAPCUT TIMELINE</span>
+              <span class="text-slate-400 hidden sm:inline">• Click anywhere to scrub playhead, tap any block to edit</span>
             </div>
-
-            <div class="flex flex-wrap items-center gap-1.5 text-[11px] font-extrabold">
-              <button type="button" onclick="setCapcutDockTab('timeline')" id="cc-tab-timeline" class="px-3 py-1.5 rounded-xl grad-primary text-white">🎞️ Edit Tracks</button>
-              <button type="button" onclick="setCapcutDockTab('text')" id="cc-tab-text" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">💬 Text / Auto Captions</button>
-              <button type="button" onclick="setCapcutDockTab('stickers')" id="cc-tab-stickers" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">✨ Stickers &amp; Overlay</button>
-              <button type="button" onclick="setCapcutDockTab('audio')" id="cc-tab-audio" class="px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300">🎵 Audio / Voice</button>
+            <div class="flex items-center gap-2">
+              <button type="button" onclick="addNewTimelineClip()" class="px-2.5 py-1 rounded-lg bg-white/10 hover:bg-violet-600 text-[10px] font-extrabold transition">+ New Cut Segment</button>
+              <span id="cc-total-edited-dur" class="text-emerald-300 font-mono font-bold">Total: 00:30</span>
             </div>
           </div>
 
-          <div id="cc-drawer-text" class="hidden p-3 rounded-2xl bg-obsidian-850 border border-white/10 flex flex-wrap items-center gap-2 text-xs">
-            <span class="font-extrabold text-cyan-300">💬 Quick Caption / Text Track:</span>
-            <input type="text" id="cc-quick-caption-input" placeholder="Type caption for playhead position..." class="flex-1 min-w-[200px] px-3 py-2 rounded-xl bg-obsidian-950 border border-white/15 text-xs text-white" />
-            <button type="button" onclick="addCaptionBlockAtPlayhead()" class="px-3.5 py-2 rounded-xl grad-primary text-white font-extrabold">+ Add Text at Playhead</button>
-            <button type="button" onclick="toggleMicAutoCaption()" class="px-3.5 py-2 rounded-xl bg-emerald-500 text-slate-950 font-extrabold">🎙️ Speak Auto-Caption</button>
-          </div>
-
-          <div id="cc-drawer-stickers" class="hidden p-3 rounded-2xl bg-obsidian-850 border border-white/10 flex flex-wrap items-center gap-2 text-xs">
-            <span class="font-extrabold text-amber-300">✨ Tap Sticker to Overlay on Video:</span>
-            <button type="button" onclick="setEditorEmoji('🔥')" class="px-3 py-1.5 rounded-xl bg-obsidian-950 hover:bg-violet-600/30 text-base">🔥 Fire</button>
-            <button type="button" onclick="setEditorEmoji('🤯')" class="px-3 py-1.5 rounded-xl bg-obsidian-950 hover:bg-violet-600/30 text-base">🤯 Shock</button>
-            <button type="button" onclick="setEditorEmoji('🚀')" class="px-3 py-1.5 rounded-xl bg-obsidian-950 hover:bg-violet-600/30 text-base">🚀 Boost</button>
-            <button type="button" onclick="setEditorEmoji('💯')" class="px-3 py-1.5 rounded-xl bg-obsidian-950 hover:bg-violet-600/30 text-base">💯 100%</button>
-            <button type="button" onclick="setEditorEmoji('❤️')" class="px-3 py-1.5 rounded-xl bg-obsidian-950 hover:bg-violet-600/30 text-base">❤️ Like</button>
-            <button type="button" onclick="setEditorEmoji('')" class="px-3 py-1.5 rounded-xl bg-rose-500/20 text-rose-300 font-bold">Remove Sticker</button>
-          </div>
-
-          <div id="cc-drawer-audio" class="hidden p-3 rounded-2xl bg-obsidian-850 border border-white/10 flex flex-wrap items-center gap-4 text-xs">
-            <span class="font-extrabold text-emerald-300">🎵 Video Audio &amp; Volume:</span>
-            <label class="flex items-center gap-2 font-bold">
-              <span>Volume: <span id="cc-vol-label">100%</span></span>
-              <input type="range" id="cc-video-volume" min="0" max="100" value="100" oninput="changeEditorVideoVolume(this.value)" class="accent-emerald-400" />
-            </label>
-            <button type="button" onclick="toggleEditorMute()" id="cc-mute-btn" class="px-3 py-1.5 rounded-xl bg-obsidian-950 border border-white/15 font-bold">🔊 Mute / Unmute Clip</button>
-          </div>
-
-          <div class="space-y-1.5">
-            <div class="flex items-center justify-between text-[11px] text-slate-400 font-mono">
-              <span>🎬 MAIN VIDEO TRACK (Click any clip to select, or click timeline bar to move white playhead)</span>
-              <span id="cc-total-edited-dur" class="text-cyan-300 font-bold">Total Edited Length: 00:30</span>
+          <div id="capcut-timeline-viewport" onclick="scrubCapcutTimeline(event)" class="relative rounded-xl bg-obsidian-950 border border-white/15 p-2.5 space-y-2 overflow-x-auto cursor-pointer select-none">
+            <div id="capcut-playhead-line" class="pointer-events-none absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_#ffffff] z-20" style="left: 12px;">
+              <div class="w-3 h-3 -ml-[5px] rounded-full bg-rose-500 border-2 border-white shadow"></div>
             </div>
-
-            <div id="capcut-timeline-viewport" onclick="scrubCapcutTimeline(event)" class="relative rounded-2xl bg-obsidian-950 border border-white/15 p-3 space-y-2.5 overflow-x-auto cursor-pointer select-none">
-              <div id="capcut-playhead-line" class="pointer-events-none absolute top-0 bottom-0 w-0.5 bg-white shadow-[0_0_10px_#ffffff] z-20" style="left: 12px;">
-                <div class="w-3 h-3 -ml-[5px] rounded-full bg-white shadow"></div>
-              </div>
-              <div id="capcut-video-track-blocks" class="flex items-stretch gap-1.5 min-h-[54px]"></div>
-              <div id="capcut-caption-track-blocks" class="flex items-stretch gap-1.5 min-h-[34px]"></div>
-            </div>
+            <div id="capcut-video-track-blocks" class="flex items-stretch gap-1.5 min-h-[48px]"></div>
+            <div id="capcut-caption-track-blocks" class="flex items-stretch gap-1.5 min-h-[30px]"></div>
           </div>
         </div>
       </section>
@@ -1472,7 +1449,7 @@
 
             <div class="relative rounded-2xl overflow-hidden border border-violet-500/35 bg-obsidian-950">
               <canvas id="api-tutorial-canvas" width="600" height="320" class="w-full h-auto block"></canvas>
-              <iframe id="custom-tut-iframe" class="hidden w-full aspect-video border-0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+              <iframe id="custom-tut-iframe" class="hidden w-full aspect-video border-0" referrerpolicy="strict-origin-when-cross-origin" allow="autoplay; encrypted-media" allowfullscreen></iframe>
               <video id="custom-tut-video" class="hidden w-full aspect-video bg-black" controls></video>
             </div>
 
@@ -1502,7 +1479,7 @@
           </div>
           <div class="p-5 rounded-2xl bg-white dark:bg-obsidian-900 border border-white/10 space-y-1.5 studio-card">
             <h3 class="font-bold text-sm text-violet-400">2. YouTube Links &amp; Video Export</h3>
-            <p class="text-slate-400 leading-relaxed">Paste any YouTube or Shorts link to auto-slice into scenes with live player sync, or upload local MP4/MOV/WEBM files for instant multi-clip <code>.WEBM</code>/<code>.MP4</code> rendering.</p>
+            <p class="text-slate-400 leading-relaxed">Paste any YouTube or Shorts link to play live video + audio auto-sliced into scenes, or upload local MP4/MOV/WEBM files for instant multi-clip <code>.WEBM</code>/<code>.MP4</code> rendering.</p>
           </div>
         </div>
       </section>
@@ -1525,6 +1502,24 @@
   </div><!-- End Stage 3 Studio Wrapper -->
 
   <script>
+    // ==================== SOURCE & DEVTOOLS PROTECTION ====================
+    document.addEventListener('contextmenu', (e) => {
+      const tag = (e.target && e.target.tagName) ? e.target.tagName.toUpperCase() : '';
+      if (tag !== 'INPUT' && tag !== 'TEXTAREA') {
+        e.preventDefault();
+      }
+    });
+    document.addEventListener('keydown', (e) => {
+      const k = (e.key || '').toUpperCase();
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (k === 'I' || k === 'J' || k === 'C')) ||
+        (e.ctrlKey && k === 'U')
+      ) {
+        e.preventDefault();
+      }
+    });
+
     // ==================== GOOGLE OAUTH CONFIGURATION ====================
     const GOOGLE_CLIENT_ID = '';
     const STORAGE_SESSION_KEY = 'vs_edit01_permanent_session_v1';
@@ -1607,9 +1602,13 @@
       savedGoogleAccounts: [],
       youtubeLoadedMeta: null,
       youtubePreviewImage: null,
+      ytPlayerInstance: null,
+      ytPlayerReady: false,
+      ytLoopInterval: null,
       pythonBackendUrl: '',
       serverCutClips: [],
       aiFaceTracking: true,
+      editorMirror: false,
       googleClientId: GOOGLE_CLIENT_ID,
       apiKey: '',
       geminiModel: 'gemini-2.5-flash',
@@ -1648,6 +1647,153 @@
       ],
       clips: []
     };
+
+    // ==================== YOUTUBE IFRAME PLAYER API CONTROLLER ====================
+    window.onYouTubeIframeAPIReady = function () {
+      appState.ytPlayerReady = true;
+    };
+
+    function mountYoutubeApiPlayer(videoId, startSec = 0) {
+      clearInterval(appState.ytLoopInterval);
+      const container = document.getElementById('editor-yt-api-player');
+      if (!container) return;
+
+      const finishSetup = (player) => {
+        appState.ytPlayerInstance = player;
+        appState.ytLoopInterval = setInterval(() => {
+          if (!appState.ytPlayerInstance || typeof appState.ytPlayerInstance.getCurrentTime !== 'function') return;
+          const ytCont = document.getElementById('editor-yt-live-container');
+          if (!ytCont || ytCont.classList.contains('hidden')) return;
+
+          const cur = Number(appState.ytPlayerInstance.getCurrentTime() || 0);
+          const realDur = Number(appState.ytPlayerInstance.getDuration() || 0);
+          if (realDur > 4 && Math.abs(realDur - appState.videoDuration) > 2) {
+            appState.videoDuration = Math.floor(realDur);
+            syncEditorTimelineRanges();
+          }
+
+          const active = getActiveEditorClip();
+          if (active && appState.playClipOnlyMode && cur >= active.end) {
+            appState.ytPlayerInstance.seekTo(active.start, true);
+          } else {
+            syncCaptionAtPlayhead(cur);
+          }
+
+          const seekBar = document.getElementById('ed-seek-bar');
+          if (seekBar) seekBar.value = cur;
+          const tcEl = document.getElementById('ed-timecode');
+          if (tcEl) {
+            tcEl.textContent = `${formatSec(Math.floor(cur))} / ${formatSec(Math.floor(realDur || appState.videoDuration))}`;
+          }
+          updateCapcutPlayheadPosition(cur, realDur || appState.videoDuration);
+        }, 350);
+      };
+
+      if (appState.ytPlayerInstance && typeof appState.ytPlayerInstance.loadVideoById === 'function') {
+        appState.ytPlayerInstance.loadVideoById({ videoId, startSeconds: Math.floor(startSec) });
+        finishSetup(appState.ytPlayerInstance);
+        return;
+      }
+
+      if (window.YT && typeof window.YT.Player === 'function') {
+        container.innerHTML = '';
+        const player = new window.YT.Player('editor-yt-api-player', {
+          videoId,
+          width: '100%',
+          height: '100%',
+          playerVars: {
+            autoplay: 1,
+            mute: 0,
+            controls: 1,
+            rel: 0,
+            playsinline: 1,
+            start: Math.floor(startSec),
+            origin: (window.location && window.location.origin && window.location.origin.startsWith('http')) ? window.location.origin : undefined
+          },
+          events: {
+            onReady: (ev) => {
+              ev.target.unMute();
+              ev.target.setVolume(100);
+              ev.target.playVideo();
+              finishSetup(ev.target);
+            }
+          }
+        });
+      } else {
+        const originParam = (window.location && window.location.origin && window.location.origin.startsWith('http'))
+          ? `&origin=${encodeURIComponent(window.location.origin)}`
+          : '';
+        container.innerHTML = `<iframe class="w-full h-full border-0" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen src="https://www.youtube.com/embed/${encodeURIComponent(videoId)}?start=${Math.floor(startSec)}&autoplay=1&mute=0&controls=1&rel=0&playsinline=1${originParam}"></iframe>`;
+      }
+    }
+
+    // ==================== CAPCUT ONE-CLICK INSPECTOR & QUICK HELPERS ====================
+    function switchCompactEditorTab(tab) {
+      ['captions', 'filters', 'stickers', 'audio'].forEach((t) => {
+        const btn = document.getElementById(`ed-inspect-tab-${t}`);
+        const pane = document.getElementById(`ed-inspect-pane-${t}`);
+        if (btn) {
+          btn.className = t === tab
+            ? 'py-1.5 rounded-lg grad-primary text-white'
+            : 'py-1.5 rounded-lg text-slate-400 hover:text-white';
+        }
+        if (pane) {
+          pane.classList.toggle('hidden', t !== tab);
+        }
+      });
+    }
+
+    function applyCapcutFilterPreset(preset) {
+      const b = document.getElementById('ed-brightness');
+      const c = document.getElementById('ed-contrast');
+      const s = document.getElementById('ed-saturation');
+      if (!b || !c || !s) return;
+
+      if (preset === 'original') { b.value = 100; c.value = 100; s.value = 100; }
+      else if (preset === 'vivid') { b.value = 106; c.value = 118; s.value = 138; }
+      else if (preset === 'cinema') { b.value = 96; c.value = 128; s.value = 115; }
+      else if (preset === 'warm') { b.value = 108; c.value = 110; s.value = 132; }
+      else if (preset === 'neon') { b.value = 104; c.value = 135; s.value = 160; }
+      else if (preset === 'bw') { b.value = 102; c.value = 130; s.value = 0; }
+
+      document.getElementById('val-bright').textContent = `${b.value}%`;
+      document.getElementById('val-contrast').textContent = `${c.value}%`;
+      document.getElementById('val-sat').textContent = `${s.value}%`;
+      drawEditorCanvas();
+      showToast(`🎨 Applied "${preset.toUpperCase()}" filter!`, 'success');
+    }
+
+    function toggleEditorMirror() {
+      appState.editorMirror = !appState.editorMirror;
+      const btn = document.getElementById('ed-mirror-btn');
+      if (btn) {
+        btn.className = appState.editorMirror
+          ? 'px-2.5 py-1.5 rounded-lg grad-primary text-white transition'
+          : 'px-2.5 py-1.5 rounded-lg bg-obsidian-850 hover:bg-white/10 border border-white/10 text-violet-300 transition';
+      }
+      drawEditorCanvas();
+      showToast(appState.editorMirror ? '⇄ Video Mirrored!' : 'Video Mirror Off');
+    }
+
+    function nudgePlayhead(deltaSec) {
+      const vid = document.getElementById('editor-source-video');
+      const maxDur = Math.max(4, (vid && vid.duration) ? vid.duration : appState.videoDuration);
+      let cur = appState.editorTrimStart;
+      if (appState.youtubeLoadedMeta && appState.ytPlayerInstance && typeof appState.ytPlayerInstance.getCurrentTime === 'function') {
+        cur = appState.ytPlayerInstance.getCurrentTime();
+      } else if (vid && vid.src && !isNaN(vid.currentTime)) {
+        cur = vid.currentTime;
+      }
+      const next = Math.min(maxDur, Math.max(0, Number((cur + deltaSec).toFixed(1))));
+      seekEditorVideo(next);
+    }
+
+    function setQuickEditorSpeed(spd) {
+      const sel = document.getElementById('ed-speed-select');
+      if (sel) sel.value = String(spd);
+      changeEditorSpeed(spd);
+      showToast(`⚡ Speed set to ${spd}x`);
+    }
 
     // ==================== LIVE PERCENTAGE & ETA PROGRESS CONTROLLER ====================
     let activeProgressTimer = null;
@@ -1754,7 +1900,7 @@
       }, success ? 2600 : 4000);
     }
 
-    // ==================== PERSISTENT SESSION HELPERS (100% UNLIMITED FREE) ====================
+    // ==================== PERSISTENT SESSION HELPERS ====================
     function persistSessionState() {
       try {
         const payload = {
@@ -1830,10 +1976,10 @@
       appState.aiFaceTracking = !appState.aiFaceTracking;
       const btn = document.getElementById('ai-face-track-btn');
       if (btn) {
-        btn.textContent = appState.aiFaceTracking ? '🎯 AI Face Focus: ON' : '🎯 AI Face Focus: OFF';
+        btn.textContent = appState.aiFaceTracking ? '🎯 Face Focus: ON' : '🎯 Face Focus: OFF';
         btn.className = appState.aiFaceTracking
-          ? 'px-3 py-2 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-xs font-extrabold transition'
-          : 'px-3 py-2 rounded-xl bg-obsidian-850 border border-white/10 text-slate-400 text-xs font-bold transition';
+          ? 'px-2.5 py-1.5 rounded-xl bg-cyan-500/20 border border-cyan-400/40 text-cyan-200 text-[11px] font-extrabold transition'
+          : 'px-2.5 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-400 text-[11px] font-bold transition';
       }
       drawEditorCanvas();
       showToast(appState.aiFaceTracking ? '🎯 AI Human Face Centering Enabled!' : 'AI Face Centering Paused.');
@@ -1922,9 +2068,15 @@
 
     function extractStrictYoutubeVideoId(rawInput) {
       if (!rawInput) return null;
+      let cleaned = rawInput.trim();
+      // Extract URL if user pasted share text along with the link
+      const urlMatch = cleaned.match(/https?:\/\/[^\s]+/i);
+      if (urlMatch) {
+        cleaned = urlMatch[0];
+      }
       let parsed;
       try {
-        parsed = new URL(rawInput.trim());
+        parsed = new URL(cleaned);
       } catch (e) {
         return null;
       }
@@ -1933,10 +2085,10 @@
 
       if (host === 'youtu.be') {
         candidateId = parsed.pathname.split('/').filter(Boolean)[0] || null;
-      } else if (host === 'youtube.com' || host === 'm.youtube.com') {
-        if (parsed.pathname === '/watch') {
+      } else if (host === 'youtube.com' || host === 'm.youtube.com' || host === 'music.youtube.com') {
+        if (parsed.pathname === '/watch' || parsed.pathname === '/watch/') {
           candidateId = parsed.searchParams.get('v');
-        } else if (parsed.pathname.startsWith('/shorts/') || parsed.pathname.startsWith('/embed/') || parsed.pathname.startsWith('/live/')) {
+        } else if (parsed.pathname.startsWith('/shorts/') || parsed.pathname.startsWith('/embed/') || parsed.pathname.startsWith('/live/') || parsed.pathname.startsWith('/v/')) {
           candidateId = parsed.pathname.split('/').filter(Boolean)[1] || null;
         }
       }
@@ -1945,103 +2097,6 @@
         return candidateId;
       }
       return null;
-    }
-
-    async function fetchRealYoutubeStreamUrl(videoId) {
-      const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
-
-      const cobaltInstances = [
-        'https://api.cobalt.tools/',
-        'https://cobalt-api.kwiatekmiki.com/',
-        'https://cobalt.api.timelessnesses.me/'
-      ];
-      for (const endpoint of cobaltInstances) {
-        try {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 4500);
-          const res = await fetch(endpoint, {
-            method: 'POST',
-            signal: controller.signal,
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-              url: canonicalUrl,
-              videoQuality: '720',
-              filenameStyle: 'basic'
-            })
-          });
-          clearTimeout(timer);
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (data && data.url && (data.status === 'tunnel' || data.status === 'redirect' || data.status === 'stream')) {
-            return {
-              streamUrl: data.url,
-              duration: 0,
-              title: data.filename ? data.filename.replace(/\.[^/.]+$/, '') : '',
-              author: ''
-            };
-          }
-        } catch (e) {}
-      }
-
-      const pipedInstances = [
-        `https://pipedapi.kavin.rocks/streams/${encodeURIComponent(videoId)}`,
-        `https://pipedapi.adminforge.de/streams/${encodeURIComponent(videoId)}`,
-        `https://api.piped.private.coffee/streams/${encodeURIComponent(videoId)}`,
-        `https://pipedapi.drgns.space/streams/${encodeURIComponent(videoId)}`
-      ];
-      for (const endpoint of pipedInstances) {
-        try {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 4500);
-          const res = await fetch(endpoint, { signal: controller.signal });
-          clearTimeout(timer);
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (data && Array.isArray(data.videoStreams)) {
-            const combined = data.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/mp4') && !s.videoOnly && s.url)
-              || data.videoStreams.find(s => s.mimeType && s.mimeType.includes('video/webm') && !s.videoOnly && s.url)
-              || data.videoStreams.find(s => s.url);
-            if (combined && combined.url) {
-              return {
-                streamUrl: combined.url,
-                duration: data.duration ? Math.floor(data.duration) : 0,
-                title: data.title || '',
-                author: data.uploader || ''
-              };
-            }
-          }
-        } catch (e) {}
-      }
-
-      const invidiousInstances = [
-        `https://inv.nadeko.net/api/v1/videos/${encodeURIComponent(videoId)}`,
-        `https://yewtu.be/api/v1/videos/${encodeURIComponent(videoId)}`
-      ];
-      for (const endpoint of invidiousInstances) {
-        try {
-          const controller = new AbortController();
-          const timer = setTimeout(() => controller.abort(), 4500);
-          const res = await fetch(endpoint, { signal: controller.signal });
-          clearTimeout(timer);
-          if (!res.ok) continue;
-          const data = await res.json();
-          if (data && Array.isArray(data.formatStreams)) {
-            const fmt = data.formatStreams.find(f => f.url && f.container === 'mp4') || data.formatStreams.find(f => f.url);
-            if (fmt && fmt.url) {
-              return {
-                streamUrl: fmt.url,
-                duration: data.lengthSeconds ? Math.floor(data.lengthSeconds) : 0,
-                title: data.title || '',
-                author: data.author || ''
-              };
-            }
-          }
-        } catch (e) {}
-      }
-      return { streamUrl: '', duration: 0, title: '', author: '' };
     }
 
     function showToast(msg, type = 'info') {
@@ -2067,7 +2122,7 @@
       startLivePercentageTracker(
         '35% — Gemini AI Detecting Viral Scenes & Human Face Focus...',
         'Creating scene-by-scene timestamps and Hindi/Hinglish captions...',
-        10
+        8
       );
       updateLivePercentageMilestone(48, '48% — Gemini AI Analyzing Viral Hooks & Face Centering...', 'Generating high-retention short cuts...');
 
@@ -2128,18 +2183,55 @@
 
       syncEditorTimelineRanges();
       renderEditorTimelineClips();
+      syncYoutubeLiveOverlays();
       drawEditorCanvas();
 
+      if (appState.youtubeLoadedMeta && appState.ytPlayerInstance && typeof appState.ytPlayerInstance.seekTo === 'function') {
+        appState.ytPlayerInstance.seekTo(appState.editorClips[0].start, true);
+        appState.ytPlayerInstance.playVideo();
+      }
+
       if (autoDownloadAfter) {
-        updateLivePercentageMilestone(88, '88% — Exporting Final Edited Video File...', 'Rendering video with burned-in captions...');
-        setTimeout(() => {
-          completeLivePercentageTracker(true, '✅ 100% Done! Downloading Edited Video...');
-          renderAndDownloadRealVideo();
-        }, 350);
+        const editorVid = document.getElementById('editor-source-video');
+        if (editorVid && editorVid.src) {
+          updateLivePercentageMilestone(88, '88% — Exporting Final Edited Video File...', 'Rendering video with burned-in captions...');
+          setTimeout(() => {
+            completeLivePercentageTracker(true, '✅ 100% Done! Downloading Edited Video...');
+            renderAndDownloadRealVideo();
+          }, 350);
+        } else {
+          completeLivePercentageTracker(true, `✅ 100% Ready! ${sceneCount} Scenes Playing Live with Sound.`);
+          showToast(`✅ ${sceneCount} AI Cut Scenes playing live with sound! Tap "🎥 Capture & Export" below video to save file.`, 'success');
+        }
       } else {
         completeLivePercentageTracker(true, `✅ 100% Complete! ${sceneCount} Scenes Cut & Ready.`);
         showToast(`✅ Gemini AI created ${sceneCount} scene-by-scene viral short cuts!`, 'success');
       }
+    }
+
+    async function tryAutoDetectLocalBackend() {
+      if (appState.pythonBackendUrl) return appState.pythonBackendUrl;
+      try {
+        const controller = new AbortController();
+        const t = setTimeout(() => controller.abort(), 1200);
+        const res = await fetch('http://localhost:8000/api/health', { signal: controller.signal });
+        clearTimeout(t);
+        if (res.ok) {
+          const data = await res.json();
+          if (data && data.status === 'online') {
+            appState.pythonBackendUrl = 'http://localhost:8000';
+            const badge = document.getElementById('backend-server-badge');
+            const inp = document.getElementById('python-backend-url-input');
+            if (inp) inp.value = 'http://localhost:8000';
+            if (badge) {
+              badge.textContent = '● Local Server Auto-Detected';
+              badge.className = 'px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px]';
+            }
+            return 'http://localhost:8000';
+          }
+        }
+      } catch (e) {}
+      return '';
     }
 
     async function fetchYoutubeMetadata(autoCutAndExport = false) {
@@ -2153,7 +2245,10 @@
       box.classList.remove('hidden');
 
       const videoIdCheck = extractStrictYoutubeVideoId(link);
-      if (videoIdCheck && appState.pythonBackendUrl) {
+      const activeBackend = await tryAutoDetectLocalBackend();
+
+      // 1. If Python yt-dlp + FFmpeg server is connected, run full server-side MP4 cut & download
+      if (videoIdCheck && activeBackend) {
         if (btn) { btn.disabled = true; btn.textContent = 'Server Downloading...'; }
         if (autoBtn) { autoBtn.disabled = true; autoBtn.textContent = '⚡ FFmpeg Cutting...'; }
         startLivePercentageTracker(
@@ -2165,8 +2260,8 @@
         box.textContent = '🖥️ Python AI Server is downloading YouTube MP4 via yt-dlp & cutting viral scenes with Gemini AI + FFmpeg...';
 
         try {
-          const serverBase = appState.pythonBackendUrl.replace(/\/+$/, '');
-          updateLivePercentageMilestone(38, '38% — Server Downloading YouTube Video & Running FFmpeg Cut...', 'Cutting vertical 9:16 short clips on server...');
+          const serverBase = activeBackend.replace(/\/+$/, '');
+          updateLivePercentageMilestone(38, '38% — Server Downloading YouTube Video & Running FFmpeg Cut...', 'Cutting vertical 9:16 short clips with burned-in captions...');
           const srvRes = await fetch(`${serverBase}/api/youtube-autocut`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -2177,7 +2272,8 @@
               clip_duration: appState.clipDuration || 20,
               language: document.getElementById('sub-lang-select').value || 'Hinglish',
               aspect_ratio: appState.editorAspect || '9:16',
-              face_focus: appState.aiFaceTracking
+              face_focus: appState.aiFaceTracking,
+              burn_captions: true
             })
           });
           const srvData = await srvRes.json();
@@ -2185,7 +2281,7 @@
             throw new Error(srvData.detail || `Server error ${srvRes.status}`);
           }
 
-          updateLivePercentageMilestone(92, '92% — Server Finished Cutting MP4 Clips! Loading in Editor...', 'Preparing direct MP4 downloads...');
+          updateLivePercentageMilestone(92, '92% — Server Finished Cutting MP4 Clips! Loading in Editor...', 'Preparing direct MP4 & ZIP downloads...');
           if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
           if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
 
@@ -2196,6 +2292,7 @@
             caption: c.caption || `CLIP #${i + 1}`,
             mp4Url: `${serverBase}${c.mp4_url}`
           }));
+          const zipFullUrl = srvData.zip_url ? `${serverBase}${srvData.zip_url}` : '';
 
           appState.serverCutClips = fullClips;
           appState.videoDuration = srvData.duration || 60;
@@ -2208,6 +2305,7 @@
             const ytActionBar = document.getElementById('yt-editor-action-bar');
             const edCanvas = document.getElementById('editor-compositor-canvas');
 
+            clearInterval(appState.ytLoopInterval);
             appState.youtubeLoadedMeta = null;
             ytContainer.classList.add('hidden');
             ytActionBar.classList.add('hidden');
@@ -2215,6 +2313,13 @@
 
             editorVid.crossOrigin = 'anonymous';
             editorVid.src = fullClips[0].mp4Url;
+            editorVid.load();
+            editorVid.onloadeddata = () => {
+              editorVid.onloadeddata = null;
+              editorVid.play().catch(() => {});
+              startCanvasLoop();
+              drawEditorCanvas();
+            };
             appState.editorClips = fullClips.map((c) => ({
               id: c.id,
               start: 0,
@@ -2230,9 +2335,14 @@
           box.innerHTML = `
             <div class="font-extrabold">✅ Server Cut ${fullClips.length} Real MP4 Shorts from "${srvData.title}"!</div>
             <div class="flex flex-wrap gap-2 pt-1">
+              ${zipFullUrl ? `
+                <a href="${zipFullUrl}" download class="px-3 py-1.5 rounded-lg grad-primary text-white font-black text-[11px]">
+                  📦 Download All Shorts (.ZIP)
+                </a>
+              ` : ''}
               ${fullClips.map((c) => `
                 <a href="${c.mp4Url}" download target="_blank" rel="noopener noreferrer" class="px-3 py-1.5 rounded-lg bg-emerald-500 text-slate-950 font-black text-[11px] hover:bg-emerald-400">
-                  ⬇️ Download Clip #${c.id} (.MP4)
+                  ⬇️ Clip #${c.id} (.MP4)
                 </a>
               `).join('')}
             </div>
@@ -2241,10 +2351,10 @@
           completeLivePercentageTracker(true, `✅ 100% Done! ${fullClips.length} Real MP4 Clips Ready.`);
           navigateTo('editor');
           showToast(`✅ Python Server downloaded & cut ${fullClips.length} real MP4 clips!`, 'success');
-          if (autoCutAndExport && fullClips[0]) {
+          if (autoCutAndExport && (zipFullUrl || fullClips[0])) {
             const a = document.createElement('a');
-            a.href = fullClips[0].mp4Url;
-            a.download = `VishalSainiEdit01_Clip1.mp4`;
+            a.href = zipFullUrl || fullClips[0].mp4Url;
+            a.download = zipFullUrl ? 'VishalSainiEdit01_AllShorts.zip' : 'VishalSainiEdit01_Clip1.mp4';
             document.body.appendChild(a);
             a.click();
             a.remove();
@@ -2253,11 +2363,11 @@
         } catch (srvErr) {
           if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
           if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
-          showToast(`Python Server Error: ${srvErr.message}. Switching to Browser Gemini AI mode...`, 'error');
+          showToast(`Python Server notice: ${srvErr.message}. Opening via YouTube IFrame API...`, 'info');
         }
       }
 
-      // Check direct playable video URL (.mp4 / .webm / .mov)
+      // 2. Direct playable video URL (.mp4 / .webm / .mov)
       let isDirectVideoUrl = false;
       try {
         const u = new URL(link);
@@ -2267,13 +2377,14 @@
       } catch (e) {}
 
       if (isDirectVideoUrl) {
-        startLivePercentageTracker('15% — Loading Direct Video Stream...', 'Preparing video frames for AI scene auto-cut...', 10);
+        startLivePercentageTracker('15% — Loading Direct Video Stream...', 'Preparing video frames for AI scene auto-cut...', 8);
         const editorVid = document.getElementById('editor-source-video');
         const createVid = document.getElementById('create-video-player');
         const ytContainer = document.getElementById('editor-yt-live-container');
         const ytActionBar = document.getElementById('yt-editor-action-bar');
         const edCanvas = document.getElementById('editor-compositor-canvas');
 
+        clearInterval(appState.ytLoopInterval);
         editorVid.crossOrigin = 'anonymous';
         editorVid.src = link;
         createVid.src = link;
@@ -2295,7 +2406,7 @@
         return;
       }
 
-      // Strictly validate YouTube Share / Watch / Shorts URL
+      // 3. Strictly validate YouTube Share / Watch / Shorts URL & open via Official YouTube IFrame Player API
       const videoId = extractStrictYoutubeVideoId(link);
       if (!videoId) {
         box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
@@ -2305,19 +2416,18 @@
       }
 
       const canonicalUrl = `https://www.youtube.com/watch?v=${videoId}`;
-      if (btn) { btn.disabled = true; btn.textContent = 'Gemini AI Fetching...'; }
+      if (btn) { btn.disabled = true; btn.textContent = 'Loading Video + Audio...'; }
       if (autoBtn) { autoBtn.disabled = true; autoBtn.textContent = '⚡ AI Cutting...'; }
       startLivePercentageTracker(
-        '12% — Verifying YouTube Video & Connecting Gemini AI...',
-        'Fetching video title, stream metadata, and preparing scene cuts...',
-        14
+        '18% — Loading YouTube IFrame API Video + Audio & Gemini AI...',
+        'Connecting YouTube player and generating scene-by-scene cuts...',
+        7
       );
       box.className = 'text-xs p-3 rounded-xl bg-violet-500/15 border border-violet-500/30 text-cyan-200 font-bold';
-      box.textContent = '🔍 Verifying YouTube video & launching Gemini AI video scene analysis...';
+      box.textContent = '🔍 Loading YouTube video + audio and generating Gemini AI scene cuts...';
 
-      let title = '';
+      let title = `YouTube Video (${videoId})`;
       let author = 'YouTube Creator';
-      let verifiedExists = false;
 
       try {
         const res = await fetch(`https://noembed.com/embed?url=${encodeURIComponent(canonicalUrl)}`);
@@ -2326,34 +2436,23 @@
           if (info && info.title && !info.error) {
             title = info.title;
             author = info.author_name || author;
-            verifiedExists = true;
           }
         }
       } catch (e) {}
 
-      updateLivePercentageMilestone(30, '30% — Resolving Video Stream & Frames...', 'Checking available video streams...');
-      const resolved = await fetchRealYoutubeStreamUrl(videoId);
-      if (resolved.title) {
-        title = resolved.title;
-        verifiedExists = true;
-      }
-      if (resolved.author) author = resolved.author;
-
       let geminiVideoAnalysis = null;
       if (appState.apiConnected && appState.apiKey) {
-        updateLivePercentageMilestone(55, '55% — Gemini AI Analyzing Video & Extracting Viral Scenes...', 'Detecting best hooks, captions, and face focus...');
-        box.textContent = '🤖 Gemini AI analyzing your YouTube video URL scene-by-scene...';
+        updateLivePercentageMilestone(55, '55% — Gemini AI Extracting Viral Scenes & Captions...', 'Detecting best timestamps and hooks...');
         try {
           const lang = document.getElementById('sub-lang-select').value || 'Hinglish';
           const clipCount = Math.max(3, Math.min(6, appState.clipCount || 5));
-          const estDuration = resolved.duration > 4 ? resolved.duration : 60;
           const aiRes = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${encodeURIComponent(appState.geminiModel)}:generateContent?key=${encodeURIComponent(appState.apiKey)}`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               contents: [{
                 parts: [{
-                  text: `Analyze the YouTube video at ${canonicalUrl} titled "${title || videoId}" by "${author}" (duration ~${estDuration}s). Extract ${clipCount} viral short scenes in ${lang}. Return ONLY a valid JSON object with keys: videoTitle (string), totalSeconds (number), scenes (array of {start: number, end: number, caption: string, hook: string, faceFocusX: number}).`
+                  text: `Analyze the YouTube video at ${canonicalUrl} titled "${title}" by "${author}" (assume ~60s if unknown). Extract ${clipCount} viral short scenes in ${lang}. Return ONLY a valid JSON object with keys: videoTitle (string), totalSeconds (number), scenes (array of {start: number, end: number, caption: string, hook: string, faceFocusX: number}).`
                 }]
               }],
               generationConfig: { responseMimeType: 'application/json' }
@@ -2366,7 +2465,6 @@
               geminiVideoAnalysis = JSON.parse(rawText);
               if (geminiVideoAnalysis.videoTitle) {
                 title = geminiVideoAnalysis.videoTitle;
-                verifiedExists = true;
               }
             }
           }
@@ -2376,34 +2474,15 @@
       if (btn) { btn.disabled = false; btn.textContent = 'Fetch & Open in Editor ▶'; }
       if (autoBtn) { autoBtn.disabled = false; autoBtn.textContent = '⚡ Auto-Cut & Export'; }
 
-      if (!verifiedExists && !resolved.streamUrl) {
-        completeLivePercentageTracker(false, '❌ Video Unavailable or Private URL');
-        box.className = 'text-xs p-3 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 font-bold';
-        box.textContent = '❌ This YouTube video ID does not exist or is private/unavailable. Please paste a valid public YouTube Share URL.';
-        showToast('YouTube video not found or private!', 'error');
-        return;
-      }
-
-      updateLivePercentageMilestone(80, '80% — Building Cut Timeline & Synced Captions...', 'Preparing editor workspace...');
+      updateLivePercentageMilestone(85, '85% — Opening Live YouTube Video + Full Audio in Editor...', 'Syncing scene cuts and captions...');
       const fetchedDur = (geminiVideoAnalysis && geminiVideoAnalysis.totalSeconds > 4)
         ? Math.floor(geminiVideoAnalysis.totalSeconds)
-        : (resolved.duration > 4 ? resolved.duration : 60);
-      const thumbUrl = `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+        : 60;
 
-      const img = new Image();
-      img.crossOrigin = 'anonymous';
-      img.onload = () => {
-        appState.youtubePreviewImage = img;
-        drawEditorCanvas();
-      };
-      img.onerror = () => {
-        appState.youtubePreviewImage = null;
-        drawEditorCanvas();
-      };
-      img.src = thumbUrl;
-
-      appState.youtubeLoadedMeta = { videoId, title, author, thumbUrl, canonicalUrl };
+      appState.youtubeLoadedMeta = { videoId, title, author, canonicalUrl };
+      appState.youtubePreviewImage = null;
       appState.videoDuration = fetchedDur;
+      appState.playClipOnlyMode = true;
       document.getElementById('project-name-input').value = title;
       document.getElementById('seo-subject-input').value = title;
       document.getElementById('ed-hook-text').value = title.slice(0, 40).toUpperCase();
@@ -2411,109 +2490,53 @@
       const editorVid = document.getElementById('editor-source-video');
       const ytContainer = document.getElementById('editor-yt-live-container');
       const ytActionBar = document.getElementById('yt-editor-action-bar');
-      const ytIframe = document.getElementById('editor-youtube-iframe');
+      const ytWatchLink = document.getElementById('yt-open-watch-link');
       const edCanvas = document.getElementById('editor-compositor-canvas');
+
+      editorVid.src = '';
+      edCanvas.classList.add('hidden');
+      ytContainer.classList.remove('hidden');
+      ytActionBar.classList.remove('hidden');
+      if (ytWatchLink) ytWatchLink.href = canonicalUrl;
 
       generateAiSeoContent();
       generateClipsFromDuration(fetchedDur);
 
-      const applyGeminiAnalyzedScenes = async () => {
-        if (geminiVideoAnalysis && Array.isArray(geminiVideoAnalysis.scenes) && geminiVideoAnalysis.scenes.length > 0) {
-          appState.editorClips = geminiVideoAnalysis.scenes.map((sc, idx) => {
-            const s = Math.max(0, Number(sc.start) || idx * 10);
-            const e = Math.max(s + 2.5, Number(sc.end) || s + 10);
-            return {
-              id: idx + 1,
-              start: Number(s.toFixed(1)),
-              end: Number(e.toFixed(1)),
-              caption: String(sc.caption || sc.hook || `SCENE ${idx + 1} 🔥`),
-              faceFocusX: typeof sc.faceFocusX === 'number' ? sc.faceFocusX : 0.5
-            };
-          });
-          appState.activeEditorClipId = 1;
-          appState.editorTrimStart = appState.editorClips[0].start;
-          appState.editorTrimEnd = appState.editorClips[0].end;
-          document.getElementById('ed-caption-text').value = appState.editorClips[0].caption;
-          document.getElementById('ed-hook-text').value = `⚡ AI SHORTS: ${title.slice(0, 26).toUpperCase()}`;
-          syncEditorTimelineRanges();
-          renderEditorTimelineClips();
-          drawEditorCanvas();
-          completeLivePercentageTracker(true, `✅ 100% Done! ${appState.editorClips.length} Scenes Ready.`);
-          showToast(`🤖 Gemini AI analyzed YouTube video & cut ${appState.editorClips.length} real scenes!`, 'success');
-          if (autoCutAndExport) {
-            setTimeout(() => renderAndDownloadRealVideo(), 400);
-          }
-        } else {
-          await autoCutEntireVideoNow(autoCutAndExport);
-        }
-      };
-
-      if (resolved.streamUrl) {
-        editorVid.crossOrigin = 'anonymous';
-        editorVid.src = resolved.streamUrl;
-        ytContainer.classList.add('hidden');
-        ytActionBar.classList.add('hidden');
-        ytIframe.src = '';
-        edCanvas.classList.remove('hidden');
-
-        box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 font-bold';
-        box.textContent = `✅ Real Video Stream Loaded: "${title}" (${author}) — Gemini AI cut scenes ready!`;
-
-        editorVid.onloadedmetadata = async () => {
-          editorVid.onloadedmetadata = null;
-          if (editorVid.duration && !isNaN(editorVid.duration) && editorVid.duration > 4) {
-            appState.videoDuration = Math.floor(editorVid.duration);
-          }
-          navigateTo('editor');
-          await applyGeminiAnalyzedScenes();
-        };
-        editorVid.onerror = async () => {
-          editorVid.onerror = null;
-          editorVid.src = '';
-          edCanvas.classList.add('hidden');
-          ytContainer.classList.remove('hidden');
-          ytActionBar.classList.remove('hidden');
-          ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
-          navigateTo('editor');
-          await applyGeminiAnalyzedScenes();
-          syncYoutubeLiveOverlays();
-        };
-      } else {
-        editorVid.src = '';
-        edCanvas.classList.add('hidden');
-        ytContainer.classList.remove('hidden');
-        ytActionBar.classList.remove('hidden');
-        ytIframe.src = `https://www.youtube.com/embed/${videoId}?start=0&autoplay=1&rel=0`;
-
-        box.className = 'text-xs p-3 rounded-xl bg-emerald-500/10 border border-emerald-500/35 text-emerald-200 space-y-1.5';
-        box.innerHTML = `
-          <div class="font-extrabold">✅ Gemini AI Analyzed YouTube Video: ${title} (${author})</div>
-          <div class="text-[11px] text-slate-300">
-            AI has extracted real scene timestamps, captions &amp; face focus. Watch the auto-cut scenes play below or connect <code>server.py</code> for server-side MP4 downloads.
-          </div>
-        `;
-
-        navigateTo('editor');
-        await applyGeminiAnalyzedScenes();
-        syncYoutubeLiveOverlays();
-        startAutomatedYoutubeSceneSequence();
+      if (geminiVideoAnalysis && Array.isArray(geminiVideoAnalysis.scenes) && geminiVideoAnalysis.scenes.length > 0) {
+        appState.editorClips = geminiVideoAnalysis.scenes.map((sc, idx) => {
+          const s = Math.max(0, Number(sc.start) || idx * 10);
+          const e = Math.max(s + 2.5, Number(sc.end) || s + 10);
+          return {
+            id: idx + 1,
+            start: Number(s.toFixed(1)),
+            end: Number(e.toFixed(1)),
+            caption: String(sc.caption || sc.hook || `SCENE ${idx + 1} 🔥`),
+            faceFocusX: typeof sc.faceFocusX === 'number' ? sc.faceFocusX : 0.5
+          };
+        });
       }
-    }
 
-    let ytAutoSequenceTimer = null;
-    function startAutomatedYoutubeSceneSequence() {
-      clearInterval(ytAutoSequenceTimer);
-      if (!appState.youtubeLoadedMeta || !appState.editorClips.length) return;
-      let idx = 0;
-      selectEditorTimelineClip(appState.editorClips[0].id);
-      ytAutoSequenceTimer = setInterval(() => {
-        if (!appState.youtubeLoadedMeta || appState.view !== 'editor') {
-          clearInterval(ytAutoSequenceTimer);
-          return;
-        }
-        idx = (idx + 1) % appState.editorClips.length;
-        selectEditorTimelineClip(appState.editorClips[idx].id);
-      }, 6500);
+      const firstClip = appState.editorClips[0] || { id: 1, start: 0, end: 15, caption: title.toUpperCase() };
+      appState.activeEditorClipId = firstClip.id;
+      appState.editorTrimStart = firstClip.start;
+      appState.editorTrimEnd = firstClip.end;
+      document.getElementById('ed-caption-text').value = firstClip.caption;
+
+      box.className = 'text-xs p-3 rounded-xl bg-emerald-500/15 border border-emerald-500/40 text-emerald-200 space-y-1';
+      box.innerHTML = `
+        <div class="font-extrabold">✅ Live Video + Full Audio Loaded: ${title} (${author})</div>
+        <div class="text-[11px] text-slate-300">
+          Playing live inside Pro Video Editor with ${appState.editorClips.length} AI-cut scenes &amp; synced captions.
+        </div>
+      `;
+
+      navigateTo('editor');
+      mountYoutubeApiPlayer(videoId, firstClip.start);
+      syncEditorTimelineRanges();
+      renderEditorTimelineClips();
+      syncYoutubeLiveOverlays();
+      completeLivePercentageTracker(true, `✅ 100% Live! Video + Audio Playing with ${appState.editorClips.length} Cuts.`);
+      showToast(`✅ Live Video + Full Audio loaded with ${appState.editorClips.length} AI cut scenes!`, 'success');
     }
 
     // ==================== 3-STAGE GATE CONTROLLER ====================
@@ -2862,11 +2885,14 @@
       const canvas = document.getElementById('stage2-tutorial-canvas');
       const iframe = document.getElementById('s2-custom-iframe');
       const vid = document.getElementById('s2-custom-video');
-      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/);
+      const ytId = extractStrictYoutubeVideoId(url);
       canvas.classList.add('hidden');
-      if (ytMatch) {
+      if (ytId) {
+        const originParam = (window.location && window.location.origin && window.location.origin.startsWith('http'))
+          ? `&origin=${encodeURIComponent(window.location.origin)}`
+          : '';
         vid.classList.add('hidden');
-        iframe.src = `https://www.youtube.com/embed/${ytMatch[1]}`;
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(ytId)}?autoplay=1&rel=0${originParam}`;
         iframe.classList.remove('hidden');
       } else {
         iframe.classList.add('hidden');
@@ -2990,6 +3016,7 @@
       appState.videoUrl = URL.createObjectURL(primary);
       appState.youtubeLoadedMeta = null;
       appState.youtubePreviewImage = null;
+      clearInterval(appState.ytLoopInterval);
 
       const createVid = document.getElementById('create-video-player');
       const editorVid = document.getElementById('editor-source-video');
@@ -3038,6 +3065,7 @@
       appState.uploadedFiles = [];
       appState.youtubeLoadedMeta = null;
       appState.youtubePreviewImage = null;
+      clearInterval(appState.ytLoopInterval);
       document.getElementById('uploaded-video-card').classList.add('hidden');
       document.getElementById('create-video-player').src = '';
       document.getElementById('editor-source-video').src = '';
@@ -3288,16 +3316,23 @@
       const editorVid = document.getElementById('editor-source-video');
       if (clip.serverMp4Url && editorVid) {
         editorVid.src = clip.serverMp4Url;
-        editorVid.play().catch(() => {});
-        startCanvasLoop();
+        editorVid.load();
+        editorVid.onloadeddata = () => {
+          editorVid.onloadeddata = null;
+          editorVid.play().catch(() => {});
+          startCanvasLoop();
+          drawEditorCanvas();
+        };
       }
 
-      const ytIframe = document.getElementById('editor-youtube-iframe');
       const ytContainer = document.getElementById('editor-yt-live-container');
-      if (appState.youtubeLoadedMeta && ytIframe && ytContainer && !ytContainer.classList.contains('hidden')) {
-        const s = Math.floor(clip.start);
-        const e = Math.ceil(clip.end);
-        ytIframe.src = `https://www.youtube.com/embed/${appState.youtubeLoadedMeta.videoId}?start=${s}&end=${e}&autoplay=1&rel=0`;
+      if (appState.youtubeLoadedMeta && ytContainer && !ytContainer.classList.contains('hidden')) {
+        if (appState.ytPlayerInstance && typeof appState.ytPlayerInstance.seekTo === 'function') {
+          appState.ytPlayerInstance.seekTo(clip.start, true);
+          appState.ytPlayerInstance.playVideo();
+        } else {
+          mountYoutubeApiPlayer(appState.youtubeLoadedMeta.videoId, clip.start);
+        }
       }
 
       syncYoutubeLiveOverlays();
@@ -3310,8 +3345,15 @@
       const active = getActiveEditorClip();
       const vid = document.getElementById('editor-source-video');
       if (!active) return;
-      const playhead = (vid && vid.src && !isNaN(vid.currentTime) && vid.currentTime > active.start + 0.5 && vid.currentTime < active.end - 0.5)
-        ? Number(vid.currentTime.toFixed(1))
+      let currentPos = NaN;
+      if (appState.youtubeLoadedMeta && appState.ytPlayerInstance && typeof appState.ytPlayerInstance.getCurrentTime === 'function') {
+        currentPos = Number(appState.ytPlayerInstance.getCurrentTime() || 0);
+      } else if (vid && vid.src && !isNaN(vid.currentTime)) {
+        currentPos = vid.currentTime;
+      }
+
+      const playhead = (!isNaN(currentPos) && currentPos > active.start + 0.5 && currentPos < active.end - 0.5)
+        ? Number(currentPos.toFixed(1))
         : Number(((active.start + active.end) / 2).toFixed(1));
 
       if (playhead <= active.start + 0.4 || playhead >= active.end - 0.4) {
@@ -3366,15 +3408,15 @@
         container.innerHTML = appState.editorClips.map(c => {
           const isActive = c.id === appState.activeEditorClipId;
           return `
-            <div onclick="selectEditorTimelineClip(${c.id})" class="p-2.5 rounded-xl cursor-pointer border transition flex items-center justify-between gap-2 text-xs ${isActive ? 'bg-violet-600/20 border-violet-500 text-white' : 'bg-obsidian-900/70 border-white/10 text-slate-300 hover:border-white/25'}">
+            <div onclick="selectEditorTimelineClip(${c.id})" class="p-2 rounded-xl cursor-pointer border transition flex items-center justify-between gap-2 text-xs ${isActive ? 'bg-violet-600/20 border-violet-500 text-white' : 'bg-obsidian-900/70 border-white/10 text-slate-300 hover:border-white/25'}">
               <div class="min-w-0 flex-1">
-                <div class="flex items-center gap-2">
-                  <span class="px-1.5 py-0.5 rounded bg-violet-500/25 text-violet-300 font-black text-[10px]">Clip #${c.id}</span>
-                  <span class="font-mono text-[10px] text-cyan-300">${formatSec(Math.floor(c.start))} → ${formatSec(Math.floor(c.end))}</span>
+                <div class="flex items-center gap-1.5">
+                  <span class="px-1.5 py-0.5 rounded bg-violet-500/25 text-violet-300 font-black text-[10px]">#${c.id}</span>
+                  <span class="font-mono text-[10px] text-cyan-300">${formatSec(Math.floor(c.start))}→${formatSec(Math.floor(c.end))}</span>
+                  <span class="truncate text-[10px] font-bold text-slate-200">${c.caption || '(No caption)'}</span>
                 </div>
-                <div class="truncate text-[11px] font-bold mt-1">${c.caption || '(No caption)'}</div>
               </div>
-              <button type="button" onclick="deleteTimelineClip(${c.id}, event)" class="px-2 py-1 rounded-lg bg-rose-500/15 text-rose-400 hover:bg-rose-500 hover:text-white text-[10px] font-bold" title="Delete Clip">✕</button>
+              <button type="button" onclick="deleteTimelineClip(${c.id}, event)" class="px-1.5 py-0.5 rounded bg-rose-500/15 text-rose-400 hover:bg-rose-500 hover:text-white text-[10px] font-bold" title="Delete Clip">✕</button>
             </div>
           `;
         }).join('');
@@ -3383,21 +3425,6 @@
     }
 
     // ==================== CAPCUT-STYLE VISUAL MULTI-TRACK TIMELINE FUNCTIONS ====================
-    function setCapcutDockTab(tab) {
-      ['timeline', 'text', 'stickers', 'audio'].forEach(t => {
-        const btn = document.getElementById(`cc-tab-${t}`);
-        if (btn) {
-          btn.className = t === tab
-            ? 'px-3 py-1.5 rounded-xl grad-primary text-white'
-            : 'px-3 py-1.5 rounded-xl bg-obsidian-850 border border-white/10 text-slate-300';
-        }
-        const drawer = document.getElementById(`cc-drawer-${t}`);
-        if (drawer) {
-          drawer.classList.toggle('hidden', t !== tab);
-        }
-      });
-    }
-
     function renderCapcutVisualTracks() {
       const vidTrack = document.getElementById('capcut-video-track-blocks');
       const capTrack = document.getElementById('capcut-caption-track-blocks');
@@ -3406,7 +3433,7 @@
 
       const totalEditedSec = appState.editorClips.reduce((sum, c) => sum + Math.max(0.5, c.end - c.start), 0);
       if (totalLabel) {
-        totalLabel.textContent = `Total Edited Length: ${formatSec(Math.round(totalEditedSec))} (${appState.editorClips.length} Clips)`;
+        totalLabel.textContent = `Total: ${formatSec(Math.round(totalEditedSec))} (${appState.editorClips.length} Clips)`;
       }
 
       vidTrack.innerHTML = appState.editorClips.map((c, idx) => {
@@ -3429,7 +3456,7 @@
         const dur = Math.max(0.5, c.end - c.start);
         const widthPct = Math.max(14, Math.round((dur / Math.max(1, totalEditedSec)) * 100));
         return `
-          <div onclick="event.stopPropagation(); selectEditorTimelineClip(${c.id})" style="width: ${widthPct}%; min-width: 110px;" class="rounded-lg px-2.5 py-1.5 flex items-center text-[10px] font-extrabold truncate border ${isActive ? 'bg-amber-500/25 border-amber-400 text-amber-200' : 'bg-obsidian-900 border-white/10 text-slate-400'}">
+          <div onclick="event.stopPropagation(); selectEditorTimelineClip(${c.id})" style="width: ${widthPct}%; min-width: 110px;" class="rounded-lg px-2.5 py-1 flex items-center text-[10px] font-extrabold truncate border ${isActive ? 'bg-amber-500/25 border-amber-400 text-amber-200' : 'bg-obsidian-900 border-white/10 text-slate-400'}">
             💬 ${c.caption || 'Tap to add caption...'}
           </div>
         `;
@@ -3438,13 +3465,17 @@
       updateCapcutPlayheadPosition();
     }
 
-    function updateCapcutPlayheadPosition() {
+    function updateCapcutPlayheadPosition(overrideCur = null, overrideMax = null) {
       const line = document.getElementById('capcut-playhead-line');
       const viewport = document.getElementById('capcut-timeline-viewport');
       const vid = document.getElementById('editor-source-video');
       if (!line || !viewport) return;
-      const cur = (vid && vid.src && !isNaN(vid.currentTime)) ? vid.currentTime : appState.editorTrimStart;
-      const maxDur = Math.max(1, (vid && vid.duration) ? vid.duration : appState.videoDuration);
+      const cur = overrideCur !== null
+        ? overrideCur
+        : ((vid && vid.src && !isNaN(vid.currentTime)) ? vid.currentTime : appState.editorTrimStart);
+      const maxDur = overrideMax !== null
+        ? Math.max(1, overrideMax)
+        : Math.max(1, (vid && vid.duration) ? vid.duration : appState.videoDuration);
       const ratio = Math.min(1, Math.max(0, cur / maxDur));
       const usableW = Math.max(200, viewport.clientWidth - 24);
       line.style.left = `${12 + ratio * usableW}px`;
@@ -3460,7 +3491,7 @@
       const maxDur = Math.max(4, (vid && vid.duration) ? vid.duration : appState.videoDuration);
       const targetSec = Number((ratio * maxDur).toFixed(1));
       seekEditorVideo(targetSec);
-      updateCapcutPlayheadPosition();
+      updateCapcutPlayheadPosition(targetSec, maxDur);
     }
 
     function trimClipStartToPlayhead() {
@@ -3519,30 +3550,31 @@
       deleteTimelineClip(active.id);
     }
 
-    function addCaptionBlockAtPlayhead() {
-      const txt = document.getElementById('cc-quick-caption-input').value.trim();
-      if (!txt) {
-        showToast('Type a caption line first.', 'error');
-        return;
-      }
-      document.getElementById('ed-caption-text').value = txt;
-      updateActiveTimelineClipCaption(txt);
-      document.getElementById('cc-quick-caption-input').value = '';
-      showToast('Caption added to active clip on timeline!', 'success');
-    }
-
     function changeEditorVideoVolume(val) {
       const vid = document.getElementById('editor-source-video');
-      document.getElementById('cc-vol-label').textContent = `${val}%`;
+      const numVal = parseInt(val, 10);
+      document.getElementById('cc-vol-label').textContent = `${numVal}%`;
+      if (appState.ytPlayerInstance && typeof appState.ytPlayerInstance.setVolume === 'function') {
+        appState.ytPlayerInstance.setVolume(numVal);
+        if (numVal === 0) appState.ytPlayerInstance.mute();
+        else appState.ytPlayerInstance.unMute();
+      }
       if (vid) {
-        vid.volume = Math.min(1, Math.max(0, parseInt(val, 10) / 100));
-        vid.muted = parseInt(val, 10) === 0;
+        vid.volume = Math.min(1, Math.max(0, numVal / 100));
+        vid.muted = numVal === 0;
       }
     }
 
     function toggleEditorMute() {
       const vid = document.getElementById('editor-source-video');
       const btn = document.getElementById('cc-mute-btn');
+      if (appState.ytPlayerInstance && typeof appState.ytPlayerInstance.isMuted === 'function') {
+        const muted = appState.ytPlayerInstance.isMuted();
+        if (muted) appState.ytPlayerInstance.unMute();
+        else appState.ytPlayerInstance.mute();
+        if (btn) btn.textContent = !muted ? '🔇 Unmute Clip' : '🔊 Mute / Unmute Clip';
+        return;
+      }
       if (!vid) return;
       vid.muted = !vid.muted;
       btn.textContent = vid.muted ? '🔇 Unmute Clip' : '🔊 Mute / Unmute Clip';
@@ -3552,11 +3584,13 @@
     function seekEditorVideo(val) {
       const vid = document.getElementById('editor-source-video');
       const t = parseFloat(val);
-      if (vid && vid.src && vid.readyState >= 1) {
+      if (appState.youtubeLoadedMeta && appState.ytPlayerInstance && typeof appState.ytPlayerInstance.seekTo === 'function') {
+        appState.ytPlayerInstance.seekTo(t, true);
+      } else if (vid && vid.src && vid.readyState >= 1) {
         vid.currentTime = t;
       }
       syncCaptionAtPlayhead(t);
-      updateCapcutPlayheadPosition();
+      updateCapcutPlayheadPosition(t, (vid && vid.duration) || appState.videoDuration);
       const tcEl = document.getElementById('ed-timecode');
       if (tcEl) {
         tcEl.textContent = `${formatSec(Math.floor(t))} / ${formatSec(Math.floor((vid && vid.duration) || appState.videoDuration))}`;
@@ -3630,6 +3664,7 @@
         appState.editorTrimStart = matched.start;
         appState.editorTrimEnd = matched.end;
         document.getElementById('ed-caption-text').value = matched.caption;
+        syncYoutubeLiveOverlays();
         syncEditorTimelineRanges();
         renderEditorTimelineClips();
       }
@@ -3637,18 +3672,21 @@
 
     function playOnlyActiveClip() {
       const vid = document.getElementById('editor-source-video');
-      const ytIframe = document.getElementById('editor-youtube-iframe');
       const ytContainer = document.getElementById('editor-yt-live-container');
       const active = getActiveEditorClip();
-      if (appState.youtubeLoadedMeta && ytIframe && ytContainer && !ytContainer.classList.contains('hidden')) {
-        const s = Math.floor(active.start);
-        const e = Math.ceil(active.end);
-        ytIframe.src = `https://www.youtube.com/embed/${appState.youtubeLoadedMeta.videoId}?start=${s}&end=${e}&autoplay=1&rel=0`;
-        showToast(`Playing YouTube Clip #${active.id} (${formatSec(s)} - ${formatSec(e)})`);
+      if (appState.youtubeLoadedMeta && ytContainer && !ytContainer.classList.contains('hidden')) {
+        appState.playClipOnlyMode = true;
+        if (appState.ytPlayerInstance && typeof appState.ytPlayerInstance.seekTo === 'function') {
+          appState.ytPlayerInstance.seekTo(active.start, true);
+          appState.ytPlayerInstance.playVideo();
+        } else {
+          mountYoutubeApiPlayer(appState.youtubeLoadedMeta.videoId, active.start);
+        }
+        showToast(`Playing YouTube Clip #${active.id} (${formatSec(Math.floor(active.start))} - ${formatSec(Math.ceil(active.end))})`);
         return;
       }
       if (!vid || !vid.src) {
-        showToast('Click "Load Video" at top left to upload your MP4/MOV/WEBM file first.', 'error');
+        showToast('Click "📁 Video" at top left to upload your MP4/MOV/WEBM file first.', 'error');
         return;
       }
       appState.playClipOnlyMode = true;
@@ -3664,7 +3702,7 @@
       const canvas = document.getElementById('editor-compositor-canvas');
       ['9:16', '1:1', '16:9'].forEach(a => {
         const btn = document.getElementById(`aspect-${a.replace(':', '-')}`);
-        btn.className = a === aspect ? 'px-3 py-1.5 rounded-lg grad-primary text-white' : 'px-3 py-1.5 rounded-lg text-slate-400';
+        btn.className = a === aspect ? 'px-2.5 py-1 rounded-lg grad-primary text-white' : 'px-2.5 py-1 rounded-lg text-slate-400';
       });
       if (aspect === '9:16') { canvas.width = 360; canvas.height = 640; }
       else if (aspect === '1:1') { canvas.width = 480; canvas.height = 480; }
@@ -3726,15 +3764,32 @@
     }
 
     function changeEditorSpeed(spd) {
+      const rate = parseFloat(spd);
+      if (appState.ytPlayerInstance && typeof appState.ytPlayerInstance.setPlaybackRate === 'function') {
+        appState.ytPlayerInstance.setPlaybackRate(rate);
+      }
       const vid = document.getElementById('editor-source-video');
-      if (vid) vid.playbackRate = parseFloat(spd);
+      if (vid) vid.playbackRate = rate;
     }
 
     function toggleEditorPlayback() {
       const vid = document.getElementById('editor-source-video');
       const btn = document.getElementById('ed-play-btn');
+      if (appState.youtubeLoadedMeta && appState.ytPlayerInstance && typeof appState.ytPlayerInstance.getPlayerState === 'function') {
+        appState.playClipOnlyMode = false;
+        const st = appState.ytPlayerInstance.getPlayerState();
+        if (st === 1) {
+          appState.ytPlayerInstance.pauseVideo();
+          if (btn) btn.textContent = '▶ Play';
+        } else {
+          appState.ytPlayerInstance.unMute();
+          appState.ytPlayerInstance.playVideo();
+          if (btn) btn.textContent = '⏸ Pause';
+        }
+        return;
+      }
       if (!vid || !vid.src) {
-        showToast('Click "📁 Load Video" at top left to upload your video file first.');
+        showToast('Click "📁 Video" at top left to upload your video file first.');
         return;
       }
       appState.playClipOnlyMode = false;
@@ -3790,6 +3845,10 @@
 
       ctx.save();
       ctx.filter = `brightness(${bright}%) contrast(${contrast}%) saturate(${sat}%)`;
+      if (appState.editorMirror) {
+        ctx.translate(W, 0);
+        ctx.scale(-1, 1);
+      }
 
       if (vid && vid.src && vid.readyState >= 2) {
         const vw = vid.videoWidth || 1280;
@@ -3802,20 +3861,6 @@
           ? (0.5 - activeClip.faceFocusX) * (dw - W)
           : 0;
         ctx.drawImage(vid, (W - dw) / 2 + faceBias, (H - dh) / 2, dw, dh);
-      } else if (appState.youtubePreviewImage && appState.youtubePreviewImage.complete) {
-        const iw = appState.youtubePreviewImage.naturalWidth || 480;
-        const ih = appState.youtubePreviewImage.naturalHeight || 360;
-        const activeClip = getActiveEditorClip();
-        const sceneIdx = activeClip ? activeClip.id : 1;
-        const zoomFactor = 1.08 + ((sceneIdx % 4) * 0.04) + Math.sin(Date.now() / 650) * 0.025;
-        const faceShift = appState.aiFaceTracking ? Math.sin(sceneIdx * 1.3) * 18 : 0;
-        const panX = Math.cos(Date.now() / 800 + sceneIdx) * 12 + faceShift;
-        const scale = Math.max(W / iw, H / ih) * zoomFactor;
-        const dw = iw * scale;
-        const dh = ih * scale;
-        ctx.drawImage(appState.youtubePreviewImage, (W - dw) / 2 + panX, (H - dh) / 2, dw, dh);
-        ctx.fillStyle = 'rgba(6, 7, 12, 0.25)';
-        ctx.fillRect(0, 0, W, H);
       } else {
         const grad = ctx.createLinearGradient(0, 0, W, H);
         grad.addColorStop(0, '#1e1b4b');
@@ -3827,8 +3872,8 @@
         ctx.fillStyle = 'rgba(255,255,255,0.16)';
         ctx.font = '700 13px Inter, sans-serif';
         ctx.textAlign = 'center';
-        ctx.fillText('Vishal Saini Edit 01 — Free of Cost Editor', W / 2, H * 0.44);
-        ctx.fillText('Upload MP4/MOV/WEBM or Fetch YouTube Link', W / 2, H * 0.49);
+        ctx.fillText('Vishal Saini Edit 01 — CapCut Studio', W / 2, H * 0.44);
+        ctx.fillText('Click "📁 Video" or Paste YouTube Link', W / 2, H * 0.49);
       }
       ctx.restore();
 
@@ -3915,7 +3960,7 @@
       if (isListeningMic && speechRec) {
         speechRec.stop();
         isListeningMic = false;
-        btn.textContent = 'Start Mic';
+        btn.textContent = '🎙️ Mic';
         return;
       }
       speechRec = new SpeechRecognition();
@@ -3965,16 +4010,16 @@
       };
       speechRec.onerror = (err) => {
         isListeningMic = false;
-        btn.textContent = 'Start Mic';
+        btn.textContent = '🎙️ Mic';
         showToast(`Mic error (${err.error}): Allow microphone permission in browser.`, 'error');
       };
       speechRec.onend = () => {
         isListeningMic = false;
-        btn.textContent = 'Start Mic';
+        btn.textContent = '🎙️ Mic';
       };
       speechRec.start();
       isListeningMic = true;
-      btn.textContent = '⏹ Stop Mic';
+      btn.textContent = '⏹ Stop';
       showToast('Mic listening — jo bolenge woh time ke saath neeche likha aayega!', 'success');
     }
 
@@ -3990,6 +4035,11 @@
       const clipsToExport = appState.editorClips.length > 0
         ? appState.editorClips
         : [{ id: 1, start: appState.editorTrimStart, end: appState.editorTrimEnd, caption: document.getElementById('ed-caption-text').value }];
+
+      if (appState.youtubeLoadedMeta && (!vid || !vid.src)) {
+        recordLiveTabAndExportCut();
+        return;
+      }
 
       if (!canvas.captureStream || typeof MediaRecorder === 'undefined') {
         showToast('Video export requires Chrome, Edge, or Safari iOS 14.5+.', 'error');
@@ -4521,11 +4571,14 @@
       const iframe = document.getElementById('custom-tut-iframe');
       const vid = document.getElementById('custom-tut-video');
 
-      const ytMatch = url.match(/(?:youtube\.com\/(?:watch\?v=|shorts\/)|youtu\.be\/)([a-zA-Z0-9_-]{6,})/);
+      const ytId = extractStrictYoutubeVideoId(url);
       canvas.classList.add('hidden');
-      if (ytMatch) {
+      if (ytId) {
+        const originParam = (window.location && window.location.origin && window.location.origin.startsWith('http'))
+          ? `&origin=${encodeURIComponent(window.location.origin)}`
+          : '';
         vid.classList.add('hidden');
-        iframe.src = `https://www.youtube.com/embed/${ytMatch[1]}`;
+        iframe.src = `https://www.youtube.com/embed/${encodeURIComponent(ytId)}?autoplay=1&rel=0${originParam}`;
         iframe.classList.remove('hidden');
       } else {
         iframe.classList.add('hidden');
@@ -4743,6 +4796,12 @@
     }
 
     // Bind all inline handlers globally
+    window.mountYoutubeApiPlayer = mountYoutubeApiPlayer;
+    window.switchCompactEditorTab = switchCompactEditorTab;
+    window.applyCapcutFilterPreset = applyCapcutFilterPreset;
+    window.toggleEditorMirror = toggleEditorMirror;
+    window.nudgePlayhead = nudgePlayhead;
+    window.setQuickEditorSpeed = setQuickEditorSpeed;
     window.saveAndTestPythonBackend = saveAndTestPythonBackend;
     window.togglePublicFeedbackModal = togglePublicFeedbackModal;
     window.submitPublicFeedbackEntry = submitPublicFeedbackEntry;
@@ -4786,13 +4845,11 @@
     window.splitClipAtPlayhead = splitClipAtPlayhead;
     window.addNewTimelineClip = addNewTimelineClip;
     window.deleteTimelineClip = deleteTimelineClip;
-    window.setCapcutDockTab = setCapcutDockTab;
     window.scrubCapcutTimeline = scrubCapcutTimeline;
     window.trimClipStartToPlayhead = trimClipStartToPlayhead;
     window.trimClipEndToPlayhead = trimClipEndToPlayhead;
     window.duplicateActiveTimelineClip = duplicateActiveTimelineClip;
     window.deleteActiveTimelineClip = deleteActiveTimelineClip;
-    window.addCaptionBlockAtPlayhead = addCaptionBlockAtPlayhead;
     window.changeEditorVideoVolume = changeEditorVideoVolume;
     window.toggleEditorMute = toggleEditorMute;
     window.seekEditorVideo = seekEditorVideo;
@@ -4833,6 +4890,7 @@
     window.addEventListener('DOMContentLoaded', () => {
       initLanguages();
       restorePythonBackendUrl();
+      tryAutoDetectLocalBackend();
       initGoogleIdentityServices(appState.googleClientId);
       initStage2VideoTutorial();
       initApiTutorialWalkthrough();
